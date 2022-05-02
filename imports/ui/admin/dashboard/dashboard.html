@@ -1,0 +1,47 @@
+<template name="admin_dashboard">
+    <div class="content-header">
+        <h1>
+            {{_ "admin.dashboard"}}
+        </h1>
+    </div>
+    <div class="content">
+        <div class="dashboard-box col-lg-3 col-xs-6">
+            <div class="small-box">
+                <div class="inner">
+                    <h3>{{getServerInventory "cardsets"}}</h3>
+                    <p>{{_ "serverStatistics.modal.table.header.cardsets"}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-box col-lg-3 col-xs-6">
+            <div class="small-box">
+                <div class="inner">
+                    <h3>{{getServerInventory "repetitorium"}}</h3>
+                    <p>{{_ "serverStatistics.modal.table.header.repetitorium"}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-box col-lg-3 col-xs-6">
+            <div class="small-box">
+                <div class="inner">
+                    <h3>{{getServerInventory "cards"}}</h3>
+                    <p>{{_ "serverStatistics.modal.table.header.cards"}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-box col-lg-3 col-xs-6">
+            <div class="small-box">
+                <div class="inner">
+                    <h3>
+                        {{getServerInventory "userCounter"}}
+                        <span>{{getServerInventory "userOnline"}} Online</span>
+                    </h3>
+                    <p>{{_ "serverStatistics.modal.table.header.user"}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

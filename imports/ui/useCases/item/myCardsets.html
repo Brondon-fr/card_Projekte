@@ -1,0 +1,25 @@
+<template name="useCasesItemMyCardsets">
+    {{#if (gotNavigationFeature "useCases.personal.cardset" false)}}
+        {{#if (gotNavigationFeature "personal.cardset.enabled" false)}}
+            {{#if gotCardIndex}}
+                <tr>
+                    <td>
+                        {{_ "useCases.modal.description.personal.cardsets"}}
+                        <div class="visible-xs">
+                            {{> useCasesItemMyCardsetsButton}}
+                        </div>
+                    </td>
+                    <td class="hidden-xs">
+                        {{> useCasesItemMyCardsetsButton}}
+                    </td>
+                </tr>
+            {{/if}}
+        {{/if}}
+    {{/if}}
+</template>
+
+<template name="useCasesItemMyCardsetsButton">
+    <button class="btn btn-raised btn-default useCaseGoToCardIndex" type="button" data-dismiss="modal"
+            >{{{getUseCasesIcon "myCardsets"}}}{{_
+            "useCases.modal.button.personal.cardsets"}}</button>
+</template>

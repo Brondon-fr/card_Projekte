@@ -1,0 +1,18 @@
+<template name="markdeepContent">
+    <div id="markdeepEditorContent">
+        {{#if isEditMode}}
+            <form>
+        <textarea id="contentEditor" class="card" name="content" placeholder="{{getPlaceholder}}"
+                  data-provide="markdown" rows="10"
+                  tabindex="5" {{canUseTextarea}}>{{getContent}}</textarea>
+            </form>
+        {{else}}
+            <textarea class="form-control" data-provide="markdown" rows="10"
+                      placeholder="{{#if isRepetitorium}}{{_ "courseIteration.modal.placeholder.description"}}{{else}}{{_ "modal-dialog.descriptionplaceholder" lastAppTitle=(getLastAppTitle)}}{{/if}}"
+                      id="contentEditor"
+                      value="{{#if
+                              isNew}}{{getShuffleDescription}}{{else}}{{description}}{{/if}}"></textarea>
+            <span id="helpSetDescription" class="text-warning"></span>
+        {{/if}}
+    </div>
+</template>

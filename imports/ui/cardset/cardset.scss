@@ -1,0 +1,658 @@
+//@extend-elements
+//original selectors
+//.carousel-control.left, .carousel-control.right
+
+$padding-card-list-row: 8px;
+
+%extend_1 {
+  background-image: none;
+  margin-top: 90px;
+  margin-bottom: 0;
+}
+
+.block {
+  height: 100%;
+  &:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+  }
+  pre {
+    text-align: left;
+  }
+}
+
+.meteorBox {
+  line-height: 32px;
+  margin: 12px 0;
+  display: inline-table;
+  width: 100%;
+}
+
+#editSetDescription {
+  resize: none;
+}
+
+.nav-header-cardset {
+  display: block;
+  padding-left: 0;
+  margin-bottom: 3px;
+  font-size: 11px;
+  font-weight: normal;
+  line-height: 20px;
+  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  text-shadow: 0 1px 0 gray;
+  text-transform: uppercase;
+}
+
+.ratingStars {
+  margin-left: -33px;
+  padding-left: 50%;
+}
+
+.ratingText {
+  display: inline-block;
+  font-size: 11px;
+  text-align: center;
+  width: 100%;
+}
+
+.button-group-content {
+  margin-bottom: 20px;
+}
+
+.btn-file {
+  margin-top: 0;
+  position: relative;
+  overflow: hidden;
+  input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    cursor: inherit;
+    display: block;
+  }
+}
+
+#uploadError {
+  text-align: center;
+}
+
+#pictureModal .modal-header {
+  min-height: 50px;
+}
+
+#setdetails-pictureModal-body img {
+  max-width: 100%;
+  width: auto;
+  margin: auto;
+  display: block;
+}
+
+#ratingLocked .stars {
+  cursor: auto;
+}
+
+#importModal hr {
+  margin: 20px 0;
+}
+
+#selectLicenseModal {
+  label {
+    text-align: left;
+  }
+
+  #cc-modules  {
+    width: 100%;
+    img {
+      width: 30px;
+    }
+    label {
+      text-align: center;
+    }
+  }
+}
+
+#reportModal {
+  p {
+    padding-top: 7px;
+    margin: 0;
+  }
+  .input-group {
+    padding-left: 15px;
+  }
+}
+
+#module {
+  margin-left: 0.1em;
+  margin-right: 0.1em;
+}
+
+.dropdown-menu {
+  margin-left: 0;
+}
+
+.btn-learn {
+  font-size: 1.75em;
+}
+
+@media (max-width: 420px) {
+  .btn-learn {
+    font-size: 1.0em;
+  }
+}
+
+.bs-callout {
+  padding: 10px;
+  margin-top: -20px;
+  border: 1px solid;
+  border-left-width: 5px;
+  border-radius: 3px;
+  font-size: 1.1em;
+
+  .h4 {
+    font-size: 1.3em;
+  }
+}
+
+.leitner-header {
+  font-size: 1.5em;
+}
+
+.leitner-text {
+  font-size: 1.1em;
+}
+
+.dropup .btn-group {
+  box-shadow: none;
+}
+
+@media (min-width: 768px) {
+
+  .cardSetCancel {
+    margin-left: 25px !important;
+  }
+}
+
+.form-control.interval {
+  display: inline;
+  width: 55px !important;
+}
+
+@media (max-width: 767px) {
+  .form-control.interval {
+    width: 50px !important;
+  }
+  .deleteCardsButton {
+    float: unset !important;
+  }
+}
+
+.panel-footer {
+  padding: 0 10px;
+  .btn-group {
+    margin-right: 5px;
+    padding: 0;
+  }
+  .btn {
+    padding: 8px 15px;
+  }
+
+  .panel-body {
+    margin-top: 15px;
+  }
+
+  ul li {
+    cursor: pointer;
+    padding: 10px;
+    width: 250px;
+    border-top: 2px solid;
+  }
+
+  ul li:last-child {
+    border-top: none;
+  }
+
+  .dropdown-menu {
+    transform: scaleY(-1);
+    li {
+      transform: scaleY(-1);
+    }
+  }
+}
+
+.collapseCardsetInfoContainer {
+  .btn-group {
+    margin-right: 5px;
+    padding: 0;
+  }
+  .btn {
+    padding: 8px 15px;
+  }
+
+  .panel-body {
+    margin-top: 15px;
+  }
+
+  ul li {
+    cursor: pointer;
+    padding: 10px;
+    width: 250px;
+    border-top: 2px solid;
+  }
+  ul li:first-child {
+    border-top: none;
+  }
+  ul li:last-child {
+    border-top: none;
+    border-top: 2px solid;
+  }
+  .dropdown-menu {
+    transform: scaleY(1);
+    li {
+      transform: scaleY(1);
+    }
+  }
+  display: block;
+  min-height: 58px;
+  a:hover {
+    text-decoration: underline !important;
+  }
+  @media(max-width: 767px) {
+    min-height: 35px;
+  }
+}
+
+#cardsetInfoDetail {
+  margin-bottom: 20px;
+  @media(max-width: 767px) {
+    margin-bottom: 0 !important;
+  }
+}
+
+.panel-body {
+  padding: 0;
+
+  h4 {
+    line-height: 24px;
+  }
+
+  .well {
+    padding: 10px !important;
+  }
+
+  .infoBox {
+    padding: 10px;
+    padding-bottom: 0;
+    @media(max-width: 767px) {
+      padding-top: 0 !important;
+    }
+  }
+}
+
+#cardsetPreview button {
+  width: 100%;
+}
+
+#cc-description {
+  img {
+    width: 30px;
+  }
+}
+
+.table {
+  td {
+    vertical-align: top !important;
+  }
+}
+
+.collapseButton {
+  padding-top: $padding_collapse_button;
+  padding-bottom: $padding_collapse_button;
+  font-size: $font_size_collapse_button;
+  @media(max-width: 767px) {
+    padding-top: $padding_collapse_button_mobile;
+    padding-bottom: $padding_collapse_button_mobile;
+    font-size: $font_size_collapse_button_mobile;
+  }
+  text-decoration: none;
+}
+
+.collapseButton:link, .collapseButton:visited, .collapseButton:hover, .collapseButton:active {
+  text-decoration: none;
+}
+
+.collapseCardsetItem {
+  float: none;
+}
+
+.infoBoxTable tr {
+  td:first-child {
+    padding-left: 15px !important;
+  }
+  td:last-child {
+    padding-right: 15px !important;
+  }
+}
+
+.infoBoxTable td {
+  @media(max-width: 767px) {
+    font-size: $font_size_collapse_button_content_mobile !important;
+  }
+  a {
+    display: block;
+    width: 100%;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.fa-caret-square-down, .fa-caret-square-up {
+  font-size: 18px;
+}
+
+#collapseCardsetInfoButton, #collapseLearningPhaseInfoButton, #collapseBonusTranscriptInfoButton {
+  float: none;
+  z-index: 50;
+  cursor: pointer;
+}
+
+#wordcloudModal {
+  #collapseCardsetInfoButton, #collapseLearningPhaseInfoButton, #collapseBonusTranscriptInfoButton {
+    cursor: default;
+  }
+}
+
+
+#collapseLearningPhaseInfo {
+  a {
+    display: inline;
+  }
+}
+
+#collapseManageButton {
+  float: none;
+  -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 -4px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 -4px 17px 0 rgba(0, 0, 0, 0.2), 0 -4px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+#collapseManageButton.collapsed {
+  -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 -4px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#sidebar {
+  margin-bottom: 15px;
+}
+
+th .field-tip {
+  bottom: auto;
+}
+
+.cardListName {
+  margin-top: $margin_top_cardset_category;
+}
+
+.cardListName:first-child {
+  margin-top: 0;
+}
+
+.cardListSubject table {
+  margin-bottom: 0;
+  table-layout: fixed;
+}
+
+.cardListSubject thead tr th {
+  padding-left: 15px;
+}
+
+.listCard {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: $padding-card-list-row * 6;
+}
+
+.cardListRow td {
+  padding: $padding-card-list-row;
+  cursor: pointer;
+}
+
+.cardListNumber {
+  position: absolute;
+  float: left;
+  width: 30px;
+  padding: $padding-card-list-row $padding-card-list-row * 4 $padding-card-list-row $padding-card-list-row;
+  margin-top: -$padding-card-list-row;
+  margin-left: -$padding-card-list-row;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.cardListSubject tbody th tr tr:hover {
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.cardListName, .cardListOwner {
+  padding: 5px 0 5px 10px;
+  font-size: $font_size_card_list_cardset_name !important;
+  font-weight: normal;
+}
+
+.cardListOwner {
+  padding-right: 10px;
+  float: right;
+  font-size: $font_size_card_list_cardset_owner !important;
+  font-weight: normal !important;
+}
+
+#declineRequestReason {
+  background-image: none;
+}
+
+.stars-rating {
+  display: inline-block !important;
+}
+
+.cardsetInfo {
+  h3 {
+    margin-top: 0;
+  }
+  .well {
+    margin-bottom: 0;
+  }
+  .left {
+    float: left;
+  }
+  #ratingLocked {
+    margin-top: 2px;
+    margin-right: 0;
+  }
+  .panel-body {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  .panel-footer {
+    margin-top: 0;
+  }
+}
+
+#showHintLearning, #showHintManage, #showIntervalHelp, #showPreviewHelp, .fa-trophy {
+  font-size: 18px;
+  z-index: 500;
+}
+
+.fa-trophy {
+  font-size: 18px;
+}
+
+.fa-square {
+  transform: scale(1.35, 1) !important;
+}
+
+.import-type:last-child {
+  border-right: 0 !important;
+}
+
+.cardset-list-badge {
+  float: right;
+}
+
+.markdeepCardset {
+  padding-bottom: 15px;
+}
+
+.markdeepCardsetTitle {
+  padding: 5pt 0 5pt 25pt !important;
+  font-size: $font_size_cardset_content !important;
+  @media(max-width: 767px) {
+    padding: 5pt !important;
+  }
+}
+
+.markdeepCardsetContent {
+  padding: $padding_cardset_content_vertical $padding_cardset_content_horizontal !important;
+  font-size: $font_size_cardset_content !important;
+  @media(max-width: 767px) {
+    padding: $padding_cardset_content_vertical_mobile $padding_cardset_content_horizontal_mobile !important;
+  }
+  overflow-y: auto;
+  background-image: url(/img/pomodoro.png);
+  @media(orientation: portrait) {
+    background-size: 50% auto;
+  }
+  @media(orientation: landscape) {
+    background-size: auto 50%;
+  }
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.markdeepCardset:first-child, .markdeepCardsetContent:first-child {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.markdeepCardset:last-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.markdeepCardsetHeader {
+  margin-top: 0;
+}
+
+#cardsetTitle {
+  margin-top: 0;
+  padding-top: 10px;
+  margin-bottom: 0;
+  font-size: $font_size_cardset_title;
+  @media(max-width: 767px) {
+    display: inline-block;
+    padding-top: 0;
+    font-size: $font_size_cardset_title_mobile;
+  }
+}
+
+.markdeepCardsetTitle {
+  @media(max-width: 767px) {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .cardsetLabels {
+    @media(max-width: 767px) {
+      display: inline-block;
+      font-size: $font_size_cardset_label_mobile;
+    }
+  }
+}
+
+@media(max-width: 767px) {
+  .dropdown-menu.workload {
+    position: absolute;
+  }
+}
+
+.cardsetInfoFooter {
+  min-height: 55px;
+}
+
+.cardPercentage {
+  float: right;
+  text-align: right;
+}
+
+.cardsetTitleContainer {
+  display: inline-block;
+}
+
+#learnBoxActive, .learnBtn {
+  font-size: 16px;
+}
+
+.projectorIconButton {
+  height: 16px;
+  margin-top: -2px;
+  margin-right: 2px;
+}
+
+.cardsetstats-container {
+  padding: 0 15px;
+}
+
+.removeBonusUser {
+  margin: 0;
+  padding: 0 !important;
+}
+
+.disabled-stars .stars {
+  cursor: default !important;
+}
+
+.bonusTranscriptInfoLectureDates {
+  .day, .month, .year {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .day {
+    border: 3px solid;
+    text-align: center;
+  }
+  .day:hover {
+    cursor: help;
+  }
+  .month {
+    margin-top: 15px;
+  }
+  .year + .month {
+    margin-top: 5px;
+  }
+}
+
+#exportModal {
+  tr {
+    input:not([disabled]) + label {
+      cursor: pointer;
+    }
+    input[disabled] + label {
+      cursor: not-allowed;
+    }
+
+    th:last-child, td:last-child {
+      text-align: right;
+    }
+  }
+}

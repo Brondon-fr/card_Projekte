@@ -1,0 +1,28 @@
+<template name="filterIndexItemBottomEdit">
+    {{#if isCardsetOwner this._id}}
+        <a rel="noopener noreferrer"   class="resultNavigationElement editCardset hidden-xs" {{disableIfOffline}}
+           title='{{#if isRepetitorienFilterIndex}}{{_
+                   "cardset.tooltip.editRepetitorium"}}{{else}}{{_
+                   "cardset.tooltip.editCardset"}}{{/if}}' data-id="{{this._id}}"
+           data-toggle="modal"
+           data-target="#setCardsetFormModal">
+            <span class="fas fa-edit" data-id="{{this._id}}"></span>
+        </a>
+        {{#unless isTranscriptRoute}}
+            {{#if gotBackendAccess}}
+                <a rel="noopener noreferrer"   class="resultNavigationElement editAdminCardset hidden-xs"
+                   title='{{_ "cardset.tooltip.editAdminSettings"}}' data-id="{{this._id}}"
+                   data-toggle="modal"
+                   data-target="#setCardsetFormAdminModal">
+                    <span class="fas fa-cog editAdminCardset" data-id="{{this._id}}"></span>
+                </a>
+            {{/if}}
+            {{#if isRepetitorienFilterIndex}}
+                <a rel="noopener noreferrer"   class="resultNavigationElement editShuffle"
+                   title='{{_ "set-list.shuffleCardsets"}}' data-id="{{this._id}}">
+                    <span class="fas fa-plus editShuffle" data-id="{{this._id}}"></span>
+                </a>
+            {{/if}}
+        {{/unless}}
+    {{/if}}
+</template>

@@ -1,0 +1,10 @@
+<template name="cardsetInfoBoxItemKind">
+    {{#unless isTranscriptRoute}}
+        <tr>
+            <td>{{_ "set-list.category"}}:</td>
+            <td>
+                {{{getKindText this.kind 1}}}
+            </td>
+        </tr>
+    {{/unless}}
+</template>

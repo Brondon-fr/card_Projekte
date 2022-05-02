@@ -1,0 +1,85 @@
+<template name="selectLearningUnit">
+    <div class="modal fade" id="showSelectLearningUnitModal" role="dialog">
+        <div class="modal-dialog modal-lg" aria-labelledby="showSelectLearningUnitTitle">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-icon">
+                    </span>
+                    {{> mainModalItemCloseIcon}}
+                    <h4 id="showSelectLearningUnitTitle" class="modal-title">{{_ "transcriptForm.title"}}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="form-group setdetails name">
+                                <div class="col-xs-12 cardtext editorElement">
+                                    <label class="radio-inline"><input type="radio" id="privateTranscript"
+                                                                       name="belongsToUnit"
+                                                                       value="0" {{getRadioButtonStatus 0}}>{{_
+                                            "transcriptForm.referencesLecture.false"}}</label>
+                                    <label class="radio-inline"><input type="radio" id="referencesLecture"
+                                                                       name="belongsToUnit"
+                                                                       value="1" {{getRadioButtonStatus 1}}>{{_
+                                            "transcriptForm.referencesLecture.true"}}</label>
+                                </div>
+                                {{#unless isPrivateTranscript}}
+                                    <br>
+                                    <br>
+                                    <div class="col-xs-12">
+                                        {{_ "transcriptForm.description"}}
+                                    </div>
+                                    <div class="dropdown">
+                                        <div class="btn-group col-xs-8">
+                                            <button id="setTranscriptBonusLecture" type="button"
+                                                    class="btn btn-raised btn-default setTranscriptBonusLectureDropdown longButton"
+                                                    data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false"
+                                                    value="-1">
+                                                {{{getBonusLectureName}}}
+                                            </button>
+                                            <button type="button"
+                                                    class="btn btn-raised dropdown-toggle setTranscriptBonusLectureDropdown setTranscriptBonusLectureDropdownCaret"
+                                                    data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false">
+                                                <div class="flex-content">
+                                                    <span class="caret"></span>
+                                                    <span class="sr-only"></span>
+                                                </div>
+                                            </button>
+                                            <ul class="dropdown-menu btn-raised longButton"
+                                                value="{{_ "transcriptForm.selectLecture"}}" data="-1">
+                                                {{#each getBonusLectures}}
+                                                    <li class="transcriptBonusLecture" value="{{this.cardset_id}}"
+                                                        data-cardset_id="{{this.cardset_id}}"
+                                                        data-date_id="{{this.date_id}}" data-name="{{this.name}}">
+                                                        <a rel="noopener noreferrer" href="#">
+                                                            {{this.name}}
+                                                            <div class="transcript-info-text">
+                                                                {{this.deadline}}<br>{{this.deadlineEditing}}
+                                                            </div>
+                                                            <div class="cardset-details">
+                                                                {{> cardsetLabels}}
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                {{/each}}
+                                            </ul>
+                                            <span id="helpSetTranscriptBonusLecture"
+                                                  class="help-block transcriptBonusLecture"></span>
+                                        </div>
+                                    </div>
+                                {{/unless}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    {{#if isPrivateTranscript}}
+                        <button id="saveBonusLecture"
+                                class="btn btn-raised btn-success pull-left">{{_ "transcriptForm.button.save"}}</button>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,63 @@
+.cardNavigation {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-top: $margin_top_card_navigation;
+  margin-bottom: $margin_bottom_card_navigation;
+  @media(max-width: 767px) {
+    margin-top: $margin_top_card_navigation_mobile;
+    margin-bottom: $margin_bottom_card_navigation_mobile;
+  }
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.cardNavigation > li {
+  flex: auto;
+  width: 1%;
+  @media(max-width: 767px) {
+    a {
+      font-size: $font_size_card_navigation_mobile !important;
+      padding: ($btn-height * 0.25) $padding_horizontal_card_navigation_mobile !important;
+    }
+  }
+}
+
+.cardEditorHeader .cardNavigation {
+   margin-top: 0;
+  margin-bottom: 0;
+ }
+
+.cardNavigation a {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.cardNavigation .btn {
+  margin: 0 !important;
+  box-shadow: none !important;
+}
+
+.cardNavigation .card-navigation-active {
+  cursor: default;
+}
+
+.mobilePreviewContent {
+  .cardNavigation {
+    margin-top: 10px;
+    margin-bottom: $margin_bottom_card_navigation_mobile !important;
+  }
+  .cardNavigation > li {
+    a {
+      font-size: $font_size_card_navigation_mobile !important;
+      padding: ($btn-height * 0.25) $padding_horizontal_card_navigation_mobile !important;
+    }
+  }
+}
+
+.card-navigation-title {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

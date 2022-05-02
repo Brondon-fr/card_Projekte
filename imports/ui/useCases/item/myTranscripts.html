@@ -1,0 +1,23 @@
+<template name="useCasesItemMyTranscripts">
+    {{#if (gotNavigationFeature "useCases.misc.transcripts" false)}}
+        {{#if gotCardIndex}}
+            <tr>
+                <td>
+                    {{_ "useCases.modal.description.personal.transcripts"}}
+                    <div class="visible-xs">
+                        {{> useCasesItemMyTranscriptsButton}}
+                    </div>
+                </td>
+                <td class="hidden-xs">
+                    {{> useCasesItemMyTranscriptsButton}}
+                </td>
+            </tr>
+        {{/if}}
+    {{/if}}
+</template>
+
+<template name="useCasesItemMyTranscriptsButton">
+    <button class="btn btn-raised btn-default useCasesGoToMyTranscripts" type="button" data-dismiss="modal"
+            >{{{getUseCasesIcon "myTranscripts"}}}{{_
+            "useCases.modal.button.personal.transcripts"}}</button>
+</template>

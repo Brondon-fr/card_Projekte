@@ -1,0 +1,90 @@
+#difficultyGroup {
+  margin-bottom: 0 !important;
+  padding: 0;
+  width: 100%;
+}
+
+#setDifficulty {
+  padding-left: 30px;
+  padding-right: 0;
+}
+
+#setDifficulty .btn, #cardType .btn {
+  padding: 9px 0 9px 0;
+  font-weight: normal;
+  font-size: 13px;
+  text-align: center;
+  @media(max-width: 767px) {
+    padding: 20px 0 20px 0;
+  }
+}
+
+#setCardsetFormModal, #showSelectLearningUnitModal, #setLeitnerProgressCardsetFilter, #useCasesModal .dropdown, #appThemeSelector .dropdown, #switchThemeMenuIconContainer, #archivedLearningPhaseDropdown {
+  ul > li {
+    padding-top: $size_cardset_form_list_padding !important;
+    padding-bottom: $size_cardset_form_list_padding !important;
+    border-bottom: solid $size_cardset_form_list_border !important;
+    cursor: pointer;
+    a {
+      font-size: $font_size_cardset_form_list !important;
+      font-weight: $font_weight_cardset_form_list !important;
+      text-decoration: none;
+    }
+  }
+  ul > li:last-child {
+    border-bottom: 0 !important;
+  }
+  ul > li.active {
+    cursor: unset;
+  }
+
+  label {
+    text-align: left;
+  }
+
+  #setNameLabel {
+    padding-top: 0;
+    margin-top: 0;
+  }
+}
+
+.setCardTypeDropdownText {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+  .filter-bottom-row {
+    ul > li {
+      padding-top: $size_cardset_form_list_padding !important;
+      padding-bottom: $size_cardset_form_list_padding !important;
+      border-bottom: solid $size_cardset_form_list_border !important;
+      cursor: pointer;
+      a {
+        font-size: $font_size_cardset_form_list !important;
+        font-weight: $font_weight_cardset_form_list !important;
+      }
+    }
+    ul > li:last-child {
+      border-bottom: 0 !important;
+    }
+    ul > li.active {
+      cursor: unset;
+    }
+
+    label {
+      text-align: left;
+    }
+
+    #setNameLabel {
+      padding-top: 0;
+      margin-top: 0;
+    }
+  }
+}
+
+.arsnovaClickOverride, .fragJetztOverride {
+  margin-top: 15px;
+}

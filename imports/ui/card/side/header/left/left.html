@@ -1,0 +1,51 @@
+<template name="flashcardHeaderPresentationLeft">
+    <div class="col-xs-2 cardHeaderLeft" data-cardtype="{{cardType}}">
+        <div class="cardHeaderGroup">
+            {{#if pomodoroActive}}
+                {{> pomodoroTimer}}
+            {{else}}
+                {{> cardHeaderItemClock}}
+            {{/if}}
+        </div>
+    </div>
+</template>
+
+<template name="flashcardHeaderEditorLeft">
+    <div class="col-xs-2 cardHeaderLeft" data-cardtype="{{cardType}}">
+        <div class="cardHeaderGroup">
+            {{> cardHeaderItemClock}}
+        </div>
+    </div>
+</template>
+
+<template name="flashcardHeaderDefaultLeft">
+    <div class="col-xs-2 cardHeaderLeft" data-cardtype="{{cardType}}">
+        <div class="cardHeaderGroup">
+            {{> cardHeaderItemClock}}
+        </div>
+    </div>
+</template>
+
+<template name="flashcardHeaderLeitnerLeft">
+    <div class="col-xs-2 cardHeaderLeft" data-cardtype="{{cardType}}">
+        <div class="cardHeaderGroup">
+            {{#if pomodoroActive}}
+                {{> pomodoroTimer}}
+            {{else}}
+                {{> cardHeaderItemClock}}
+            {{/if}}
+        </div>
+    </div>
+</template>
+
+<template name="flashcardHeaderWozniakLeft">
+    <div class="col-xs-2 cardHeaderLeft" data-cardtype="{{cardType}}">
+        <div class="cardHeaderGroup">
+            {{#if pomodoroActive}}
+                {{> pomodoroTimer}}
+            {{else}}
+                {{> cardHeaderItemClock}}
+            {{/if}}
+        </div>
+    </div>
+</template>

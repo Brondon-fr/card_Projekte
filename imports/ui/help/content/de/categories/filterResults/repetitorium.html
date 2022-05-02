@@ -1,0 +1,28 @@
+<template name="helpContentDECategoryRepetitorium">
+    {{#if isLinuxHelp}}
+    {{else}}
+        (##) Repetitorien
+
+        <a rel="noopener noreferrer"   href="/img/help/de/Repetitorien.png" data-lightbox="img-1"
+           data-title="Repetitorien sind Sammlungen von Karteien, die thematisch zu einem Modul gehören, und dienen der Prüfungsvorbereitung.">
+            <img src="/img/help/de/Repetitorien.png" alt="Repetitorien"
+                 class="img-responsive center-block">
+        </a>
+        <ul class="thm-numbering">
+            <li><strong>Optionen:</strong> Repetitorien fassen mehrere Karteien
+                thematisch zusammen und dienen zur Vorbereitung auf eine Prüfung.
+                Wenn eine Lehrperson das Repetitorium angelegt hat, kann damit die Vergabe von Bonuspunkten für
+                kontinuierliches Lernen verbunden sein.
+                Du erkennst dies am  Badge "Lern-Bonus".
+                Art und Anzahl der Optionen sind rollenspezifisch.
+                Hier siehst du die komplette Palette an Optionen aus Sicht eines Admins.
+            </li>
+            <li><strong>Beschreibung:</strong> Der Button ganz rechts öffnet die
+                Beschreibung des Repetitoriums mit allen Metadaten.
+                Welche Karteien zusammengefasst wurden, kannst du im Inhaltsverzeichnis des Repetitoriums erkennen:
+                sie sind nach Karteizugehörigkeit sortiert.
+                Das Inhaltsverzeichnis findest du in der Karteiansicht, die du per Klick auf das Thema aufrufst.
+            </li>
+        </ul>
+    {{/if}}
+</template>

@@ -1,0 +1,71 @@
+<template name="welcome">
+  {{#unless currentUser}}
+    {{> loginModal}}
+    {{> pomodoroTimerModal}}
+    {{> welcomeTitle}}
+    <div id="welcome-container">
+      {{> wordcloud}}
+    </div>
+    <div id="welcome-login"
+         class="col-xs-12">
+            <span class="login-container">
+              {{{getLoginButtons}}}
+            </span>
+    </div>
+    <div id="pomodoroTimerNormalContainer"
+         title="{{_ "landingPage.buttons.tooltip.pomodoro"}}">
+      {{> pomodoroTimer}}
+      <label class="hidden-xs">{{_ "landingPage.buttons.pomodoro"}}</label>
+    </div>
+    {{> welcomeWordcloudButton}}
+  {{/unless}}
+</template>
+
+
+<template name="welcomeWordcloudButton">
+  {{#if gotLandingPageWordcloud}}
+      {{#if gotCenteredLandingPagePomodoro}}
+        {{#if gotFeatureSupport 1}}
+          <div class="hidden-xs">
+            <div class="toggle-wordcloud"
+                 title="{{_ "landingPage.buttons.tooltip.wordcloud"}}">
+              <div class="flex-content">{{{getNavigationIcon "wordcloud"}}}</div>
+              <label>{{_ "landingPage.buttons.wordcloud"}}</label>
+            </div>
+          </div>
+        {{/if}}
+      {{/if}}
+  {{/if}}
+</template>
+
+<template name="welcomeTitle">
+  <div class="col-xs-12"
+       id="welcome">
+    <div class="panel panel-default">
+      <div class="panel-heading {{#if isFirstTimeVisit}}welcome-title-no-padding{{/if}}">
+        <div class="text-center">
+          <span class="color-cards logo-header-chars">{{getFirstAppTitle}}</span>
+          <span class="color-dot logo-header-dot"></span>
+          <span class="color-cards logo-header-chars">{{getLastAppTitle}}</span>
+        </div>
+
+        <span id="slogan">
+                    <h2 class="pull-left">{{getAppSlogan}}</h2>
+                  </span>
+        <br>
+        {{#if isActiveRoute 'home'}}
+          <a rel="noopener noreferrer"   href="about"
+             id="showAbout"
+             class="visible-xs-inline-block btn btn-raised btn-warning show-more"><span class="flex-content">
+            {{{getAboutButton true}}}</span></a>
+          <a rel="noopener noreferrer"   href="demo"
+             id="showDemo"
+             class="hidden-xs btn btn-raised btn-warning show-more"><span
+            class="flex-content">
+            <span class="fas fa-desktop"></span>&nbsp;
+            {{{getAboutButton false}}}</span></a>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</template>

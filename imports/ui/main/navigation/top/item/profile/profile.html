@@ -1,0 +1,28 @@
+<template name="mainNavigationTopItemProfile">
+    {{#if currentUser}}
+        <li id="navbar-profile"
+            class="dropdown {{#if isActiveProfile}}active{{/if}}">
+            <a rel="noopener noreferrer"   href="#" class="dropdown-toggle dropdownMenuContainer"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="hidden-sm">
+                        {{{getNavigationName "profile"}}}
+                </div>
+                <div class="visible-sm">
+                    {{{getNavigationName "profileIPad"}}}
+                </div>
+                {{#if countNotifications}}<span class="badge">{{countNotifications}}</span>{{/if}}
+            </a>
+            <div class="dropdown-menu navbar-drop" aria-labelledby="navbarDropdown">
+                <table>
+                    {{> mainNavigationTopItemProfileItemOverview}}
+                    {{> mainNavigationTopItemProfileItemMembership}}
+                    {{> mainNavigationTopItemProfileItemBilling}}
+                    {{> mainNavigationTopItemProfileItemSettings}}
+                    {{> mainNavigationTopItemProfileItemFullscreen}}
+                    {{> mainNavigationTopItemProfileItemRequests}}
+                    {{> mainNavigationTopItemProfileItemLogout}}
+                </table>
+            </div>
+        </li>
+    {{/if}}
+</template>

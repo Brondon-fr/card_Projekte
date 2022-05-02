@@ -1,0 +1,46 @@
+<template name="cardsetDeleteForm">
+    <div class="modal fade" id="confirmDeleteCardsetModal" tabindex="-1" role="dialog"
+         aria-labelledby="confirmDeleteCardsetModalTitle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-icon">
+                        <span class="fas fa-trash"></span>
+                    </span>
+                    {{> mainModalItemCloseIcon}}
+                    <h4 id="confirmDeleteCardsetModalTitle" class="modal-title">
+                        {{#if isRepetitorienFilterIndex}}
+                            {{_ "cardset.confirm-form-delete.repetitorium.title"}}
+                        {{else}}
+                            {{_ "cardset.confirm-form-delete.title"}}
+                        {{/if}}
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        {{#if isRepetitorienFilterIndex}}
+                            {{_ "cardset.confirm-form-delete.repetitorium.text"}}
+                        {{else}}
+                            {{_ "cardset.confirm-form-delete.text"}}
+                        {{/if}}
+                    </p>
+                    <hr/>
+
+                </div>
+                <div class="modal-footer">
+                    <button id="deleteCardset" class="btn btn-danger btn-raised btn-setDelete pull-right" {{disableIfOffline}}>
+                        {{#if isRepetitorienFilterIndex}}
+                            {{_ "cardset.confirm-form-delete.repetitorium.title"}}
+                        {{else}}
+                            {{_ "cardset.confirm-form-delete.title"}}
+                        {{/if}}
+                    </button>
+                    <button id="cancelDelete" class="btn btn-raised pull-left" data-dismiss="modal">{{ _ "modal-dialog.cancel"}}</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</template>

@@ -1,0 +1,1283 @@
+{
+  "cookieconsent": {
+    "message": "Wir ersparen dir lange Erklärungen, warum __firstAppTitle__🍅__lastAppTitle__ Cookies verwendet. Unter anderem würde dieser Hinweis bei jedem Besuch erscheinen. Soviel sei hier gesagt: Wir geben keine Daten an Dritte heraus. Du kannst dein \uD83C\uDF45__lastAppTitle__-Konto jederzeit selbst löschen, ohne zu fragen. Alle weiteren rechtlichen Hinweise findest du auf der",
+    "dismiss": "Danke, ich bin einverstanden.",
+    "link": "Datenschutz-Seite."
+  },
+  "intro": {
+    "about": "Was ist 🍅__lastAppTitle__?",
+    "impressum": "Impressum",
+    "backButton": "Zurück",
+    "backToStartButton": "Zurück zur Startseite"
+  },
+  "wordcloud": {
+    "modal": {
+      "title": "Themenwolke",
+      "button": "Schließen"
+    }
+  },
+  "contact": {
+    "about": "Über 🍅cards",
+    "demo": "Einführung",
+    "home": "Startseite",
+    "learning": "Lernen",
+    "help": "Hilfe",
+    "faq": "FAQ",
+    "impressum": "Impressum",
+    "datenschutz": "Datenschutz",
+    "agb": "AGB",
+    "statistics": "Inventar"
+  },
+  "serverStatistics": {
+    "modal": {
+        "cards": "Gesamt",
+        "cardsets": {
+          "total": "Gesamt:",
+          "private": "__label__",
+          "free": "__label__",
+          "edu": "__label__",
+          "pro": "__label__"
+        },
+        "repetitorium":  {
+          "total": "Gesamt",
+          "private": "__label__",
+          "free": "__label__",
+          "edu": "__label__",
+          "pro": "__label__"
+        },
+        "wordcloud":  {
+          "total": "Gesamt:",
+          "private": "__label__",
+          "free": "__label__",
+          "edu": "__label__",
+          "pro": "__label__"
+        },
+        "user": {
+          "total": "Gesamt",
+          "pro": "__label__",
+          "online": "User online"
+        },
+        "table": {
+          "header": {
+            "cardsets": "Karteien",
+            "repetitorium": "Repetitorien",
+            "wordcloud": {
+              "default": "Von der \uD83C\uDF45cards-Redaktion empfohlen",
+              "mobile": "Von der \uD83C\uDF45cards-Redaktion empfohlen"
+            },
+            "counter": "",
+            "user": "Accounts",
+            "cards": "Karten"
+          }
+        }
+    }
+  },
+  "help": {
+    "resetFilter": "Hilfe vollständig anzeigen…"
+  },
+  "input-group": {
+    "newcarddeck": "Neue Kartei"
+  },
+  "upload-form": {
+    "popover-content": "Unterstützt wird das Dateiformat JSON. Es werden nur die Karten importiert.",
+    "upload-title": "Karten importieren",
+    "upload-card-title-placeholder": "Mnemosyne Import",
+    "upload-type": "Dateiformat",
+    "upload-type1": "🍅__lastAppTitle__",
+    "upload-type2": "Mnemosyne",
+    "wait": "Dateien werden hochgeladen",
+    "select-file": "Datei auswählen",
+    "success": "Karten wurden importiert!",
+    "wrong-template": "Fehlerhafte Dateistruktur",
+    "wrong-file": "Falsches Dateiformat"
+  },
+  "errorButton" :{
+    "error-button-label":" Fehler bei Kartei"
+  },
+  
+  "download-form": {
+    "popover-content": "Exportiert die Kartei im JSON-Format",
+    "popover-content2": "Exportiert die Kartei im Markdeep-Format",
+    "download-title": "Kartei »__cardsetName__« exportieren",
+    "download-card-title-placeholder": "Markdeep-Export",
+    "download-type": "Dateiformat",
+    "download-type1": "🍅__lastAppTitle__",
+    "download-type2": "Markdeep",
+    "card-sides-table": {
+      "head": {
+        "side": "Kartenseite",
+        "count": "Anzahl",
+        "type": "Typ"
+      },
+      "body": {
+        "count": "__count__",
+        "type": {
+          "question": "Frage Seite",
+          "answer": "Antwort Seite",
+          "main-answer": "Hauptantwort Seite",
+          "misc": ""
+        }
+      }
+    },
+    "download": "Kartei exportieren"
+  },
+  "confirm-form": {
+    "title": "Karte löschen",
+    "text": "Willst du diese Karte wirklich löschen?"
+  },
+  "confirm-form-learn": {
+    "title": "Aus dem Lernpensum entfernen",
+    "text": "Wenn du den Vorgang bestätigst, wird die Lernstatistik für diese Kartei gelöscht."
+  },
+  "confirm-enter-learnphase": {
+    "title": "Lernphase mit Bonusvergabe beitreten",
+    "text": "Durch deinen Beitritt erlaubst du der Autorin bzw. dem Autor der Kartei folgenden Zugriff auf deine Daten:",
+    "text2": "Diese Daten werden nur zur Bonusvergabe verwendet.",
+    "enter": "Beitreten",
+    "close": "Schließen"
+  },
+  "confirm-leave-learnphase": {
+    "btn-txt": "Lernphase verlassen",
+    "title": "Lernphase verlassen",
+    "text": "Willst du die Lernphase wirklich verlassen? Wenn du den Vorgang bestätigst, wird deine Lernstatistik für diese Kartei gelöscht."
+  },
+  "confirm-leave-cardset": {
+    "btn-txt": "Aus dem Lernpensum nehmen",
+    "title": "Aus dem Lernpensum nehmen",
+    "text": "Willst du diese Kartei aus deinem Lernpensum nehmen? Wenn du den Vorgang bestätigst, wird deine Lernstatistik für diese Kartei gelöscht."
+  },
+  "confirm-leave-editors": {
+    "btn-txt": "Bearbeitergruppe verlassen",
+    "title": "Bearbeitergruppe verlassen",
+    "text": "Willst du deine Berechtigung für die Kartei <strong>»__name__«</strong> entfernen?"
+  },
+  "confirm-form-profile": {
+    "title": "Konto löschen",
+    "text": "Falls du sicher bist, dass du 🍅__lastAppTitle__ nicht mehr verwenden möchtest, kannst du hier dein Konto löschen. Alle persönlichen Daten, privaten Karteien  und Repetitorien sowie deine Lernstatistiken werden unwiderruflich gelöscht. Die von dir veröffentlichten Karteien und Repetitorien bleiben erhalten.",
+    "text2": "Wenn du dein Konto immer noch löschen willst, klicke auf die Schaltfläche »Konto löschen«. Du wirst automatisch aus 🍅__lastAppTitle__ abgemeldet."
+  },
+  "confirmLearn-form": {
+    "text": "Willst du die Lernphase mit Bonusvergabe wirklich starten? Die Lernstatistik aller bisherigen User der Kartei geht hierbei verloren!",
+    "confirm": "Starten",
+    "cancel": "Abbrechen",
+    "notification": "Erinnerungsdienst",
+    "mailNotificationCheckbox": "E-Mail",
+    "webNotificationCheckbox": "Push-Nachricht",
+    "notificationError": "Es muss mindestens eine Benachrichtigungsart ausgewählt werden!",
+    "card": "__count__ Karte",
+    "card_plural": "__count__ Karten"
+  },
+  "confirmEndLearn-form": {
+    "title": "Bonus-Lernphase beenden",
+    "warnTitle": "Du bist im Begriff, die Bonus-Lernphase zu beenden!",
+    "warning": "Wenn du den Vorgang fortsetzt, wird die Lernphase beendet und Archiviert. Eine Archivierung kann nicht rückgängig gemacht werden!",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen"
+  },
+  "nav-list": {
+    "learn": "Kartei lernen",
+    "create": "Angelegte Karteien"
+  },
+  "set-list": {
+    "bonusSection": {
+      "settings": "Einstellungen",
+      "stats": "Statistik"
+    },
+    "name": "Name",
+    "category": "Zugang",
+    "app": {
+      "title": "Widmung",
+      "version": ".cards Version",
+      "url": "URL"
+    },
+    "categoryOptions": "Zugang | Optionen",
+    "module": "Modul",
+    "description": "Beschreibung",
+    "licence": "CC-Lizenz",
+    "availability": "Zugang",
+    "topic": "Thema der Kartei",
+    "topicTranscript": "Thema der Mitschrift",
+    "topicSimpleNav": "Thema",
+    "topicWorkload": "Thema",
+    "topicMobile": "Thema",
+    "college": "Hochschule",
+    "course": "Studiengang",
+    "author": "Autor/in",
+    "lastEditor": "Editor/in",
+    "authorPublisher": "Autor/in | Editor/in",
+    "title": "Aktuell werden folgende Karteien angeboten:",
+    "everyone": "Alle",
+    "everything": "Alle",
+    "reset": "",
+    "rating": "Status",
+    "ratingFilter": "> 1 Stern",
+    "ratingFilterPlural": "> __rating__ Sterne",
+    "moreResults": "Zeige weitere Einträge",
+    "learnphase": "Lern-Bonus",
+    "bonusPointsFAQ": "FAQ zu Bonuspunkten",
+    "bonusPointsPercentageFAQ": "Prüfungsamt",
+    "bonusMaxPoints": {
+      "label": "Maximale Bonuspunkte",
+      "content": "__count__ %"
+    },
+    "notifications": {
+      "mail": "E-Mail Erinnerung",
+      "push": "Push-Nachricht Erinnerung",
+      "forced": "Aktiviert",
+      "optional": "Freiwillig"
+    },
+    "bonusMin": {
+      "label": "Gemäß Leitner-Plan »gelernte Karten« für max. Bonus",
+      "content": "__count__ %"
+    },
+    "shuffle": {
+      "buttons": {
+        "save": "Auswahl speichern",
+        "add": "Hinzufügen",
+        "remove": "Entfernen"
+      }
+    },
+    "activeLearnphase": "aktiv",
+    "inactiveLearnphase": "beendet",
+    "learnphaseInfo": "Über die Bonus-Lernphase",
+    "cardsetInfo": "Über diese __type__ Kartei",
+    "cardsetInfoRepetitorium": "Über dieses Repetitorium",
+    "cardsetInfoStatic": "Über diese Kartei",
+    "shuffleCardsets": "Repetitorium anlegen",
+    "shuffleInfoTextNew": "Erstell dir ein Repetitorium durch Hinzufügen von Karteien mit dem Plus-Button.",
+    "shuffleInfoTextEdit": "Inhalt des Repetitoriums erweitern oder einschränken",
+    "shuffleCardsetReferences": "Karteien-Sammlung bearbeiten",
+    "shuffleUpdateSuccess": "Auswahl aktualisiert",
+    "shuffleUpdateFailure": "Fehler beim Aktualisieren der Auswahl",
+    "shuffleRemove": "Auswahl entfernen",
+    "workload": "Heute",
+    "learningMode": "Lernmodus",
+    "cardsToLearn": "Karte",
+    "cardsToLearnPlural": " Karten",
+    "noCardsToLearn": "nichts",
+    "leitner": "Leitner",
+    "wozniak": "Woźniak",
+    "both": "Leitner & Woźniak",
+    "none": "ohne",
+    "levelOfLearning": "Statistik",
+    "noDescription": "Keine Beschreibung vorhanden",
+    "noCollege": "ohne Hochschule",
+    "noCourse": "ohne Studiengang",
+    "noModuleLong": "ohne Modul",
+    "noModuleShort": "ohne",
+    "filter-info-small": "Karteien sortieren & filtern",
+    "filter-info-extra-small": "Sortieren & filtern"
+  },
+  "set-list-empty": {
+    "emptytextlist": "Eine »Kartei« (Kartensatz) besteht aus Karten desselben Typs.",
+    "emptypooltextlist": "Keine Kartei vorhanden",
+    "newset": "Kartei anlegen (Kartensatz)",
+    "newsetSimpleNav": "Kartei anlegen",
+    "emptytexttranscripts": "Du hast noch keine Mitschrift erstellt. Informiere dich unter »Hilfe«, wie du für das Mitschreiben auf \uD83C\uDF45cards Bonuspunkte erhalten kannst.",
+    "emptytexttranscriptBonus": "Keine Abgaben vorhanden."
+  },
+  "set-list-learn-empty": {
+    "emptytextlist": "Zum Lernen wähle ein Thema aus dem Themenpool oder die Karteien eines Repetitoriums.",
+    "emptytextlistNoShuffle": "Wähle eine einzelne Kartei aus dem Themenpool aus oder die Karteien eines Repetitoriums.",
+    "simplifiedNav": {
+      "browseCardset": "Kartei auswählen"
+    },
+    "browseCardset": "Kartei auswählen",
+    "browseCourse": "Repetitorium auswählen"
+  },
+  "cardsetForm": {
+    "sortType": {
+      "label": "Sortieroption für Karten desselben Themas",
+      "sortDate": "Nach Erstelldatum sortieren",
+      "sortContent": "Nach Inhalt sortieren"
+    }
+  },
+  "modal-dialog": {
+    "arsnovaClick": {
+      "name": "Spiel-basierte Quiz-App",
+      "placeholder": "Gehe zur URL »arsnova.click« und gib hier den Quiz-Namen ein",
+      "overrideOnlyEmptySessions": "Nur Karteien ohne Quiz-Namen überschreiben"
+    },
+    "fragJetzt": {
+      "name": "Feedback-App zum Sammeln von Fragen und Kommentaren",
+      "placeholder": "Gehe zur URL »frag.jetzt« und gib hier den Sitzungs-Code ein",
+      "overrideOnlyEmptySessions": "Nur Karteien ohne Sitzungs-Code überschreiben"
+    },
+    "missingFields": "Bitte fülle die folgenden Felder aus",
+    "newcarddeck": "Kartei anlegen (Kartensatz)",
+    "newcarddeckSimpleNav": "Kartei anlegen",
+    "editcard": "Karte editieren",
+    "editcardset": "Kartei editieren oder löschen",
+    "editRepetitorium": "Beschreibung bearbeiten",
+    "adminEditCardset": "Admin-Einstellungen",
+    "editreferences": "Repetitorium zusammenstellen",
+    "name": "Karteiname",
+    "nameplaceholder": "Beschriftung der Box für die Karten in wenigen Worten",
+    "descriptionplaceholder": "Worum geht es in dieser Kartei? \n\nDas Etikett des Karteikastens und die Beschreibung des Inhalts werden dir überall auf 🍅__lastAppTitle__ angezeigt.  Die Kartei bleibt privat, das heißt, sie ist für andere nicht sichtbar, solange du sie nicht veröffentlichst.",
+    "categoryplaceholder": "Wähle eine Kategorie",
+    "description": "Beschreibung des Inhalts",
+    "optional": "(Optional)",
+    "category": "Kategorie",
+    "visibility": "Sichtbar für",
+    "visibilityoption1": "mich",
+    "visibilityoption2": "alle",
+    "rating": "Bewertungen",
+    "ratingoption1": "erlauben",
+    "ratingoption2": "abschalten",
+    "kind": "Kategorie",
+    "close": "Schließen",
+    "cancel": "Abbrechen",
+    "cardType": "Karteityp",
+    "cardType_required": "Wähle einen Karteityp!",
+    "createcarddeck": "Kartei anlegen",
+    "delete": "Kartei löschen",
+    "deleteRepetitorum": "Repetitorium löschen",
+    "confirm": "Sicher?",
+    "save": "Kartei speichern",
+    "name_required": "Gib das Thema ein!",
+    "description_required": "Gib eine Beschreibung ein!",
+    "category_required": "Wähle eine Kategorie!",
+    "price": "Verkaufspreis",
+    "publish": "Zugangskategorie speichern",
+    "publishTitle": "Zugangskategorie für »__title__«",
+    "licenseTitle": "Lizenz für »__title__«",
+    "modules": "»Creative Commons«-Rechtemodule",
+    "by-desc": "Der Name der Urheberin oder des Urhebers muss genannt werden.",
+    "nc-desc": "Das Werk darf nicht für kommerzielle Zwecke verwendet werden.",
+    "nd-desc": "Das Werk darf nicht verändert werden.",
+    "sa-desc": "Das Werk muss nach Veränderungen unter der gleichen Lizenz weitergegeben werden.",
+    "zero-desc": "Es wurde keine Lizenz für diese Kartei gewählt.",
+    "saveLicense": "Lizenz speichern",
+    "wrongCombination": "Diese Kombination der CC-Lizenzen ist nicht möglich!",
+    "report": "Kartei melden",
+    "cardsetowner": "Autor/in",
+    "cardsetname": "Kartei",
+    "reason": "Grund",
+    "reportuser": "Rechtswidriger Inhalt",
+    "reportcardset": "Inhaltliche Mängel",
+    "resetLeitner": "Willst du wirklich deine Lernstatistik im Modus »Leitner-Plan« für diese Kartei »__name__« zurücksetzen?",
+    "resetWozniak": "Willst du wirklich deine Lernstatistik im Modus »Woźniak-Plan« für die Kartei »__name__« zurücksetzen?",
+    "text": "Erläuterung",
+    "text_chars": "Es sind 50 Zeichen erforderlich!",
+    "submitcomplaint": "Nachricht absenden",
+    "college": "Hochschule",
+    "college_required": "Wähle eine Hochschule",
+    "course": "Studiengang",
+    "course_required": "Wähle einen Studiengang",
+    "manageEditors": "Bearbeitungsrechte verwalten für die Kartei »__name__«",
+    "module": "Modul",
+    "moduleActivated": "Zugehöriges Modul",
+    "moduleDeactivated": "Ohne Modul",
+    "module_required": "Gib den vollen Titel des Moduls an!",
+    "moduleShort": "Kurzbezeichnung",
+    "moduleShort_required": "Gib eine Kurzbezeichnung des Modultitels an!",
+    "moduleNum": "Modul-Nr.",
+    "moduleNum_required": "Gib die Modulnummer ein!",
+    "moduleLink": "Link (Optional)",
+    "moduleplaceholder": "Vollständiger Titel des Moduls",
+    "moduleShortplaceholder": "Abkürzung des Modultitels",
+    "moduleNumplaceholder": "Modulnummer laut Modulhandbuch",
+    "moduleLinkplaceholder": "Link zur offiziellen Modulbeschreibung",
+    "deleteCards": "Willst du alle Karten der Kartei »__name__« löschen? Die Box bleibt.",
+    "deleteCard": "Willst du wirklich diese Karte löschen?",
+    "cancelEditCard": "Willst du wirklich den Bearbeitungsmodus verlassen? Alle nicht gespeicherten Änderungen werden verworfen.",
+    "cancelEditCardTitle": "Bearbeitungsmodus verlassen"
+  },
+  "profile": {
+    "logout": "Ausloggen",
+    "activity": "Lernstatistik",
+    "overview": "Lernstand",
+    "billing": "Abrechnung (Testbetrieb)",
+    "membership": "Mitgliedschaft (Testbetrieb)",
+    "notifications": "Nachrichten",
+    "requests": "Pro-Freigabe",
+    "norequests": "Keine Anfragen vorhanden",
+    "lecturer": "Dozenten-Freigabe",
+    "accept": "Akzeptieren",
+    "decline": "Ablehnen",
+    "save": "Speichern",
+    "cancel": "Zurücksetzen",
+    "saved": "Deine Änderungen wurden gespeichert!",
+    "canceled": "Deine Änderungen wurden verworfen!",
+    "error": "Deine Angaben sind noch unvollständig!",
+    "finishProfile": "Bitte Profil vervollständigen",
+    "settings": {
+      "name": "Profil & Konto ",
+      "delete": "Konto löschen",
+      "deleteText": "Falls du sicher bist, dass du 🍅__lastAppTitle__ nicht weiter verwenden möchtest, kannst du hier dein Konto löschen.",
+      "appearance": "Einstellungen",
+      "theme": "Design",
+      "language": "Sprache"
+    }
+  },
+  "profil-header": {
+    "name": "Profil von "
+  },
+  "panel-heading": {
+    "hallo": "Profil"
+  },
+  "membership": {
+    "upgrade": {
+      "progress": "In Bearbeitung!",
+      "subscribed": "Vielen Dank für dein Abonnement!"
+    },
+    "downgrade": {
+      "error": "Du kannst dein Konto nicht herunterstufen, solange du Pro-Karteien hast!",
+      "confirm": "Bist du sicher, das Konto zurückzustufen? Dies bedeutet, dass dein Abonnement nicht länger aktiv ist. Du kannst später jederzeit dein Konto wieder hochstufen.",
+      "canceled": "Dein Abonnement wurde beendet!"
+    }
+  },
+  "billing": {
+    "plan": {
+      "header": "Mitgliedschaft (derzeit kostenloser Testbetrieb)",
+      "desc": "Wähle deine Mitgliedsart:",
+      "actual": "Derzeit ausgewählt",
+      "free": "Organize | Learn | Memorize",
+      "edu": "THM-Karteien frei erhältlich",
+      "back": "Kostenfreie Mitgliedschaft",
+      "pro": "Erstelle und erhalte Pro-Karteien",
+      "month": "Monat (Testbetrieb)",
+      "subscribe": "Pro-Abonnement bestellen (Testbetrieb)",
+      "lecturer": "Dozentenstatus anfragen für das Anlegen von THM-Karteien und das Prüfen (mit Umsatzbeteiligung) von Pro-Karteien",
+      "send": "Anfrage abschicken",
+      "lecturerActivatet": "Du bist als THM-Dozent/in und Prüfer/in für Pro-Karteien freigeschaltet.",
+      "name": "Name",
+      "prename": "Vorname"
+    },
+    "payment": {
+      "header": "Zahlungsmethode (Testbetrieb)",
+      "empty": "Du hast bisher keine Zahlungsmethode hinzugefügt!",
+      "save": "Zahlungsmethode speichern",
+      "saveMsg": "Deine Zahlungsmethode wurde gespeichert",
+      "progress": "Änderungen werden verarbeitet",
+      "actual": "Deine Zahlungsmethode:",
+      "add": "Zahlungsmethoden hinzufügen oder auswählen (Testbetrieb):"
+    },
+    "balance": {
+      "header": "Kontostand (Testbetrieb)",
+      "disburse": "Auszahlen",
+      "progress": "Auszahlung wird bearbeitet",
+      "success": "Auszahlung wurde durchgeführt",
+      "failed": "Auszahlung nicht freigeschaltet. Wende dich bitte an den Administrator."
+    },
+    "revenue": {
+      "header": "Umsatzhistorie (Testbetrieb)",
+      "empty": "Du hast bisher noch keine Einnahmen generiert!",
+      "boughtFrom": "Gekauft von",
+      "for": "für",
+      "at": "am"
+    },
+    "purchases": {
+      "header": "Zahlungshistorie (Testbetrieb)",
+      "empty": "Du hast bisher noch keine Karteien gekauft.",
+      "boughtFor": "Gekauft für",
+      "at": "am"
+    }
+  },
+  "panel-body": {
+    "name": "Login-Kennung",
+    "role": "Benutzerrolle",
+    "role_plural": "Benutzerrollen",
+    "dateJoined": "Beigetreten",
+    "name-desc": "Login-Kennung (nicht öffentlich)",
+    "title": "Titel",
+    "title-desc": "nur für Lehrende",
+    "birthname": "Nachname",
+    "birthname-desc": "Nachname (öffentlich)",
+    "givenname": "Vorname",
+    "givenname-desc": "Vorname (öffentlich)",
+    "login": "Du bist angemeldet über: ",
+    "email": "E-Mail",
+    "email-desc": "für den Erinnerungsdienst",
+    "emailValidation": "E-Mail bestätigen",
+    "emailValidation-desc": "E-Mail-Adresse wiederholen",
+    "emailValidationError": "E-Mail-Adressen stimmen nicht überein",
+    "profilepublic": "Profil ist öffentlich?",
+    "profilepublicoption1": "Ja",
+    "profilepublicoption2": "Nein",
+    "profileprivate": "Profil ist privat",
+    "profileprivatetext": "Dieses Profil ist privat und kann nicht von anderen Benutzern eingesehen werden.",
+    "emailInvalid": "Gib eine gültige E-Mail-Adresse an",
+    "nameToShort": "Kennung muss aus mehr als 4 Buchstaben bestehen!",
+    "nameToLong": "Kennung muss aus weniger als 26 Buchstaben bestehen!",
+    "nameAlreadyExists": "Kennung ist bereits vergeben!",
+    "birthnameEmpty": "Der Nachname darf nicht leer sein!",
+    "givennameEmpty": "Der Vorname darf nicht leer sein!",
+    "roles": "Berechtigungen"
+  },
+  "panel-heading-experience": {
+    "experience": "Belohnungspunkte: 10 Punkte für das vollständige Lernen einer THM-Kartei nach Leitner",
+    "interval": "Einstellungen der Intervalle für den Lernzeitraum (XP)",
+    "preview": "Vorschau"
+  },
+  "panel-body-experience": {
+    "interval1": "Intervall 1",
+    "interval2": "Intervall 2",
+    "interval3": "Intervall 3",
+    "total": "Total",
+    "twoDaysAgo": "Vorgestern",
+    "today": "Heute",
+    "day": "__count__ Tag",
+    "day_plural": "__count__ Tage",
+    "yesterday": "Gestern",
+    "month": "Wochen",
+    "threemonth": "Monate",
+    "default1": "Standard 7",
+    "default2": "Standard 30",
+    "default3": "Standard 90",
+    "reset": "Zurücksetzen",
+    "lastredeem": "Zuletzt für: "
+  },
+  "panel-body-last": {
+    "login": "Login",
+    "cardset": "Kartei angelegt",
+    "card": "Karte angelegt",
+    "rating": "Kartei bewertet"
+  },
+  "sidebar-nav": {
+    "created": "Erstellt von",
+    "at": "am",
+    "view": "Ansicht",
+    "viewmap": "Karte",
+    "viewlist": "Liste",
+    "createcard": "Neue Karte erstellen",
+    "importcard": "Karten importieren",
+    "exportcard": "Kartei exportieren",
+    "manageEditors": "Bearbeitungsrechte",
+    "tooltip": "Erstelle mindestens 5 Karten für diese Kartei und vervollständige dein Profil, um die Kartei zu veröffentlichen. Pro-Karteien können nicht wieder zurückgestuft werden!",
+    "published": "Veröffentlicht",
+    "review": "In Überprüfung",
+    "private": "Privat",
+    "license": " Lizenz",
+    "bonus": "Lern-Bonus",
+    "startLearning": "Bonus-Lernphase aktivieren",
+    "stopLearning": "Bonus-Lernphase beenden",
+    "poolLicense": "CC-Lizenz für",
+    "leaveEditors": "Bearbeitergruppe verlassen",
+    "preview": "Kostenpflichtige Kartei (Testbetrieb)"
+  },
+  "demo": {
+    "help": {
+      "title": "Willkommen auf \uD83C\uDF45cards!",
+      "button": {
+        "confirm": "Erfahre, wie du das Wissen aus deinem Studium organisierst und memorierst…"
+      }
+    }
+  },
+  "presentation": {
+    "title": "Präsentation",
+    "create": "Kartenschau",
+    "start": "Starten",
+    "list": {
+      "back": "Zurück zur Präsentation",
+      "backDemo": "Zurück zur Einführung"
+    },
+    "aspectRatio": {
+      "53": "5:3-Kartenformat",
+      "169": "16:9 für moderne HD-Beamer",
+      "1610": "16:10 für Laptops & Monitore",
+      "43": "4:3 für ältere VGA-Beamer",
+      "fill": "Gesamter Bildschirm",
+      "din": "DIN-Kartenformat"
+    },
+    "help": {
+      "title": "Tabs & Buttons in der Kartenschau",
+      "button": {
+        "confirm": "Okay"
+      }
+    }
+  },
+  "leitner": {
+    "help": {
+      "title": "Wiederholtes Lernen nach Leitner",
+      "button": {
+        "confirm": "Ich hab's verstanden."
+      }
+    }
+  },
+  "pool": {
+    "relevance": "Relevanz",
+    "name": "Name",
+    "author": "Autor/in",
+    "rating": "Bewertung",
+    "quantity": "Kartenanzahl",
+    "release": "Erstellt",
+    "deleted": "Gelöscht",
+    "license": "CC-Lizenz",
+    "activeLearners": "Eingeschrieben",
+    "dateUpdated": "Editiert",
+    "selectCardToLearn": "Mit einem Klick auf das Thema einer Kartei nimmst du sie in dein Lernpensum auf.",
+    "selectShuffledCardsetToLearn": "Mit einem Klick auf ein Thema  nimmst du es in dein Lernpensum auf."
+  },
+  "bonus": {
+    "info": {
+      "button": {
+        "join": "Bonus-Lernphase beitreten",
+        "leave": "Bonus-Lernphase verlassen",
+        "expired": "Die Anmeldefrist ist abgelaufen"
+      }
+    },
+    "form-join": {
+      "title": "Bonus-Lernphase",
+      "button": {
+        "confirm": "Beitreten",
+        "cancel": "Abbrechen"
+      }
+    },
+    "form-leave": {
+      "title": "Bonus-Lernphase",
+      "button": {
+        "confirm": "Verlassen",
+        "cancel": "Abbrechen"
+      }
+    },
+    "message": {
+      "registrationPeriodExpired": "Die Anmeldefrist ist abgelaufen. Du kannst der Bonus-Lernphase nicht mehr beitreten.",
+      "bonusEnded": "Die Bonus-Lernphase ist zu Ende",
+      "learnedEverything": "Perfekt! Du hast alle Karten aus dieser Kartei gelernt."
+    },
+    "progress": {
+      "maxWorkload": {
+        "single": "Maximales tägliches Lernpensum: max. __amount__ Karte",
+        "plural": "Maximales tägliches Lernpensum: max. __amount__ Karten"
+      }
+    },
+    "form": {
+      "new": {
+        "title": "Bonus-Lernphase aktivieren"
+      },
+      "edit": {
+        "title": "Bonus-Lernphase konfigurieren"
+      },
+      "maxWorkload": {
+        "label": "Maximales Tagespensum",
+        "placeholder": "Maximal täglich zu lernende Karten"
+      },
+      "forceNotifications": {
+        "mail": "E-Mail Erinnerungsdienst erzwingen",
+        "push": "Push Erinnerungsdienst erzwingen"
+      },
+      "simulator": {
+        "buttonModal":  "Maximales Tagespensum festlegen",
+        "buttonSimulate": "Optimales maximales Tagespensum berechnen",
+        "title": "Leitner Simulator",
+        "errorRate": {
+          "description": "Maximale Anzahl nicht gewusster Karten von __count__ über den gesamten Lernverlauf.",
+          "label": "% Fehlerquote",
+          "button": {
+            "reset": "Fehlerquote zurücksetzen"
+          }
+        },
+        "snapshots": "Snapshots des simulierten Bonus-Lernverlaufs. Der letzte Snapshot zeigt den Lernstand am Ende der Bonus-Lernphase.",
+        "graphLabel": "Simulierte Karten",
+        "addChanges": "Änderungen übernehmen",
+        "cancel": "Abbrechen"
+      },
+      "maxPoints": {
+        "label": "Maximal erreichbare Bonuspunkte in Prozent"
+      },
+      "minLearned": {
+        "label": "Gelernte Karten für max. Bonus"
+      },
+      "title": {
+        "label": "Titel",
+        "placeholder": "Der Titel für die Bonusphase (Optional)"
+      },
+      "daysBeforeReset": {
+        "label": "Überschreitungsfrist",
+        "placeholder": "in Tagen, danach fallen alle aktiven Karten in Box 1"
+      },
+      "startDate": {
+        "label": "Beginn der Bonusphase",
+        "placeholder": "Heute"
+      },
+      "endDate": {
+        "label": "Ende der Bonusphase",
+        "placeholder": "In 3 Monaten"
+      },
+      "registrationPeriod": {
+        "label": "Anmeldefrist",
+        "placeholder": ""
+      },
+      "intervals": {
+        "label": "Wiederholungs-Intervalle"
+      },
+      "strictWorkloadTimer": {
+        "label": "Strikte Lernzeit"
+      },
+      "button": {
+        "start": "Bonusphase aktivieren",
+        "cancel": "Abbrechen",
+        "update": "Aktualisieren",
+        "reset": "Zurücksetzen"
+      }
+    }
+  },
+  "cardset": {
+    "sidebar": {
+      "preview": {
+        "cardset": "Zeige die Studentenansicht für diese Kartei",
+        "repetitorium": "Zeige die Studentenansicht für dieses Repetitorium"
+      }
+    },
+    "info": {
+      "fragJetztLabel": {
+        "long": "Direkt zur verbundenen frag.jetzt Session gelangen",
+        "title": "frag.jetzt"
+      },
+      "arsnovaClickLabel": {
+        "long": "Direkt zur verbundenen arsnova.click Session gelangen",
+        "title": "arsnova.click"
+      },
+      "fragJetzt": "frag.jetzt Sitzungs-Code",
+      "arsnovaClick": "arsnova.click Quiz-Name",
+      "author": "Autor/in",
+      "multipleAuthors": "Mehrere",
+      "publisher": "Editor/in",
+      "originalAuthor": "Autor/in der importierten Kartei",
+      "rating": "Bewertung",
+      "userRating": "Deine Bewertung",
+      "notRated": "Noch nicht bewertet",
+      "quantity": "Kartenanzahl",
+      "release": "Erstellt",
+      "reviewer": "Prüfer/in",
+      "amount": "Preis",
+      "bought": "Gekauft",
+      "deleted": "Gelöscht",
+      "license": {
+        "title": {
+          "cardset": "CC-Lizenz",
+          "repetitorium": "CC-Lizenz Rep",
+          "rep-cardset": "CC-Lizenz Karteien"
+        },
+        "by": "Namensnennung",
+        "nc": "Nicht kommerziell",
+        "nd": "Keine Bearbeitung",
+        "sa": "Weitergabe unter gleichen Bedingungen",
+        "noCopyright": "Kein Copyright"
+      },
+      "shuffleLicense": "Siehe jeweilige Kartei",
+      "dateUpdated": "Aktualisiert",
+      "module": "Modulname",
+      "moduleShort": "Kurzbezeichnung",
+      "moduleNum": "Modulnummer",
+      "college": "Hochschule",
+      "course": "Studiengang",
+      "undefinedAuthor": "Bitte füll dein Profil aus!",
+      "workload": {
+        "bonus": {
+          "count": "Eingeschrieben",
+          "user": "__count__ Benutzer",
+          "user_plural": "__count__ Benutzer"
+        },
+        "normal": {
+          "count": "Gelernt von",
+          "user": "__count__ Benutzer",
+          "user_plural": "__count__ Benutzern"
+        }
+      }
+    },
+    "tooltip": {
+      "indexCardset": "Kartenverzeichnis öffnen",
+      "indexRep":  "Kartenverzeichnis öffnen",
+      "selectLicense": "Lizenz verwalten",
+      "publish": "Zugang festlegen",
+      "editCardset": "Metadaten der Kartei editieren",
+      "editRepetitorium": "Thema oder Beschreibung des Repetitoriums editieren",
+      "editAdminSettings": "Admin-Einstellungen",
+      "displayBonusStats": "Lernstatistik aller Teilnehmer"
+    },
+    "request": {
+      "alert": "Kartei zur Überprüfung freigegeben",
+      "accept": "Kartei freigeben",
+      "decline": "Kartei nicht freigeben",
+      "accepted": "Kartei freigegeben",
+      "declined": "Kartei nicht freigegeben",
+      "reason": "Gib eine Begründung für die Ablehnung der Anfrage an"
+    },
+    "money": {
+      "buy": "Kartei kaufen",
+      "pro": "Als Premium-Nutzer/in lernen",
+      "bought": "Vielen Dank für deinen Kauf!"
+    },
+    "alert": {
+      "addedToWorkload": "Zu deinem Lernpensum hinzugefügt"
+    },
+    "confirm-form-delete": {
+      "title": "Kartei löschen",
+      "text": "Willst du diese Kartei wirklich löschen? Wenn du den Vorgang bestätigst, wird die Lernstatistik für diese Kartei und die dazugehörigen Karten gelöscht.",
+      "success": "Die Kartei wurde gelöscht",
+      "failure": "Die Kartei konnte nicht gelöscht werden",
+      "repetitorium": {
+        "title": "Repetitorium löschen",
+        "text": "Willst du dieses Repetitorium wirklich löschen? Wenn du den Vorgang bestätigst, wird die Lernstatistik für dieses Repetitorium gelöscht. Die zugewiesenen Karteien und Karten werden nicht entfernt.",
+        "success": "Das Repetitorium wurde gelöscht",
+        "failure": "Das Repetitorium konnte nicht gelöscht werden"
+      }
+    },
+    "shuffled": {
+      "long": "Karteien-Sammlung",
+      "short": "Rep"
+    },
+    "bonus": {
+      "long": "Bonus-Lernphase",
+      "short": "Lern-Bonus"
+    },
+    "transcriptBonus": {
+      "long": "Mitschreib-Bonus",
+      "short": "Mitschreib-Bonus"
+    },
+    "list": {
+      "back": " Zurück zur Karte"
+    },
+    "transcriptBonusRating": {
+      "label": "Status",
+      "starsLabel": {
+        "stars1": "mäßige Mitschrift",
+        "stars2": "recht gute Mitschrift",
+        "stars3": "gute Mitschrift",
+        "stars4": "sehr gute Mitschrift",
+        "stars5": "hervorragende Mitschrift"
+      },
+      "tooltip": {
+        "pending": "Die Mitschrift wurde noch nicht bewertet",
+        "accepted": "Die Mitschrift wurde akzeptiert",
+        "denied": "Die Mitschrift wurde abgelehnt"
+      },
+      "navigation": {
+        "rate": "Mitschrift bewerten",
+        "skip": "Überspringen",
+        "accept": "Akzeptieren",
+        "deny": "Ablehnen",
+        "notUnlocked": "Die digitale Bearbeitungsfrist ist noch nicht abgelaufen"
+      },
+      "notification": {
+        "accept": "Die Mitschrift wurde akzeptiert",
+        "deny": "Die Mitschrift wurde abgelehnt"
+      },
+      "finished": {
+        "text": "Alle Mitschriften wurden bewertet",
+        "button": {
+          "back": "Zurück zur Übersicht"
+        }
+      },
+      "modal": {
+        "about": {
+          "icon": "Informationen zu dieser Bewertung anzeigen",
+          "title": "Über diese Bewertung",
+          "deny": {
+            "text": "Deine Mitschrift wurde aus folgendem Grund abgelehnt",
+            "text_plural": "Deine Mitschrift wurde aus folgenden Gründen abgelehnt"
+          }
+        },
+        "accept": {
+          "title": "Mitschrift akzeptieren",
+          "rating": "Bewertung der Mitschrift",
+          "stars1": "Kaum geeignet zur Vorbereitung auf die Klausur",
+          "stars2": "Teilweise geeignet zur Vorbereitung auf die Klausur",
+          "stars3": "Geeignet zur Vorbereitung auf die Klausur",
+          "stars4": "Gut geeignet zur Vorbereitung auf die Klausur",
+          "stars5": "Sehr gut geeignet zur Vorbereitung auf die Klausur",
+          "button": "Mitschrift akzeptieren"
+        },
+        "deny": {
+          "title": "Mitschrift ablehnen",
+          "reason": {
+            "title": "Die Mitschrift weist folgende Mängel auf:",
+            "content1": "Foto der Mitschrift fehlt oder wird nicht angezeigt.",
+            "content2": "Foto der Mitschrift ist nicht lesbar.",
+            "content3": "Mitschrift ist nicht geeignet zur Klausurvorbereitung.",
+            "content4": "Digitale Nachbearbeitung fehlt.",
+            "content5": "Digitale Nachbearbeitung ist nicht geeignet zur Klausurvorbereitung.",
+            "content6": "Formatierung der digitalen Nachbearbeitung ist nicht lernförderlich."
+          },
+          "button": "Mitschrift ablehnen"
+        }
+      }
+    }
+  },
+  "rating-field": {
+    "title": " Bewerten",
+    "stars": "Sterne",
+    "rating": "Bewertung",
+    "chars": "Zeichen",
+    "minchars": "Mindestens 60 Zeichen",
+    "cancel": "Abbrechen",
+    "edit": "Kartei bewerten"
+  },
+  "rating-table": {
+    "name": "Name",
+    "rating": "Bewertung",
+    "comment": "Kommentar"
+  },
+  "learn-endscreen": {
+    "success": "Lernpensum abgeschlossen",
+    "back2": " Zurück zur Kartei"
+  },
+  "carddeck-table": {
+    "name": "Name",
+    "category": "Kategorie",
+    "description": "Beschreibung"
+  },
+  "learning-goal": {
+    "name": "Auf welcher Kompetenzstufe ❶ bis ❻ soll geprüft werden?",
+    "cardName": "Kompetenzstufe",
+    "level1": "❶ »Verstehen«",
+    "level1Placeholder": "Du hast die Kompetenzstufe »Verstehen« gewählt. Formuliere das Kompetenzziel entsprechend mit einem der folgenden Verben: \n\nabgrenzen, anordnen, beschreiben, bestimmen, charakterisieren, einordnen, erkennen, erklären, gegenüberstellen.",
+    "level2": "❷ »Anwenden«",
+    "level2Placeholder": "Du hast die Kompetenzstufe »Anwenden« gewählt. Formuliere das Kompetenzziel entsprechend mit einem der folgenden Verben: \n\nanwenden, anfertigen, ausführen, abbilden, berechnen, deuten, durchführen, erstellen.",
+    "level3": "❸ »Analysieren«",
+    "level3Placeholder": "Du hast die Kompetenzstufe »Analysieren« gewählt. Formuliere das Kompetenzziel entsprechend mit einem der folgenden Verben: \n\nableiten, analysieren, auswählen, auswerten, Aussagen auf Richtigkeit überprüfen, Bedeutung ermitteln, beweisen, Beziehungen klarlegen, gliedern.",
+    "level4": "❹ »Synthetisieren«",
+    "level4Placeholder": "Du hast die Kompetenzstufe »Synthetisieren« gewählt. Formuliere das Kompetenzziel entsprechend mit einem der folgenden Verben: \n\narrangieren, einordnen, ergänzen, integrieren, planen, Thesen bilden, zusammenfügen, zusammensetzen.",
+    "level5": "❺ »Bewerten«",
+    "level5Placeholder": "Du hast die Kompetenzstufe »Bewerten« gewählt. Formuliere das Kompetenzziel entsprechend mit einem der folgenden Verben: \n\nabwägen, begründen, beurteilen, beweisen, diskutieren, einschätzen, entscheiden, evaluieren, gewichten.",
+    "level6": "❻ »Innovieren«",
+    "level6Placeholder": "Du hast die Kompetenzstufe »Innovieren« gewählt. Formuliere das Kompetenzziel entsprechend mit einem der folgenden Verben: \n\nerfinden, entdecken, entwerfen, entwickeln, erzeugen, konstruieren, konzipieren, kreieren."
+  },
+  "filter-cards": {
+    "filter": "Filtern",
+    "infoText": "Anzahl ausgewählter Karten:",
+    "settings": "Einstellungen",
+    "sortText": "Sortiermodus",
+    "sortMode0": "Zufällig",
+    "sortMode1": "Alphanumerisch"
+  },
+  "infinite-scroll": {
+    "remainingShort": "__current__ von __total__",
+    "remainingTranscripts": "__current__ von __total__ Mitschriften",
+    "remainingTranscriptsBonus": "__current__ von __total__ Bonus-Mitschriften",
+    "remainingCardsets": "__current__ von __total__ Karteien",
+    "remainingReps": "__current__ von __total__ Repetitorien"
+  },
+  "swapQuestionAnswer": {
+    "modal": {
+      "title": "Vorwärts oder rückwärts lernen?",
+      "normal": "Möchtest du die Kartei rückwärts lernen? <br>Das heißt, soll die Rückseite einer Karte zuerst angezeigt werden?",
+      "shuffled": "Möchtest du die Karten folgender Karteitypen rückwärts lernen? Das heißt, soll die Rückseite einer Karte zuerst angezeigt werden?<br> <b>__cardTypes__</b>",
+      "button": {
+        "forward": "Karten vorwärts lernen",
+        "backward": "Karten rückwärts lernen"
+      }
+    }
+  },
+  "courseIteration": {
+    "name": "Repetitorium",
+    "targetAudience": "Erstellt für…",
+    "confirm-form-delete": {
+      "title": "Repetitorium löschen",
+      "alsoDeleteAssociatedDecks": "Dazugehörige Karteien löschen",
+      "text": "Willst du dieses Repetitorium wirklich löschen? Wenn du den Vorgang bestätigst, wird die Lernstatistik für dieses Repetitorium gelöscht. Die zum Repetitorium gehörenden Karteien bleiben erhalten, es sei denn, du aktivierst die folgende Option."
+    },
+    "manage": "Repetitorium verwalten",
+    "list": {
+      "selectCourse": "Repetitorium auswählen",
+      "createCourse": "Repetitorium anlegen",
+      "empty": "Ein Repetitorium fasst Karteien thematisch zusammen und dient der Vorbereitung auf eine Prüfung.",
+      "courseIteration": "Thema des Repetitoriums",
+      "module": "Modul",
+      "course": "Studiengang",
+      "progress": "Statistik",
+      "semester": "Fachsemester",
+      "noSemester": "Ohne Fachsemester",
+      "semesterList": "__count__. Semester"
+    },
+    "modal": {
+      "new": "Repetitorium anlegen",
+      "edit": "Beschreibung bearbeiten",
+      "saveNew": "Repetitorium anlegen",
+      "save": "Repetitorium speichern",
+      "delete": "Repetitorium löschen",
+      "placeholder": {
+        "name": "Thema des Repetitoriums in wenigen Worten",
+        "description": "Nenne die Kompetenzziele des Repetitoriums. \n\nWas willst du nach dem Lernen aller Karteien, die zum Repetitorium gehören, langfristig wissen und können?"
+      }
+    },
+    "targetAudience1": {
+      "name": "Privat",
+      "abbreviation": "Privat"
+    },
+    "targetAudience2": {
+      "name": "Vorkurs",
+      "abbreviation": "Vorkurs"
+    },
+    "targetAudience3": {
+      "name": "Brückenkurs",
+      "abbreviation": "Brückenkurs"
+    },
+    "targetAudience4": {
+      "name": "Bachelorkurs",
+      "abbreviation": "Bachelorkurs"
+    },
+    "targetAudience5": {
+      "name": "Masterkurs",
+      "abbreviation": "Masterkurs"
+    },
+    "targetAudience6": {
+      "name": "Weiterbildungskurs",
+      "abbreviation": "Weiterbildung"
+    }
+  },
+  "learningUnit": {
+    "chooseIndex": "Lernkartei auswählen",
+    "chooseUnit": "Bezieht sich auf die Lernkarte...",
+    "choose": "Gehört zur Lernkartei...",
+    "none": "Gehört nicht zu einer Lernkartei",
+    "noUnitsFound": "Es sind keine Lernkarteien vorhanden.",
+    "save": "Speichern",
+    "cancel": "Zurück"
+  },
+  "cardCounter": {
+    "default": "__current__ / __total__",
+    "preview": "Vorschau: __current__ / __total__",
+    "leitner": "Noch eine Karte",
+    "leitner_plural": "Noch __count__ Karten",
+    "leitnerShort": "1 Karte",
+    "leitnerShort_plural": "__count__ Karten",
+    "review": "Noch eine Mitschrift",
+    "review_plural": "Noch __count__ Mitschriften",
+    "reviewShort": "1 Mitschrift",
+    "reviewShort_plural": "__count__ Mitschriften"
+  },
+  "permission": "Kein Zugang",
+  "nocards": "Keine Karten vorhanden",
+  "learnPhaseActiveHeader": "Lernphase mit Bonusvergabe",
+  "learnPhaseActiveBody": "Lernen mit geplanten Wiederholungen ist deaktiviert.",
+  "learnPhaseEnded": "Die Lernphase ist zu Ende.",
+  "noMoreCardsBeforeEnd": "Es gibt keine Karten mehr, die vor dem Ende der Lernphase gelernt werden können.",
+  "deadlinePrologue": "Du hast noch bis <strong>",
+  "deadlineEpilogue1": "</strong> Zeit, um die derzeit freigegebenen Karten zu lernen.",
+  "deadlineEpilogue2": "</strong> Zeit, um die derzeit freigegebenen Karten zu lernen, sonst wird deine Lernstatistik zurückgesetzt, das heißt, alle freigegebenen Karten werden in das vorherige Leitner-Fach zurückgelegt.",
+  "cardsToLearn": "Heute zu lernen",
+  "noCardsToLearn": "Die nächsten Karten werden am ",
+  "at": " um ",
+  "released": " freigeschaltet.",
+  "learn": "Lernen nach Plan",
+  "manage": "Kartei verlassen",
+  "selection": "Auswahl",
+  "filter": "Filtern",
+  "learnfile": "Leitner-Plan (empfohlen)",
+  "memo": "Woźniak-Plan (experimentell)",
+  "learnSelection": "Karten auswählen",
+  "resetLearnfile": "Leitner-Statistik löschen",
+  "resetWozniak": "Woźniak-Statistik löschen",
+  "resetWorkload": "Aus dem Lernpensum entfernen",
+  "statistics": "Kartei-Statistik",
+  "report": "Kartei melden",
+  "difficulty": "Level",
+  "noDifficulty": "Ohne Level",
+  "difficulty0": "Info",
+  "difficulty1": "Basics",
+  "difficulty2": "Advanced",
+  "difficulty3": "Expert",
+  "difficultyNotes": "Veranstaltung",
+  "difficultyNotes0": "Vorlesung",
+  "difficultyNotes1": "Übung",
+  "difficultyNotes2": "Seminar",
+  "difficultyNotes3": "Praktikum",
+  "arrowKeys": "Leertaste",
+  "key": "Taste __key__",
+  "cardType": "Karteityp",
+  "previewEdit": "",
+  "of": "von",
+  "content": "",
+  "turn": "umdrehen",
+  "copyCardTitle": "Karte kopieren",
+  "copyCardText": "Wähle eine Kartei als Ziel für den Kopiervorgang.",
+  "copycardSuccess": "Die Karte wurde kopiert",
+  "cardSubject": "Kompetenzziel | Thema",
+  "options": "Optionen",
+  "fronttext_required": "Bitte Vorderseite ausfüllen!",
+  "backtext_required": "Bitte Rückseite ausfüllen!",
+  "lecturetext_required": "Bitte Vertiefung ausfüllen!",
+  "cardsubject_required": "Bitte einen Titel für die Karte angeben!",
+  "text_max": "Es sind maximal __max__ Zeichen erlaubt!",
+  "cardsubject_max": "Es sind nur __max__ Zeichen erlaubt!",
+  "newcard": "Neue Karte",
+  "editcard": "Karte bearbeiten",
+  "showpicture": "Bild anzeigen",
+  "linkorsearchitem": "Link oder Suchbegriff eingeben",
+  "searchpicture": "Bildsuche",
+  "declinecard": "Abbrechen",
+  "deletecard": "Karte löschen",
+  "reset": "Zurücksetzen",
+  "deleteCards": "Karten löschen",
+  "confirmcard": "Sicher?",
+  "savecard": "Speichern & neue Karte",
+  "savecardReturn": "Speichern & zurück",
+  "savecardNext": "Speichern & nächste Karte",
+  "savecardSuccess": "Die Karte wurde gespeichert",
+  "deletecardSuccess": "Die Karte wurde gelöscht",
+  "valuation": "Bewertung",
+  "valuation2": "Sterne",
+  "valuationtext": "bei",
+  "valuationtext2": "Bewertungen",
+  "norating": "Keine Bewertungen vorhanden",
+  "createdof": "Erstellt von",
+  "backcarddecks": "Zurück zur Kartei",
+  "createdof2": "Erstellt von",
+  "details": "Grafik",
+  "cardCount": "Anzahl Karten",
+  "subjectInfo": "Karten in der Box __box__ werden täglich wieder vorgelegt.",
+  "subjectInfo_plural": "Karten in der Box __box__ werden nach __count__ Tagen wieder vorgelegt.",
+  "leitnerCard": "Karte für derzeitige Lernphase",
+  "backbutton": " Zur Kartei",
+  "backbuttonWorkload": "Zum Lernpensum",
+  "backbuttonStatistics": " Zurück zur Lernstatistik",
+  "know": "Gewusst",
+  "notknow": "Nicht gewusst",
+  "box_status": "Eine Karte zu lernen",
+  "box_stats": "Lernstatistik anzeigen",
+  "box_status_plural": "__count__ Karten zu lernen",
+  "box_export": "Lernstatistik exportieren",
+  "box_export_birth_name": "Name",
+  "box_export_given_name": "Vorname",
+  "box_export_statistics": "Statistiken",
+  "box_export_mail": "E-Mail",
+  "clickcart": "Klicke auf die Karte, um sie zu drehen",
+  "carddecks": "Karteien",
+  "connection": {
+    "title": "Um 🍅__lastAppTitle__ online nutzen zu können, ist eine WebSocket-Verbindung zum Server erforderlich.",
+    "webSocket": "WebSocket-Check",
+    "connected": "Gute Serveranbindung",
+    "connecting": "Kritische Serververbindung",
+    "disconnected": "Keine Serververbindung"
+  },
+  "access-denied": {
+    "title": "Sorry, du hast keine Berechtigung für diese Kartei oder Funktion.",
+    "text": "Du hast keine Berechtigung, diese Seite zu öffnen!",
+    "button": "Schließen",
+    "reason": "",
+    "memo": "Lernen nach Woźniak ist gesperrt, solange die Bonusphase aktiv ist.",
+    "back": "Zurück"
+  },
+  "first-login": {
+    "text": "Ich habe die Allgemeinen Geschäftsbedingungen und die Datenschutzerklärung gemäß der EU-DSGVO (Datenschutz-Grundverordnung der EU) gelesen und bin damit einverstanden.",
+    "button": "Akzeptieren"
+  },
+  "footer": {
+    "language": "Wähle deine Sprache",
+    "info": "Über 🍅__lastAppTitle__",
+    "connection": "Verbindungsstatus"
+  },
+  "language": {
+    "german": "Deutsch",
+    "english": "Englisch"
+  },
+  "underDevelopment": {
+    "title": "We're sorry.",
+    "text": "Dieses Feature wird erst zum Sommersemester 2020 freigeschaltet."
+  },
+  "markdeep": {
+    "editor": {
+      "help": "Textformatierung",
+      "translate": "Übersetze die Eingabe mit »Beolingus«"
+    }
+  },
+  "access-level": {
+    "demo": {
+      "short": "Demo",
+      "long": "Demo-Kartei"
+    },
+    "free": {
+      "short": "Frei",
+      "long": "Frei für alle"
+    },
+    "edu": {
+      "short": "THM",
+      "long": "Frei für THM-Mitglieder"
+    },
+    "pro": {
+      "short": "Pro",
+      "long": "Frei im Abonnement"
+    },
+    "private": {
+      "short": "Privat",
+      "long": "Privat"
+    }
+  },
+  "import": {
+    "cardset": "Kartei importieren",
+    "cardsetSimpleNav": "Kartei importieren",
+    "success": {
+      "cardset": "Kartei wurde importiert",
+      "cards": "Karten wurden importiert"
+    },
+    "failure": "Fehlerhafte Dateistruktur",
+    "wrongFormat": {
+      "cardset": "Es wird nur das Dateiformat JSON unterstützt",
+      "cards": "Es wird nur das Dateiformat JSON unterstützt"
+    }
+  },
+  "export": {
+    "failure": {
+      "cardset": "Kartei konnte nicht exportiert werden",
+      "cards": "Karten konnten nicht exportiert werden"
+    },
+    "filename": {
+      "export": "Export",
+      "cardset": "Kartei",
+      "cards": "Karten"
+    }
+  },
+  "bertAlert": {
+    "publishBonus": {
+      "message": "Um die Bonusphase zu starten, müssen mindestens __cardcount__ erstellt und die Kartei als »Frei«, »__edu__« oder »Pro« veröffentlicht worden sein."
+    }
+  },
+  "backdoor": {
+    "title": "Rollentest",
+    "superAdmin": "Administrator/in",
+    "admin": "Korrektor/in",
+    "pro": "Pro-User",
+    "lecturer": "Dozent/in (CAS)",
+    "edu": "Student/in (CAS)",
+    "standard": "Standard-User",
+    "blocked": "Gesperrter User",
+    "firstLogin": "Erstanmeldung"
+  },
+  "login": {
+    "label": "Login "
+  },
+  "inventory": {
+    "cardsets": "Karteien:",
+    "cards": "Karten:",
+    "users": "User:",
+    "usersOnline": "Online:"
+  },
+  "wozniak": {
+    "show": "Zeige Antwort",
+    "skip": "Überspringen",
+    "rate": "Bewerte deine Antwort",
+    "answer": {
+      "0": "Keine Ahnung",
+      "0Mobile": "",
+      "1": "Falsch",
+      "1Mobile": "",
+      "2": "Falsch, aber…",
+      "2Mobile": "",
+      "3": "Richtig, aber…",
+      "3Mobile": "",
+      "4": "Richtig",
+      "4Mobile": "",
+      "5": "Sofort gewusst",
+      "5Mobile": ""
+    },
+    "endscreen": {
+      "text": "Lernpensum abgeschlossen"
+    },
+    "empty": {
+      "text": "Aktuell keine nach Lernplan zu lernenden Karten"
+    },
+    "help": {
+      "title": "Wiederholtes Lernen nach Woźniak",
+      "button": {
+        "confirm": "Ich hab's verstanden."
+      }
+    }
+  },
+  "messageOfTheDay": {
+    "title": "News",
+    "confirm": "Gelesen"
+  }
+}

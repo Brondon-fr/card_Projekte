@@ -1,0 +1,11 @@
+<template name="mainNavigationTopItemProfileItemSettings">
+    <tr class="{{#if isActiveRoute
+                     'profileSettings'}}active{{/if}}">
+        <td><a rel="noopener noreferrer"   class="dropdown-item"
+               href="/profile/{{currentUser._id}}/settings"><span
+                class="fas fa-user"></span></a></td>
+        <td><a rel="noopener noreferrer"   class="dropdown-item"
+               href="/profile/{{currentUser._id}}/settings">{{_
+                "profile.settings.name"}}</a></td>
+    </tr>
+</template>

@@ -1,0 +1,16 @@
+{
+  "cardsetNavigation": {
+    "button": {
+      "index":  {
+        "cardset": "Kartenverzeichnis",
+        "repetitorium": "Kartenverzeichnis"
+      }
+    },
+    "tooltip": {
+      "index":  {
+        "cardset": "Kartenverzeichnis",
+        "repetitorium": "Kartenverzeichnis"
+      }
+    }
+  }
+}

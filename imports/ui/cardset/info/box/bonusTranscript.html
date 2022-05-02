@@ -1,0 +1,30 @@
+<template name="bonusTranscriptInfoBox">
+    <div id="collapseBonusTranscriptInfoButton" class="col-xs-12 card card-block collapseButton">
+        <strong>{{_ "transcriptForm.info.title"}}</strong>
+        <span id="collapseBonusTranscriptInfoIcon" class="far fa-caret-square-down pull-right"></span>
+    </div>
+    <div class="collapse" id="collapseBonusTranscriptInfo">
+        <div class="card card-block">
+            <table class="table table-condensed table-striped table-hover infoBoxTable">
+                <tbody>
+                    {{> bonusTranscriptInfoBoxContent}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>
+
+<template name="bonusTranscriptInfoBoxContent">
+    {{> cardsetInfoBoxItemTranscriptBonusMaxPoints}}
+    {{> cardsetInfoBoxItemTranscriptMinimumSubmissions}}
+    {{> cardsetInfoBoxItemTranscriptMinimumStars}}
+    {{> cardsetInfoBoxItemBonusPointsFAQ}}
+    {{> cardsetInfoBoxItemTranscriptLectureDates}}
+    {{> cardsetInfoBoxItemTranscriptLectureEnd}}
+    {{> cardsetInfoBoxItemTranscriptSubmissionDeadline}}
+    {{> cardsetInfoBoxItemTranscriptEditDeadline}}
+    {{> cardsetInfoBoxItemTranscriptParticipants}}
+    {{> cardsetInfoBoxItemTranscriptSubmissions}}
+    {{> cardsetInfoBoxItemTranscriptMedian}}
+    {{> cardsetInfoBoxItemTranscriptMedianPerDate}}
+</template>

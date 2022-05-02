@@ -1,0 +1,174 @@
+.badgeFooterProgress {
+  margin-top: 8px;
+}
+
+.progress-bar {
+  position: absolute;
+}
+
+.progress-label {
+  position: relative;
+  z-index: 1;
+}
+
+.badgeFooterImg {
+  text-align: center;
+}
+
+.badgeWell {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.nav-pills {
+  .fas, .fab, .far {
+    width: 24px;
+    text-align: center;
+  }
+}
+
+.span1 {
+  display: inline-block;
+  height: 50px;
+  font-size: 40px;
+}
+
+.text-muted {
+  font-size: 12px;
+}
+
+.span2 {
+  display: inline-block;
+  font-size: 30px;
+  margin-top: 12px;
+}
+
+.span3 {
+  display: inline-block;
+  font-size: 25px;
+  margin-top: 17px;
+  height: 25px;
+}
+
+.span4 {
+  display: inline-block;
+  font-size: 20px;
+  margin-top: 22px;
+  height: 20px;
+}
+
+.span5 {
+  display: inline-block;
+  font-size: 20px;
+  margin-top: 22px;
+  height: 20px;
+}
+
+.span6 {
+  font-weight: normal;
+  font-size: 13px;
+  padding-top: 5px;
+  display: inline-block;
+}
+
+.span7 {
+  font-weight: normal;
+  font-size: 13px;
+  padding-top: 5px;
+  display: inline-block;
+}
+
+#well {
+  margin: 0;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+#column2 {
+  text-align: center;
+}
+
+#column8 {
+  text-align: center;
+}
+
+.divPic {
+  width: 36px;
+  height: 36px;
+  background-image: url('/img/trophy_36x36.png');
+}
+
+.progress {
+  margin: 0;
+  position: relative;
+}
+
+.divTrophy {
+  width: 36px;
+  height: 36px;
+  background-image: url('/img/trophy_36x36_gray.png');
+}
+
+#container {
+  min-width: 310px;
+  max-width: 800px;
+  min-height: 100%;
+  max-height: 100%;
+  margin: 0 auto
+}
+
+.panel-body {
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.list-group li {
+  margin: 1em;
+}
+
+.panel-footer {
+  margin-top: 2em;
+}
+
+#profilepublicoption1, #profilepublicoption2 {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.form-group .checkbox label, .form-group .radio label, .form-group label {
+  font-weight: normal !important;
+}
+
+label.col-md-4.control-label {
+  color: black;
+  margin-top: 6px;
+}
+
+.profile-info {
+  .form-group {
+    margin-top: 14px;
+  }
+
+  .control-label {
+    margin-top: 0 !important;
+    padding-top: 5px !important;
+  }
+
+  .control-data {
+    color: black;
+    text-align: left;
+    cursor: default;
+  }
+}
+
+h3.panel-title, h4.panel-title {
+  color: black;
+  font-weight: bold;
+}
+
+label.checkbox-inline {
+  color: black;
+}
+
+.notifications-form-group {
+  margin: 0 !important;
+}

@@ -1,0 +1,30 @@
+<template name="resetLeitnerForm">
+    <div class="modal fade" id="resetLeitnerModal" tabindex="-1" role="dialog"
+         aria-labelledby="resetLeitnerTitle">
+        <div class="modal-dialog">
+            <div class="modal-content modal-content-for-buttons">
+                <div class="modal-header">
+                    <span class="modal-icon">
+                        <span class="fas fa-trash"></span>
+                    </span>
+                    {{> mainModalItemCloseIcon}}
+                    <h4 id="resetLeitnerTitle" class="modal-title">{{_ "resetLearnfile"}}
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    {{_ "modal-dialog.resetLeitner" name= this.name }}
+                </div>
+                <div class="modal-footer">
+                    <button id="resetLeitnerConfirm" class="btn btn-raised btn-danger pull-right">{{_
+                            "reset"}}</button>
+                    <button id="resetLeitnerCancel" class="btn btn-raised btn-default pull-left"
+                            data-dismiss="modal">{{_
+                            "modal-dialog.cancel"}}</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</template>

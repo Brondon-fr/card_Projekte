@@ -1,0 +1,51 @@
+<template name="mainNavigationFooter">
+    {{#unless fullscreenActive}}
+        {{#unless canAccessFrontend}}
+            {{#unless isImpressum}}
+                {{> mainNavigationFooterItemInfo}}
+                {{> mainNavigationFooterItemThemeIcon}}
+            {{/unless}}
+        {{/unless}}
+        {{#if canDisplayFooter}}
+            <nav id="navbar-cards-footer" class="navbar navbar-default navbar-fixed-bottom navbar-cards {{#if isLandingPage}}hidden-xs{{/if}} {{#if canAccessFrontend}}hidden-xs{{/if}}">
+                <div class="container footer-container">
+                    <div class="visible-xs navbar-header">
+                        <div class="navbar-header-item pull-left">
+                            {{{getNavigationName}}}
+                        </div>
+                        <div class="navbar-header-item pull-right">
+                            <button type="button"
+                                    class="navbar-toggle pull-right toggle-navbar-collapse needsclick flex-content">
+                                {{{getNavigationIcon "collapse"}}}
+                            </button>
+                        </div>
+                        <div class="navbar-header-item pull-right">
+                            {{> mainNavigationFooterItemStatisticsMobile}}
+                        </div>
+                    </div>
+                    {{> mainNavigationFooterDropdownContent}}
+                </div>
+            </nav>
+        {{/if}}
+    {{/unless}}
+</template>
+
+<template name="mainNavigationFooterDropdownContent">
+    <div class="collapse navbar-collapse" id="navbar-cards-footer-collapse">
+        <ul class="nav navbar-nav">
+            {{#unless isLandingPage}}
+              {{> mainNavigationFooterItemBackToHome}}
+              {{> mainNavigationFooterItemDemo}}
+            {{/unless}}
+            {{> mainNavigationFooterItemAbout}}
+            {{> mainNavigationFooterItemLearning}}
+            {{> mainNavigationFooterItemFAQ}}
+            {{> mainNavigationFooterItemHelp}}
+            {{> mainNavigationFooterItemImpressum}}
+            {{> mainNavigationFooterItemAGB}}
+            {{> mainNavigationFooterItemDatenschutz}}
+            {{> mainNavigationFooterItemStatistics}}
+            {{> mainNavigationFooterItemTheme}}
+        </ul>
+    </div>
+</template>

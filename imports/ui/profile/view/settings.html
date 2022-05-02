@@ -1,0 +1,194 @@
+<!--##################################################################-->
+<!--profileSettings-->
+<!--##################################################################-->
+<template name="profileSettings">
+    <div id="profile-info">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{_ "panel-heading.hallo"}}</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" role="form">
+                    {{#if isUser}}
+                        {{#unless isInRole 'pro,lecturer'}}
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">{{_ "panel-body.profilepublic"}}</label>
+                                <div class="col-md-8">
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label id="profilepublicoption1"
+                                               class="btn btn-success profile-public {{#if
+                                                       getUser.visible}}active profilepublic-rb-text-color{{/if}}">
+                                            <input type="radio" name="visible" value="true">
+                                            <span class="flex-content">{{_ "panel-body.profilepublicoption1"}}</span>
+                                        </label>
+                                        <label id="profilepublicoption2"
+                                               class="btn btn-danger profile-private {{#unless
+                                                       getUser.visible}}active profilepublic-rb-text-color{{/unless}}">
+                                            <input type="radio" name="visible" value="false">
+                                            <span class="flex-content">{{_ "panel-body.profilepublicoption2"}}</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/unless}}
+                        <div class="profile-info">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">{{_ "panel-body.name"}}:</label>
+                                <div class="col-md-8 control-data">
+                                    {{getProfileName (getUser.profile.name) (getUser.username)}}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    {{#if gotMultipleRoles (getRoles (getUser.roles) true)}}
+                                        {{_ "panel-body.role_plural"}}:
+                                    {{else}}
+                                        {{_ "panel-body.role"}}:
+                                    {{/if}}
+                                </label>
+                                <div class="col-md-8 control-data">
+                                    {{getRoles (getUser.roles) false}}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">{{_ "panel-body.dateJoined"}}:</label>
+                                <div class="col-md-8 control-data">
+                                    {{getMomentsDate (getUser.createdAt) false 0 false}}
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        {{#unless isCardsLogin}}
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">{{_ "panel-body.email"}}:</label>
+                                <div class="col-md-8">
+                                    <input type="email" class="form-control" id="inputEmail"
+                                           placeholder="{{_ "panel-body.email-desc"}}" value="{{getUser.email}}">
+                                    <span id="errorEmail" class="help-block name"></span>
+                                </div>
+                            </div>
+                        {{/unless}}
+                        <div class="form-group hidden" id="inputEmailValidationForm">
+                            <label class="col-md-4 control-label">{{_ "panel-body.emailValidation"}}:</label>
+                            <div class="col-md-8">
+                                <input type="email" class="form-control" id="inputEmailValidation"
+                                       placeholder="{{_ "panel-body.emailValidation-desc"}}" value="">
+                                <span id="errorEmailValidation" class="help-block name"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">{{_ "panel-body.birthname"}}:</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="inputBirthName"
+                                       placeholder="{{_ "panel-body.birthname-desc"}}"
+                                       value="{{getUser.profile.birthname}}">
+                                <span id="errorBirthName" class="help-block name"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">{{_ "panel-body.givenname"}}:</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="inputGivenName"
+                                       placeholder="{{_ "panel-body.givenname-desc"}}"
+                                       value="{{getUser.profile.givenname}}">
+                                <span id="errorGivenName" class="help-block name"></span>
+                            </div>
+                        </div>
+                        {{#if gotMultipleThemes}}
+                            <div id="appThemeSelector" class="form-group">
+                                <label id="setCardTypeLabel" class="col-md-4 control-label" for="setAppTheme">{{_
+                                        "themes.profile.label"}}:</label>
+                                <form>
+                                    <div class="dropdown">
+                                        <div class="btn-group col-xs-12 col-md-8">
+                                            <button type="button"
+                                                    class="btn btn-raised btn-default setAppTheme setAppThemeDropdown longButton"
+                                                    data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false"
+                                                    value="{{cardType}}">
+                                                <span class="setAppThemeDropdownText">{{getActiveTheme}}</span>
+                                            </button>
+                                            <button type="button"
+                                                    class="btn btn-raised dropdown-toggle setAppThemeDropdown setAppThemeDropdownCaret"
+                                                    data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false">
+                                            <span class="flex-content"><span class="caret"></span>
+                                            <span class="sr-only"></span></span>
+                                            </button>
+                                            <ul class="dropdown-menu btn-raised longButton">
+                                                {{#each getAppThemes}}
+                                                    <li class="themeSelection" value="{{this.theme}}" data-id="{{this.theme}}">
+                                                        <a rel="noopener noreferrer" href="#" data-id="{{this.theme}}">{{{getAppThemeName this.theme}}}</a>
+                                                    </li>
+                                                {{/each}}
+                                            </ul>
+                                            <span id="helpSetAppTheme" class="text-warning"></span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        {{/if}}
+                        {{#if isNotificationEnabled}}
+                            <div id="notificationFormGroup" class="form-group">
+                                <label class="col-md-4 control-label">{{_ "confirmLearn-form.notification"}}:</label>
+                                <form>
+                                    <fieldset>
+                                        <div class="col-md-9 form-group notifications-form-group">
+                                            {{#if isMailEnabled}}
+                                                <div class="col-sm-6"
+                                                     style="{{#if isSocialLogin}}display: none;{{/if}}">
+                                                    <label class="checkbox-inline" for="mailNotificationCheckbox">
+                                                        <input type="checkbox" name="notification"
+                                                               id="mailNotificationCheckbox"
+                                                            {{getMailNotifications}}>
+                                                        {{_ "confirmLearn-form.mailNotificationCheckbox"}}
+                                                    </label>
+                                                </div>
+                                            {{/if}}
+                                            {{#if isPushEnabled}}
+                                                <div class="col-sm-6">
+                                                    <label class="checkbox-inline" for="webNotificationCheckbox">
+                                                        <input type="checkbox" name="notification"
+                                                               id="webNotificationCheckbox"
+                                                            {{getWebNotifications}}>
+                                                        {{_ "confirmLearn-form.webNotificationCheckbox"}}
+                                                    </label>
+                                                </div>
+                                            {{/if}}
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        {{else}}
+                            <br>
+                        {{/if}}
+                        <button id="profileCancel" type="button"
+                                class="btn btn-default btn-raised  profileSave"
+                                data-id="disabled">{{_
+                                "profile.cancel"}}</button>
+                        <button id="profileSave" type="button"
+                                class="btn btn-success btn-raised pull-right"
+                            {{disableIfOffline}}>
+                            <span class="far fa-save"></span> {{_ "profile.save"}}
+                        </button>
+                    {{/if}}
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">{{_ "profile.settings.delete"}}</h4>
+            </div>
+            <div class="panel-body">
+                <p>{{_ "profile.settings.deleteText" lastAppTitle=(getLastAppTitle)}}</p>
+                <hr/>
+                <button id="profileDelete" type="button" class="btn btn-danger btn-raised"
+                        data-toggle="modal"
+                        data-target="#profileDelteConfirmModal" {{disableIfOffline}}>
+                    <span class="fas fa-trash"></span> {{_ "profile.settings.delete"}}
+                </button>
+            </div>
+            {{> profileDeleteConfirmForm}}
+        </div>
+    </div>
+</template>

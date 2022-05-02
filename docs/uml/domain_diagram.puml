@@ -1,0 +1,167 @@
+@startuml
+hide methods
+hide empty members
+hide circle
+
+skinparam class {
+  BackgroundColor PaleGreen
+  BorderColor Green
+  ArrowColor black
+  FontSize 28
+  BackgroundColor<<USP>> Pink
+  BorderColor<<USP>> HotPink
+}
+
+skinparam backgroundColor Linen
+skinparam shadowing true
+skinparam minClassWidth 150
+skinparam LegendBackgroundColor Strategy
+skinparam LegendBorderThickness 0
+skinparam LegendFontSize 24
+skinparam defaultFontSize 20
+skinparam Padding 5
+skinparam Nodesep 100
+skinparam ArrowThickness 3
+skinparam ArrowColor DarkSlateGray
+skinparam FooterFontSize 30
+skinparam FooterFontColor black
+
+package "cards | domain model" <<Frame>> {
+
+
+class Cardset {
+   name
+   description
+   creator
+   cardType
+   difficulty
+   accessType
+   license
+   rating
+   price
+   pomodoroSettings
+   isRepetitorium
+   fragJetztCode
+   arsnovaClickQuizName
+   learningPhaseSettings
+}
+
+class Card {
+   subject
+   content1
+   content2
+   content3
+   content4
+   content5
+   content6
+   multipleChoiceAnswers
+   isTranscript
+   estimatedLearningTime
+}
+
+class LeitnerLearningPhase {
+	isBonus
+    isActive
+    start
+    end
+}
+
+class LeitnerLearningWorkload {
+   owner
+   isBonus
+   nextActivationDay
+   activeCardsCount
+}
+
+class LeitnerActivationDay <<USP>> {
+   sessionGroup
+   notificationStats
+   pomodoroSettings
+   timeSpentLearning
+   learningMedian
+   learningArithmeticMean
+   learningStandardDeviation
+}
+
+class LeitnerPerformanceHistory <<USP>> {
+   movedBox
+   answer
+   timeSpentOnCard
+}
+
+class LeitnerUserCardStats <<USP>> {
+  currentBox
+  nextUnlockDate
+  viewedAutoPDF
+  isActive
+  priority
+}
+
+class TranscriptBonus <<USP>> {
+	lectureDate
+    unlockTime
+    rating
+    submissionDeadline
+    editingDeadline
+    reasonForDenial
+    stars
+}
+
+class Woźniak {
+	repetitionCounter
+    interval
+    efficiencyScore
+    nextUnlockDate
+	viewedAutoPDF
+}
+
+class Rating {
+   rating
+   reviewer
+}
+
+class ErrorReport {
+   error
+   side
+   reporter
+}
+
+class purchaseHistory {
+	buyer
+    price
+}
+
+Cardset *-right- Card: contains >
+
+LeitnerLearningPhase "0..*" -up- "1" Cardset: refers to >
+LeitnerUserCardStats "2..*" -up- "1" LeitnerLearningWorkload: belongs to >
+LeitnerUserCardStats "1" -up- "1" Card: refers to >
+Woźniak "1" -right- "1" Card: belongs to >
+TranscriptBonus "0..*" -down- "1" Cardset: refers to >
+Card "1" -down- "1" TranscriptBonus: refers to >
+LeitnerLearningWorkload "0..*" -up- "1" LeitnerLearningPhase: belongs to >
+LeitnerActivationDay "1..*" -up- "1" LeitnerLearningWorkload: belongs to >
+LeitnerPerformanceHistory "0..*" -up- "1" LeitnerUserCardStats: keeps history of >
+Rating "0..*" -right- "1" Cardset: rates >
+ErrorReport "0..*" -down- "1" Card: reports error to >
+purchaseHistory "0..*" -left "1" Cardset: keeps purchase history of >
+}
+
+legend right
+ |= \n          <img:https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/whatsapp/186/tomato_1f345.png> |= \n [[https://arsnova.cards arsnova.cards]] \n\n Technische Hochschule Mittelhessen - THM \n University of Applied Sciences |
+ | Project-Website | [[https://arsnova.thm.de]] |
+ | «USP» | Alleinstellungsmerkmale von arsnova.cards |
+ | Repository | [[https://git.thm.de/cards]] |
+ | Version | 3.2 |
+ | Staging Server | [[https://staging.arsnova.cards]] |
+ | RUP-Phase| Elaboration|
+ | UML-Tool| PlantUML v1.2021.0|
+ | Model version| 1.3 |
+ | Date created| 14.12.2020 |
+ | Creator | Janek Berg|
+ | Mail| janek.berg@mni.thm.de |
+ | Last modified | 26.06.2021 |
+ | Last editor | Curtis Adam |
+ | Mail| curtis.adam@mni.thm.de |
+end legend
+@enduml

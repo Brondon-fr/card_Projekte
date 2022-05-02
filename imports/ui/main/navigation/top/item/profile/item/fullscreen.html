@@ -1,0 +1,15 @@
+<template name="mainNavigationTopItemProfileItemFullscreen">
+    {{#if gotFullscreenSettingsAccess}}
+        <tr class="{{#if isActiveRoute
+                         'profileFullscreen'}}active{{/if}}">
+            <td><a rel="noopener noreferrer"   class="dropdown-item"
+                   href="/profile/{{currentUser._id}}/fullscreen"><span class="fa-stack fa-sm">
+  <span class="fa fa-expand fa-stack-2x"></span>
+  <span class="fa fa-cog fa-stack-1x"></span>
+</span></a></td>
+            <td><a rel="noopener noreferrer"   class="dropdown-item"
+                   href="/profile/{{currentUser._id}}/fullscreen">{{_
+                    "fullscreen.navigation"}}</a></td>
+        </tr>
+    {{/if}}
+</template>

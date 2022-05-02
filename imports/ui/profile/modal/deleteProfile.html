@@ -1,0 +1,42 @@
+<!--##################################################################-->
+<!--profileDeleteConfirmForm-->
+<!--##################################################################-->
+<template name="profileDeleteConfirmForm">
+    <div class="modal fade" id="profileDelteConfirmModal" tabindex="-1" role="dialog"
+         aria-labelledby="profileDelteConfirmModalTitle">
+        <div class="modal-dialog">
+            <div class="modal-content modal-content-for-buttons">
+                <div class="modal-header">
+                    <span class="modal-icon">
+                        <span class="fas fa-trash"></span>
+                    </span>
+                    {{> mainModalItemCloseIcon}}
+                    <h4 id="profileDelteConfirmModalTitle" class="modal-title">{{_ "confirm-form-profile.title"}}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{{_ "confirm-form-profile.text" lastAppTitle=(getLastAppTitle)}}</p>
+                    {{#if isInBonus}}
+                        {{#markdeep}}
+                            {{> leaveBonusFormContent}}
+                        {{/markdeep}}
+                    {{/if}}
+                    <br/>
+                    <p>{{_ "confirm-form-profile.text2" lastAppTitle=(getLastAppTitle)}}</p>
+                    <hr/>
+                </div>
+                <div class="modal-footer">
+                    <button id="profileDelete"
+                            class="btn btn-warning btn-raised pull-right btn-setDelete">{{_
+                            "confirm-form-profile.title"}}</button>
+                    <button id="profileCancel"
+                            class="btn btn-default btn-raised pull-left"
+                            data-dismiss="modal">{{_
+                            "modal-dialog.cancel"}}</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</template>

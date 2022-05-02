@@ -1,0 +1,38 @@
+<template name="helpContentDECategoryCardView">
+    {{#if isLinuxHelp}}
+        (##) Karten lernen
+
+        <a rel="noopener noreferrer"   href="/img/help/de/Kartei.png" data-lightbox="img-1"
+           data-title="Kartei-Optionen">
+            <img src="/img/help/de/Kartei.png" alt="Kartei-Optionen"
+                 class="img-responsive center-block">
+        </a>
+        <ul class="thm-numbering">
+            <li><strong>Badges: </strong>Der erste Badge zeigt die Anzahl der Karten in diesem Repetitorium.
+                Mit dem zweiten Badge, dem Wegweiser der Plattform, gelangst du zu den anderen Repetitorien und zu deinem Lernpensum.
+            </li>
+            <li><strong>Details zum Repetitorium </strong>
+            </li>
+            <li><strong>Details zur Bonus-Lernphase </strong>
+            </li>
+            <li><strong>Lernen nach Plan: </strong>Wähle den Leitner-Plan, wenn du dich auf eine LPI-Zertifizierung vorbereiten willst.
+            </li>
+        </ul>
+    {{else}}
+        (##) Kartei-Optionen
+
+        <a rel="noopener noreferrer"   href="/img/help/de/Kartei-Optionen.png" data-lightbox="img-1"
+           data-title="Kartei-Optionen">
+            <img src="/img/help/de/Kartei-Optionen.png" alt="Kartei-Optionen"
+                 class="img-responsive center-block">
+        </a>
+        <ul class="thm-numbering">
+            <li><strong>Kartei-Badges </strong></li>
+            <li><strong>Beschreibung der Kartei </strong></li>
+            <li><strong>Kartei-Optionen </strong>Dargestellt ist die Ansicht der Autorin oder des Autors der Kartei.
+            Mit dem Button am oberen linken Rand kannst du sehen,
+                welche Kartei-Optionen einem User in der Rolle »Lerner/in« zur Verfügung stehen.
+            </li>
+        </ul>
+    {{/if}}
+</template>

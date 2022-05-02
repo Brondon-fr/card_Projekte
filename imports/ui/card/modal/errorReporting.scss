@@ -1,0 +1,30 @@
+#showErrorReportingModal {
+  label {
+    text-align: left;
+    margin-top: 20px;
+  }
+
+  #cardSidesGroupLabel, #discoveredErrorLabel, #otherErrorLabel, #changeErrorLabel {
+    padding-bottom: 1em !important;
+  }
+
+  #cardSidesGroup > span {
+    padding-bottom: 1em !important;
+
+  }
+
+  #cardSidesGroup {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 100px;
+  }
+
+  #otherError {
+    padding-right: 1em !important;
+    padding-left: 1em !important;
+  }
+
+  #otherErrorTextarea {
+    padding: 1em !important;
+  }
+}

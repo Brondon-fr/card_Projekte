@@ -1,0 +1,227 @@
+hr {
+  margin: 10px 0;
+}
+
+.ellipsis > *, .ellipsis {
+  text-overflow: ellipsis;
+  overflow: auto;
+}
+
+.resultItemHeaderBottomAreaLabels.enabled .label-group > .label:not(:first-child) {
+  cursor: pointer;
+}
+
+.cardsetHeaderTop {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.cardsetHeaderBottom {
+  padding-top: 5px;
+  padding-bottom: 10px;
+  font-weight: normal;
+  font-size: 13px;
+}
+
+.cardsetLabel {
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.nav-header {
+  display: block;
+  padding: 3px 15px;
+  font-size: 11px;
+  font-weight: normal;
+  line-height: 20px;
+  text-shadow: 0 1px 0 gray;
+  text-transform: uppercase;
+}
+
+.emptyCellList {
+  padding-top: 33px !important;
+}
+
+.emptyTextList {
+  font-style: italic;
+}
+
+.btn-newSet {
+  margin-bottom: 27px;
+  margin-top: 20px;
+}
+
+.cardsetBadge {
+  float: right;
+}
+
+#newSetDescription {
+  resize: none;
+}
+
+ul.nav-list li.active {
+  font-weight: bold;
+}
+
+.module {
+  margin-left: 0.1em !important;
+  margin-right: 0.1em !important;
+}
+
+.info_license img {
+  width: 18px;
+  margin-right: 3px;
+}
+
+.longButton {
+  text-align: left;
+  padding-left: 15px;
+  width: calc(100% - 25px) !important;
+  margin-bottom: 7px;
+}
+
+.setCardTypeDropdownCaret, .setCardTypeUseCaseDropdownCaret, .setLearningIndexDropdownCaret, .setTranscriptBonusLectureDropdownCaret, .setAppThemeDropdownCaret {
+  width: 25px !important;
+  padding: 0 !important;
+  text-align: center !important;
+  .caret {
+    margin-left: 0 !important;
+  }
+}
+
+.dropdown-menu {
+  margin-left: 12px;
+}
+
+.btn-group {
+  margin: 10px 0px;
+}
+
+.btn-toolbar .btn {
+  padding: 10px 17px;
+}
+
+.btn-group ul {
+  padding: 0px;
+  li {
+    padding: 10px 0px;
+  }
+}
+
+input, textarea {
+  padding: 0px 5px !important;
+}
+
+.form-control {
+  margin-bottom: -1px !important;
+}
+
+#course-list-region, #learn-list-region, #set-list-region {
+  .empty-list {
+    padding-top: 10px;
+  }
+  .deleteLearned {
+    cursor: pointer;
+  }
+}
+
+.licenseInfoCreate {
+  padding-left: 0;
+  padding-right: 0;
+  @media (max-width: 767px) {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+}
+
+@media (min-width: 992px) {
+  #removeShuffledCards {
+    float: right;
+  }
+}
+
+.labelLearning {
+  font-size: 80% !important;
+}
+
+.moduleRadioButtonGroup {
+  margin-top: -10px;
+}
+
+@media (max-width: 767px) {
+  .radio-inline {
+    margin-left: 0!important;
+  }
+}
+
+
+#learn-list-region .tip-content {
+  @media (min-width: 768px) {
+    margin-left: 120px;
+  }
+  @media (min-width: 992px) {
+    margin-left: 180px;
+  }
+  @media (min-width: 1200px) {
+    margin-left: 190px;
+  }
+}
+
+#importCardset {
+  visibility: hidden !important;
+}
+
+.empty-button-placeholder {
+  display: block !important;
+  min-height: 70px !important;
+  width: 100% !important;
+}
+
+#newCardSet, #newRepetitorium {
+  padding: 8px 30px !important;
+}
+
+.itemDateRow {
+  padding-left: 0;
+  padding-right: 0;
+  cursor: default;
+}
+
+.resultItemHeaderWorkload {
+  padding-right: 0;
+}
+
+.resultItemHeaderBottomAreaLabels .aboutThisRating {
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.resultItemHeaderBottomAreaLabels .label-transcript-rating-denied {
+  margin-right: 5px !important;
+}
+
+.card-header-label .aboutThisRating {
+  cursor: pointer;
+}
+
+.aboutThisRatingLabel {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.shuffleButton {
+  margin: 0;
+}
+
+.resultsHeader {
+  cursor: default;
+}
+
+@media (min-width: 1200px) {
+  .resultItemHeaderBottomAreaButtons {
+    padding-left: 0;
+  }
+}
+

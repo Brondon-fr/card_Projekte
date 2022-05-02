@@ -1,0 +1,95 @@
+<template name="filterNavigation">
+    <ul class="nav navbar-nav filter-top-row cards-filter-element">
+        {{#if gotResetButton}}
+            {{> filterItemResetButton}}
+        {{/if}}
+        {{#if gotKindFilter}}
+            {{> filterItemFilterKind}}
+        {{/if}}
+    </ul>
+    <ul class="nav navbar-nav filter-bottom-row cards-filter-element">
+        {{#if gotSortButton}}
+            {{> filterItemSortResults}}
+        {{/if}}
+        {{#if gotCardTypeFilter}}
+            {{> filterItemFilterCardType}}
+        {{/if}}
+        {{#if gotDifficultyFilter}}
+            {{> filterItemFilterDifficulty}}
+        {{/if}}
+        {{#if gotAuthorFilter}}
+            {{> filterItemFilterAuthors}}
+        {{/if}}
+        {{#if gotWordcloudFilter}}
+            {{> filterItemFilterWordcloud}}
+        {{/if}}
+        {{#if gotLecturerAuthorizedFilter}}
+            {{> filterItemFilterLecturerAuthorized}}
+        {{/if}}
+        {{#if gotUseCaseFilter}}
+                {{> filterItemFilterUseCase}}
+        {{/if}}
+        {{#if gotBonusFilter}}
+            {{> filterItemFilterBonus}}
+        {{/if}}
+        {{#if gotTranscriptLectureFilter}}
+            {{> filterItemFilterTranscriptLecture}}
+        {{/if}}
+        {{#if gotRatingFilter}}
+            {{> filterItemFilterRating}}
+        {{/if}}
+        {{#if gotStarsFilter}}
+            {{> filterItemFilterStars}}
+        {{/if}}
+    </ul>
+</template>
+
+<template name="filterNavigationMobile">
+    {{#if gotResetButton}}
+        {{> filterItemResetButton}}
+    {{/if}}
+    {{#if gotSortButton}}
+        {{> filterItemSortResults}}
+    {{/if}}
+    {{#if gotCardTypeFilter}}
+        {{> filterItemFilterCardType}}
+    {{/if}}
+    {{#if gotDifficultyFilter}}
+        {{> filterItemFilterDifficulty}}
+    {{/if}}
+    {{#if gotAuthorFilter}}
+        {{> filterItemFilterAuthors}}
+    {{/if}}
+    {{#if gotWordcloudFilter}}
+        {{> filterItemFilterWordcloud}}
+    {{/if}}
+    {{#if gotLecturerAuthorizedFilter}}
+        {{> filterItemFilterLecturerAuthorized}}
+    {{/if}}
+    {{#if gotUseCaseFilter}}
+        {{> filterItemFilterUseCase}}
+    {{/if}}
+    {{#if gotBonusFilter}}
+        {{> filterItemFilterBonus}}
+    {{/if}}
+    {{#if gotKindFilter}}
+        {{> filterItemFilterKind}}
+    {{/if}}
+    {{#if gotRatingFilter}}
+        {{> filterItemFilterRating}}
+    {{/if}}
+</template>
+
+<template name="infiniteScroll">
+    {{#if moreResults}}
+        <a rel="noopener noreferrer"   href="#" class="showMoreResultsContainer" title="{{_ "set-list.moreResults"}}">
+            <div id="showMoreResults" class="showMoreResults col-xs-12 panel panel-default">
+                <div class="flex-content">
+                    <div class="scrollArrow col-xs-12 infinite-scroll-icon fas fa-angle-down">
+                        <span class="resultCounter"><span class="visible-xs">{{getCurrentResults true}}</span><span class="hidden-xs">{{getCurrentResults false}}</span></span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    {{/if}}
+</template>

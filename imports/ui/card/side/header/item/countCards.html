@@ -1,0 +1,11 @@
+<template name="cardContentItemCountCards">
+    {{#unless isTranscriptRoute}}
+        <span class="cardHeaderSmallText cardCounter">
+            {{#unless hasCardsetPermission cardset_id}}
+                {{_ "cardCounter.preview" current=(cardsIndex this._id) total=(getCardsetCount true)}}
+            {{else}}
+                {{_ "cardCounter.default" current=(cardsIndex this._id) total=(getCardsetCount false)}}
+            {{/unless}}
+        </span>
+    {{/unless}}
+</template>

@@ -1,0 +1,81 @@
+<template name="editor">
+    {{> cancelEditForm}}
+    <div class="row firstEditorRow editorElement">
+        <div id="subject" class="col-lg-6 cardtext editorElement">
+            <h5>{{getSubjectLabel}}</h5>
+            {{> selectLearningUnit}}
+            {{> subjectEditor}}
+        </div>
+        {{#if gotLearningGoal}}
+            <div id="learningGoalLevel" class="col-lg-6 cardtext editorElement">
+                <h5>{{_ "learning-goal.name"}}</h5>
+                {{> learningGoalLevel}}
+            </div>
+        {{/if}}
+    </div>
+    <div class="{{#unless fullscreenActive}}row{{/unless}}">
+        <div class="{{#if isEditorView}}cardEditorHeader{{/if}} col-xs-12 {{#unless
+                fullscreenActive}}col-lg-6{{/unless}}">
+            <h5 class="editorElement editorHeader">{{_ "content"}}</h5>
+            {{#unless isMobilePreviewActiveAndFullscreen}}
+                {{#unless gotNoSideContent}}
+                    {{> cardNavigation}}
+                {{/unless}}
+            {{/unless}}
+            {{>markdeepNavigation}}
+            {{> markdeepContent}}
+            {{> editorButtonGroup}}
+        </div>
+        {{isTextCentered}}
+        <div id="preview" class="col-xs-12 {{#unless fullscreenActive}}col-lg-6{{/unless}} cardtext">
+            <h5 class="editorElement">{{_ "previewEdit"}}</h5>
+            {{#if isMobilePreviewActive}}
+                <div class="mobilePreviewContainer">
+                    <div class="mobilePreviewFrame {{#if isMobilePreviewRotated}}portrait{{else}}landscape{{/if}}">
+                        <div class="mobilePreviewContent {{#if
+                                isMobilePreviewRotated}}portrait{{else}}landscape{{/if}}">
+                            {{> flashcardSidebar}}
+                            {{> presentationView}}
+                        </div>
+                    </div>
+                </div>
+            {{else}}
+                {{#if gotNoSideContent}}
+                    {{> presentationView}}
+                {{else}}
+                    {{> flashcards cardset=this}}
+                {{/if}}
+            {{/if}}
+        </div>
+    </div>
+</template>
+
+<template name="newCard">
+    {{#if canAccessEditor}}
+        {{> editor}}
+    {{else}}
+        {{> accessDenied}}
+    {{/if}}
+</template>
+
+<template name="editCard">
+    {{#if canAccessEditor}}
+        {{> editor}}
+    {{else}}
+        {{> accessDenied}}
+    {{/if}}
+</template>
+
+<template name="editorButtonGroup">
+    <div id="editorButtonGroup" class="col-xs-12 actionButtons editorElement">
+        {{#if isNewCard}}
+            {{> cardEditorItemButtonSave}}
+            {{> cardEditorItemButtonSaveReturn}}
+            {{> cardEditorItemButtonCancel}}
+        {{else}}
+            {{> cardEditorItemButtonSaveReturn}}
+            {{> cardEditorItemButtonSaveNext}}
+            {{> cardEditorItemButtonCancel}}
+        {{/if}}
+    </div>
+</template>

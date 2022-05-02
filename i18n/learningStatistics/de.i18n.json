@@ -1,0 +1,56 @@
+{
+  "learningStatistics": {
+    "archived": "(Archiviert)",
+    "delete": "Löschen",
+    "tooltip": "",
+    "hideUserNames": "Benutzernamen verbergen",
+    "hiddenUser": "Benutzer",
+    "hiddenUserPlaceholder": "Bonus-Teilnehmer __index__",
+    "box": "Box __number__",
+    "workingTime": "Bearbeitungszeit",
+    "arithmeticMean": "Ø Antworzeit",
+    "bonus": "Bonuspunkte",
+    "learned": "Gelernt",
+    "boxIntervalDaily": "täglich",
+    "boxInterval": "nach __days__ Tagen",
+    "boxNotLearned": "[neu oder vergessen]",
+    "boxNotLearnedShort": "[neu | vergessen]",
+    "index": "__cardset__ mit __cardCount__ Karten",
+    "indexDefault": "Alle __cardsetCount__ Karteien mit __cardCount__ Karten gesamt",
+    "cardCount": "Gesamtzahl: __cardCount__ Karten",
+    "percentage": "Prozent",
+    "dateJoinedBonus": "Lernbeginn",
+    "lastActivity": "Letzte Aktivität",
+    "cardStats": "Karten",
+    "history": "Protokoll",
+    "log": "Verlauf",
+    "status": "Lernstand",
+    "notification": {
+      "mail": "E-Mail",
+      "push": "Push"
+    },
+    "user": {
+      "missingName": "Unvollständig"
+    },
+    "table": {
+      "general": {
+        "title": "Allgemein",
+        "state": "Stand",
+        "lastActivityMissing": "Noch keine Karte bearbeitet",
+        "user": "Benutzer",
+        "eMail": "E-Mail",
+        "cardset": "Kartei",
+        "repetitorium": "Repetitorium",
+        "isInBonus": {
+          "title": "Eingeschrieben in Bonus?",
+          "yes": "Ja",
+          "no": "Nein"
+        }
+      }
+    },
+    "manage": "Verwalten",
+    "bertAlert": {
+      "userRemoved": "User wurde aus der Bonusphase entfernt"
+    }
+  }
+}

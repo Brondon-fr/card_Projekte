@@ -1,0 +1,123 @@
+#markdeepNavigation {
+  user-select: none;
+  .editor-navigation-row .btn-group {
+    margin-left: 15px;
+  }
+
+  .editor-navigation-row .btn-group:first-child {
+    margin-left: 7px !important;
+  }
+
+  .toggleAnswersContainer {
+    margin-left: 0 !important;
+  }
+
+  .card-button {
+    text-align: center;
+    vertical-align: top;
+    margin-right: 5px;
+    font-size: 16px !important;
+    padding: 6px !important;
+  }
+
+  .btn-group .card-button:last-child {
+    margin-right: 0;
+  }
+
+  .markdeep-mobile-preview {
+    font-size: 20px !important;
+    padding: 4px 10px !important;
+  }
+
+  .markdeep-rotate-mobile-preview {
+    padding: 6px 10px !important;
+  }
+
+  .markdeep-help, .markdeep-translate {
+    font-size: 16px;
+    height: 30px !important;
+  }
+
+  .markdeep-translate {
+    font-size: 14px !important;
+  }
+
+  .learningTime-group {
+    label, input {
+      color: white;
+    }
+    input {
+      width: 45px;
+      text-align: right;
+      padding-right: 5px;
+    }
+    .type-label {
+      float: left;
+      margin-top: 7px;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+  }
+
+  .markdeep-answer-add.disabled, .markdeep-answer-remove.disabled {
+    opacity: 25%;
+  }
+
+  .answerDropdown {
+    display: inline;
+
+    .dropdown-menu {
+      padding: 0;
+      overflow-y: auto;
+    }
+
+    .dropdown-item {
+      padding: 10px;
+      cursor: pointer;
+    }
+  }
+
+  .checkbox-container {
+    label:first-child {
+      border-radius: 5px 0 0 5px !important;
+    }
+
+    label:last-child {
+      border-radius: 0 5px 5px 0 !important;
+    }
+
+    .form-group {
+      margin-top: 10px;
+    }
+
+    .form-group input[type="checkbox"] {
+      display: none;
+    }
+
+    .form-group input[type="checkbox"] + .btn-group > label span {
+      width: 20px;
+    }
+
+    .form-group input[type="checkbox"] + .btn-group > label span:first-child {
+      display: none;
+    }
+    .form-group input[type="checkbox"] + .btn-group > label span:last-child {
+      display: inline-block;
+    }
+
+    .form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+      display: inline-block;
+    }
+    .form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
+      display: none;
+    }
+  }
+}

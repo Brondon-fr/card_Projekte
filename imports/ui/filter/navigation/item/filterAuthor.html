@@ -1,0 +1,34 @@
+<template name="filterItemFilterAuthors">
+    <li class="dropdown cards-filter-element">
+        <a rel="noopener noreferrer"   href="#" class="dropdown-toggle authorBtn cards-filter-element" data-toggle="dropdown" role="button"
+           aria-haspopup="true" aria-expanded="false">
+            {{#if isWorkloadRoute}}
+                {{_ "set-list.authorPublisher"}}
+            {{else}}
+                {{#if isRepetitorienFilterIndex}}
+                    {{_ "cardset.info.publisher"}}
+                {{else}}
+                    {{_ "set-list.author"}}
+                {{/if}}
+            {{/if}}
+            {{#if hasAuthorFilter}}
+                <span class="fas fa-filter navigationFilterIcon cards-filter-element"></span>
+            {{/if}}
+        </a>
+        <ul class="dropdown-menu cards-filter-element">
+            <li class="cards-filter-element">
+                <a rel="noopener noreferrer"   href="#" class="noFilterAuthor active cards-filter-element" data-id="">{{_ "set-list.everyone"}}</a>
+            </li>
+            {{#each getAuthors}}
+                <li class="cards-filter-element">
+                    <a rel="noopener noreferrer"   href="#" class="filterAuthor cards-filter-element"
+                       data-id="{{this._id}}">{{getAuthorName this}}
+                        {{#if resultsFilterAuthor this._id}}
+                            <span class="fas fa-filter navigationFilterIcon cards-filter-element"></span>
+                        {{/if}}
+                    </a>
+                </li>
+            {{/each}}
+        </ul>
+    </li>
+</template>

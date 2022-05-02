@@ -1,0 +1,217 @@
+<template name="filterIndex">
+    {{> mainModalArsnovaClick}}
+    {{> mainModalArsnovaLite}}
+    {{> wordcloudModal}}
+    {{> showLicense}}
+    {{> learningHistoryModal}}
+    {{> learningCardStatusModal}}
+    {{> selectLicenseForm}}
+    {{> cardsetPublishForm}}
+    {{> cardsetExportForm}}
+    {{#unless isCardsetTranscriptBonusRoute}}
+        {{> filterItemSelectCardsetToLearnCallout}}
+        {{#if gotBackendAccess}}
+            {{> cardsetFormAdmin}}
+        {{/if}}
+        {{> cardsetDeleteForm}}
+        {{> cardsetForm}}
+    {{/unless}}
+    <div id="set-list-region">
+        {{#if isActiveRoute regex='alldecks|create'}}
+            {{> filterIndexCreate}}
+        {{/if}}
+
+        {{#if isActiveRoute regex='repetitorium|allRepetitorien|personalRepetitorien'}}
+            {{> filterIndexRepetitorium}}
+        {{/if}}
+
+        {{#if isActiveRoute 'learn'}}
+            {{> selectModeForm}}
+            {{> cardsetsConfirmLearnForm}}
+            {{> leaveBonusForm}}
+            {{> filterIndexWorkload}}
+        {{/if}}
+
+        {{#if isActiveRoute 'shuffle'}}
+            {{> filterIndexShuffle}}
+        {{/if}}
+
+        {{#if isActiveRoute 'pool'}}
+            {{> filterIndexPool}}
+        {{/if}}
+
+        {{#if isActiveRoute regex='transcriptsPersonal|transcriptsBonus'}}
+            {{#if displayedTranscriptNavigation}}
+                {{> aboutThisRatingModal}}
+                {{> cardsetIndexTranscriptNavigation}}
+                {{#if isViewActive 1}}
+                    <div class="col-xs-12">
+                        {{> filterItemCreateTranscriptButton}}
+                    </div>
+                    {{> cardsetIndexTranscriptStatistics}}
+                {{else}}
+                    {{> filterIndexTranscripts}}
+                {{/if}}
+            {{else}}
+                {{> filterIndexTranscripts}}
+            {{/if}}
+        {{/if}}
+        {{#if isCardsetTranscriptBonusRoute}}
+            {{> aboutThisRatingModal}}
+            {{> filterIndexTranscripts}}
+        {{/if}}
+    </div>
+</template>
+
+<template name="filterIndexPool">
+    {{#unless isSelectingCardsetToLearn}}
+        <div class="empty-button-placeholder"></div>
+    {{/unless}}
+    {{#if getDecks 0}}
+        {{#if displayWordcloud}}
+            {{> wordcloud}}
+        {{else}}
+            {{#if getDecks 1}}
+                <div class="filter-result-container">
+                    {{#each getDecks 2}}
+                        {{> filterIndexItemCardset extendContext 'index' @index}}
+                    {{/each}}
+                </div>
+                {{> infiniteScroll}}
+            {{else}}
+                {{> noFilterResults}}
+            {{/if}}
+        {{/if}}
+    {{else}}
+        {{> noResults}}
+    {{/if}}
+</template>
+
+<template name="filterIndexTranscripts">
+    {{> deleteTranscriptForm}}
+    <span class="filter-index-buttons empty-button-placeholder">
+        {{#if isTranscriptRoute}}
+            <div class="col-xs-12">
+                {{> filterItemCreateTranscriptButton}}
+            </div>
+        {{/if}}
+        {{#if isCardsetTranscriptBonusRoute}}
+            {{> cardsetIndexTranscriptSubmissionsItemReviewButton}}
+        {{/if}}
+    </span>
+    {{#if getCards 0}}
+        {{#if getCards 1}}
+            <div class="filter-result-container">
+                {{#each getCards 2}}
+                    {{> filterIndexItemCard extendContext 'index' @index}}
+                {{/each}}
+            </div>
+            {{> infiniteScroll}}
+        {{else}}
+            {{> noFilterResults}}
+        {{/if}}
+    {{else}}
+        {{> noResults}}
+    {{/if}}
+</template>
+
+<template name="filterIndexShuffle">
+    {{#if canShuffle}}
+        <div class="container" id="set-list-region">
+            {{> filterItemShuffleRepetitoriumCallout}}
+            {{#if shuffleList 1}}
+                {{#each shuffleList 2}}
+                    <div class="filter-result-container">
+                        {{#unless isActiveCardset}}
+                            {{> filterIndexItemCardset extendContext 'index' @index}}
+                        {{/unless}}
+                    </div>
+                {{/each}}
+                {{> infiniteScroll}}
+            {{else}}
+                {{> noFilterResults}}
+            {{/if}}
+        </div>
+    {{/if}}
+</template>
+
+<template name="filterIndexCreate">
+    <span class="filter-index-buttons empty-button-placeholder">
+        {{#if isActiveRoute 'create'}}
+            {{> filterItemCreateCardsetButton}}
+            {{> filterItemImportCardsetButton}}
+            {{> filterItemReportCardsetButton}}
+        {{/if}}
+    </span>
+    {{#if cardsetList 0}}
+        {{#if displayWordcloud}}
+            {{> wordcloud}}
+        {{else}}
+            {{#if cardsetList 1}}
+                <div class="filter-result-container">
+                    {{#each cardsetList 2}}
+                        {{> filterIndexItemCardset extendContext 'index' @index}}
+                    {{/each}}
+                </div>
+                {{> infiniteScroll}}
+            {{else}}
+                {{> noFilterResults}}
+            {{/if}}
+        {{/if}}
+    {{else}}
+        {{> noResults}}
+    {{/if}}
+</template>
+
+<template name="filterIndexRepetitorium">
+    {{#unless isSelectingCardsetToLearn}}
+        {{#if isPersonalRepetitorienRoute}}
+            <span class="filter-index-buttons empty-button-placeholder">
+                {{> filterItemCreateRepetitoriumButton}}
+            </span>
+        {{else}}
+            <div class="empty-button-placeholder"></div>
+        {{/if}}
+    {{/unless}}
+    {{#if cardsetList 0}}
+        {{#if displayWordcloud}}
+            {{> wordcloud}}
+        {{else}}
+            {{#if cardsetList 1}}
+                <div class="filter-result-container">
+                    {{#each cardsetList 2}}
+                            {{> filterIndexItemCardset extendContext 'index' @index}}
+                    {{/each}}
+                </div>
+                {{> infiniteScroll}}
+            {{else}}
+                {{> noFilterResults}}
+            {{/if}}
+        {{/if}}
+    {{else}}
+        {{> noResults}}
+    {{/if}}
+</template>
+
+<template name="filterIndexWorkload">
+    <span class="filter-index-buttons empty-button-placeholder">
+        {{> filterItemSelectCardsetButton}}
+        {{#unless gotSimplifiedNav}}
+            {{> filterItemSelectRepetitoriumButton}}
+        {{/unless}}
+    </span>
+    {{#if learnList 0}}
+        {{#if learnList 1}}
+            <div class="filter-result-container">
+                {{#each learnList 2}}
+                        {{> filterIndexItemCardset extendContext 'index' @index}}
+                {{/each}}
+            </div>
+            {{> infiniteScroll}}
+        {{else}}
+            {{> noFilterResults}}
+        {{/if}}
+    {{else}}
+        {{> noResults}}
+    {{/if}}
+</template>

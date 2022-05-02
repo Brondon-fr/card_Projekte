@@ -1,0 +1,15 @@
+<template name="mainNavigationFooterItemStatistics">
+    <li class="{{#if serverStatisticsModalActive}}active{{/if}} hidden-xs">
+        <a rel="noopener noreferrer"   id="serverStatistics" class="showStatistics">
+            {{{getNavigationName "statistics"}}}
+        </a>
+    </li>
+</template>
+
+<template name="mainNavigationFooterItemStatisticsMobile">
+    <li class="{{#if serverStatisticsModalActive}}active{{/if}} toggleServerStatistics showStatistics">
+        <a rel="noopener noreferrer"   class="showStatistics">
+            {{{getNavigationName "statisticsMobile"}}}
+        </a>
+    </li>
+</template>

@@ -1,0 +1,26 @@
+<template name="cardModalDeepLTranslation">
+    {{#unless isSmartphone}}
+        <div class="modal fade" id="cardModalDeepLTranslation" role="dialog">
+            <div class="modal-dialog" aria-labelledby="cardModalDeepLTranslationTitle">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        {{> mainModalItemCloseIcon}}
+                    </div>
+                    <div class="modal-body">
+                        {{#if isModalVisible}}
+                            {{> cardModalDeepLTranslationContent}}
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/unless}}
+</template>
+
+<template name="cardModalDeepLTranslationContent">
+    <iframe title="DeepL" class="dictionaryFrame"
+            src="https://www.deepl.com/translator#en/de/{{getDictionaryQuery}}"
+            frameborder="0"
+            data-type="cardNavigation">
+    </iframe>
+</template>

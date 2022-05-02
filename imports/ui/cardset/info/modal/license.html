@@ -1,0 +1,84 @@
+<template name="showLicense">
+    <div class="modal fade" id="showLicenseModal" tabindex="-1" role="dialog"
+         aria-labelledby="showLicenseTitle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-icon">
+                        <span class="fas fa-cc"></span>
+                    </span>
+                    {{> mainModalItemCloseIcon}}
+                    <h4 id="showLicenseTitle" class="modal-title">{{_ "sidebar-nav.poolLicense"}}: {{getTopic}}
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div id=cc-description class="col-md-12">
+                                {{#if getLicenseCount}}
+                                    {{#if getLicenseType 'by'}}
+                                        <div class="row">
+                                            <div class="col-xs-2">
+                                                 <span class="fa-stack">
+                                                    <span class="fas fa-circle fa-stack-1x license-icon-background"></span>
+                                                    <span class="fab fa-creative-commons-by fa-stack-1x license-icon-foreground"></span>
+                                                </span>
+                                            </div>
+                                            <div class="col-xs-10"><p>{{_ "modal-dialog.by-desc"}}</p></div>
+                                        </div>
+                                    {{/if}}
+                                    {{#if getLicenseType 'nc'}}
+                                        <div class="row">
+                                            <div class="col-xs-2">
+                                                <span class="fa-stack">
+                                                    <span class="fas fa-circle fa-stack-1x license-icon-background"></span>
+                                                    <span class="fab fa-creative-commons-nc-eu fa-stack-1x license-icon-foreground"></span>
+                                                </span>
+                                            </div>
+                                            <div class="col-xs-10"><p>{{_ "modal-dialog.nc-desc"}}</p></div>
+                                        </div>
+                                    {{/if}}
+                                    {{#if getLicenseType 'nd'}}
+                                        <div class="row">
+                                            <div class="col-xs-2">
+                                                <span class="fa-stack">
+                                                    <span class="fas fa-circle fa-stack-1x license-icon-background"></span>
+                                                    <span class="fab fa-creative-commons-nd fa-stack-1x license-icon-foreground"></span>
+                                                </span>
+                                            </div>
+                                            <div class="col-xs-10"><p>{{_ "modal-dialog.nd-desc"}}</p></div>
+                                        </div>
+                                    {{/if}}
+                                    {{#if getLicenseType 'sa'}}
+                                        <div class="row">
+                                            <div class="col-xs-2">
+                                                  <span class="fa-stack">
+                                                    <span class="fas fa-circle fa-stack-1x license-icon-background"></span>
+                                                    <span class="fab fa-creative-commons-sa fa-stack-1x license-icon-foreground"></span>
+                                                </span>
+                                            </div>
+                                            <div class="col-xs-10"><p>{{_ "modal-dialog.sa-desc"}}</p></div>
+                                        </div>
+                                    {{/if}}
+                                {{else}}
+                                    <div class="row">
+                                        <div class="col-xs-2">
+                                             <span class="fa-stack">
+                                                    <span class="fas fa-circle fa-stack-1x license-icon-background"></span>
+                                                    <span class="fab fa-creative-commons-zero fa-stack-1x license-icon-foreground"></span>
+                                             </span>
+                                        </div>
+                                        <div class="col-xs-10"><p>{{_ "modal-dialog.zero-desc"}}</p></div>
+                                    </div>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</template>

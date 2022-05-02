@@ -1,0 +1,25 @@
+{
+  "fullscreen": {
+    "navigation": "Vollbildmodus Einstellungen",
+    "settings": {
+      "title": "Einstellungen für den Vollbildmodus",
+      "table": {
+        "presentation": "Kartenschau",
+        "demo": "Kartei »Einführung«",
+        "leitner": "Lernen nach Leitner-Plan",
+        "wozniak": "Lernen nach Woźniak-Plan",
+        "mode1": "»Automatisch«",
+        "mode2": "»Manuell«",
+        "mode3": "»Manuell für die Sitzung«"
+      },
+      "buttons": {
+        "save": "Speichern",
+        "cancel": "Zurücksetzen"
+      },
+      "notifications": {
+        "saved":"Deine Änderungen des Vollbildmodus wurden gespeichert.",
+        "canceled": "Deine Änderungen wurden verworfen."
+      }
+    }
+  }
+}

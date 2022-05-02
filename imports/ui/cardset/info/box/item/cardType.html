@@ -1,0 +1,10 @@
+<template name="cardsetInfoBoxItemCardType">
+    {{#unless isShuffledCardset this._id}}
+        <tr>
+            <td>{{_ "cardType"}}:</td>
+            <td>
+                {{getCardType}}
+            </td>
+        </tr>
+    {{/unless}}
+</template>

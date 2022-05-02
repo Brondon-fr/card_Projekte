@@ -1,0 +1,71 @@
+{
+  "learningHistory": {
+    "title": "Lernprotokoll",
+    "tooltip": "Lernprotokoll",
+    "stats": {
+      "title": "Statistik",
+      "tasks": {
+        "title": "Termine",
+        "total": "Insgesamt",
+        "completed": "Bearbeitet",
+        "notCompleted": "Nicht Bearbeitet",
+        "inProgress": "Ein Termin ist derzeit in Bearbeitung"
+      },
+      "workload": {
+        "title": "Bearbeitetes Lernpensum",
+        "total": "Insgesamt",
+        "known": "Gewusst",
+        "notKnown": "Nicht Gewusst"
+      },
+      "duration": {
+        "workingTime": {
+          "title": "Gesamtbearbeitungszeit",
+          "arithmeticMean": "Ø Gesamtbearbeitungszeit",
+          "median": "md Gesamtbearbeitungszeit",
+          "standardDeviation": "s Gesamtbearbeitungszeit",
+          "sum": "Gesamtbearbeitungszeit"
+        },
+        "answerTime": {
+          "title": "Antwortzeit pro Karte",
+          "arithmeticMean": "Ø Antworzeit pro Karte",
+          "median": "md Antworzeit pro Karte",
+          "standardDeviation": "s Antworzeit pro Karte"
+        }
+      },
+      "counter": {
+        "title": "Karten Zuweisung",
+        "assigned": "Anzahl mindestens einmalig zugewiesener Karten",
+        "answered": "Anzahl mindestens einmalig beantworteter Karten",
+        "cards": "__cards__ von __totalCards__ Karten [__percent__ %]"
+      },
+      "answeredOnce": "",
+      "averageKnown": "Ø Gewusst"
+    },
+    "table": {
+      "title": "Verlauf",
+      "id": "ID",
+      "date": "Freischaltungstag",
+      "workload": {
+        "title": "Lernpensum",
+        "singular": "__cards__ Karte",
+        "plural": "__cards__ Karten"
+      },
+      "known": "Gewusst",
+      "notKnown": "Nicht gewusst",
+      "status": {
+        "title": "Status",
+        "inProgress": "In Bearbeitung",
+        "notCompleted": "Nicht Bearbeitet",
+        "notFullyCompletedSingular": "__cards__ Karte nicht bearbeitet",
+        "notFullyCompletedPlural": "__cards__ Karten nicht bearbeitet",
+        "completed": "Bearbeitet am __lastAnswerDate__"
+      },
+      "reason": {
+        "title": "Ereignis",
+        "leitner": "Leitner-Plan",
+        "deadline": "Überschreitung"
+      },
+      "duration": "Bearbeitungszeit"
+    }
+  }
+}

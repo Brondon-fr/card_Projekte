@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+
+  linux-cards-db:
+    # linux-cards-db has to be updated with content of linux.cards!
+    # image: arsnova/linux-cards-db
+    image: mongo:4
+    restart: unless-stopped
+    volumes:
+      - linux_cards_db:/data/db
+
+  linux-cards:
+    image: arsnova/linux-cards:master
+    restart: unless-stopped
+    depends_on:
+      - linux-cards-db
+    environment:
+      - MONGO_URL=mongodb://linux-cards-db:27017/meteor
+      - ROOT_URL=http://localhost:3000
+    ports:
+      - 3000:3000
+
+volumes:
+  linux_cards_db:
+    name: linux_cards_db

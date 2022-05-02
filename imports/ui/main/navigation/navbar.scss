@@ -1,0 +1,269 @@
+$navbar_all_border_width: 3px;
+
+//Hotfix for outdated backend navigation
+#backendNavigation, #backendNavigation #thm-top-navigation {
+  height: $size_navbar_height !important;
+  min-height: $size_navbar_height !important;
+  max-height: $size_navbar_height !important;
+  margin-bottom: 0 !important;
+
+  li{
+    display: flex !important;
+    align-items: center !important;
+    padding: 0;
+    height: $size_navbar_height;
+    a {
+      display: flex !important;
+      align-items: center !important;
+      padding: 0 7px;
+      height: $size_navbar_height;
+    }
+  }
+}
+
+.navbar-cards-footer-about-icon, .navbar-cards-footer-theme-icon {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 32px;
+  .fas:before {
+    font-size: 50px;
+    z-index: 1002 !important;
+    color: tomato;
+  }
+}
+
+.navbar-cards-footer-theme-icon {
+  right: 10px;
+  left: unset;
+}
+
+.navbar-cards {
+  .top-navigation-call-to-action-button {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+  }
+  .navbar-header-collapse-item {
+    margin-right: 5px;
+  }
+  .hidden-on-iPad {
+    @media (min-width: 768px) and (max-width: 1199px) {
+      display: none !important;
+    }
+  }
+  a, a:hover {
+    cursor: pointer !important;
+    text-decoration: none !important;
+  }
+
+  height: $size_navbar_height !important;
+  min-height: $size_navbar_height !important;
+  margin: 0 auto !important;
+  z-index: 2000 !important;
+
+  li, .navbar-header-item {
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 !important;
+    height: $size_navbar_height !important;
+    > a {
+      display: flex !important;
+      align-items: center !important;
+      padding: 0 7px !important;
+      @media (min-width: 768px) and (max-width: 899px) {
+        padding: 0 3px !important;
+      }
+      height: $size_navbar_height !important;
+    }
+  }
+
+  .navbar-header-item {
+    padding: 0 15px;
+  }
+
+  @media (max-width: 767px) {
+    .hidden-xs {
+      display: none !important;
+    }
+  }
+
+  #navbar-profile, .navbar-theme {
+    .navbar-drop {
+      position: relative !important;
+      float: left !important;
+      overflow: hidden !important;
+      text-align: left !important;
+      min-width: auto !important;
+      padding: 0 !important;
+      @media(min-width: 768px) {
+        position: absolute !important;
+      }
+
+      tr {
+        td:first-child {
+          a {
+            padding-right: 10px;
+            padding-left: 5px;
+          }
+        }
+        td:last-child a {
+          padding-right: 20px;
+        }
+      }
+
+      a {
+        text-decoration: none !important;
+        display: flex !important;
+        align-items: center !important;
+        height: $size_navbar_height !important;
+        width: 100% !important;
+        white-space: nowrap !important;
+      }
+    }
+  }
+
+  @media (min-width: 768px){
+    #navbar-all > a {
+      border-left: $navbar_all_border_width solid;
+    }
+
+    #navbar-cards-footer-collapse {
+      .navbar-nav {
+        width: 100% !important;
+        a {
+          justify-content: center;
+        }
+      }
+    }
+  }
+  @media (min-width: 768px) and (max-width: 899px) {
+    #navbar-cards-footer-collapse {
+      .navbar-nav {
+        a {
+          font-size: 10px !important;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-cards .navbar-header  {
+    li.hidden-xs {
+      display: none !important;
+    }
+    .navbar-header-item {
+      height: $size_navbar_height !important;
+      padding: 10px 0px 10px 5px !important;
+    }
+    .navbar-toggle {
+      margin-right: 0 !important;
+    }
+  }
+
+  #navbar-cards-top-collapse, #navbar-cards-footer-collapse, .navbar-cards-filter-dropdown {
+    margin: 0 -15px !important;
+    padding: 0 !important;
+    li:not(.hidden-xs){
+      position: relative !important;
+      display: block !important;
+      float: left !important;
+      width: 100% !important;
+      height: round($size_navbar_height * 1.5) !important;
+    }
+    a {
+      height: round($size_navbar_height * 1.5) !important;
+      padding: 0 15px !important;
+      width: 100% !important;
+    }
+    ul {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    #navbar-profile, #navbar-all, #navbar-public, #navbar-personal, #navbar-transcripts, .navbar-theme, #navbar-theme-top, #navbar-theme-footer {
+      position: relative !important;
+      height: unset !important;
+
+      > * {
+        width: 100%;
+      }
+      min-height: round($size_navbar_height * 1.5) !important;
+      #dropdownMenuLink {
+        position: relative !important;
+        float: left !important;
+        height: round($size_navbar_height * 1.5) !important;
+      }
+      .navbar-drop {
+        table {
+          width: 100%;
+          tr {
+            td, td a {
+              height: round($size_navbar_height * 1.5) !important;
+            }
+            td:first-child {
+              padding-left: 30px !important;
+              a {
+                padding: 0 !important;
+              }
+            }
+          }
+        }
+      }
+      #public-drop, #all-drop, #personal-drop, #transcripts-drop  {
+          a {
+            padding-left: 30px !important;
+          }
+      }
+    }
+  }
+  .navbar-cards-filter-dropdown {
+    width: 100%;
+    margin-left: 0 !important;
+    a {
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+    }
+  }
+}
+
+#personal-drop, #all-drop, #public-drop, #transcripts-drop {
+  margin: 0;
+  padding: 0;
+  min-width: max-content;
+  ul {
+    padding: 0;
+  }
+  a {
+    display: block;
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+.top-navigation-name {
+  margin-left: 5px;
+}
+
+
+.footer-container {
+  @media (max-width: 1169px) {
+    width: 100% !important;
+  }
+  @media (min-width: 1170px) {
+    width: 1170px !important;
+  }
+}
+
+.connection-status {
+  margin-right: 5px;
+  font-size: 16px;
+}
+
+.navbar-cards.navbar-fixed-bottom {
+  z-index: 0 !important;
+}
+
+#navbar-theme-footer table a {
+  justify-content: unset !important;
+}

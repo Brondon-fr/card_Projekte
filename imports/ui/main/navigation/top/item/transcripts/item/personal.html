@@ -1,0 +1,18 @@
+<template name="mainNavigationTopItemTranscriptsItemPersonal">
+    {{#if gotTranscriptsEnabled}}
+        {{#unless isSmartPhoneAndOwnsNoCards}}
+            {{#if canCreateContent}}
+                <li id="navbar-transcripts{{#unless standalone}}-personal{{/unless}}"
+                    class="{{#if isMyTranscriptsRoute}}active{{/if}}">
+                    <a rel="noopener noreferrer"   href="{{pathFor route='transcriptsPersonal'}}">
+                        {{#if standalone}}
+                            {{{getNavigationName "transcripts"}}}
+                        {{else}}
+                            {{{getNavigationName "transcriptsPersonal"}}}
+                        {{/if}}
+                    </a>
+                </li>
+            {{/if}}
+        {{/unless}}
+    {{/if}}
+</template>

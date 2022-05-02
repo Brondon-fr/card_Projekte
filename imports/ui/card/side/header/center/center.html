@@ -1,0 +1,53 @@
+<template name="flashcardHeaderCenter">
+    <div class="col-xs-8 cardHeaderCenter" data-cardtype="{{cardType}}">
+        {{#if gotCardsetTitleNavigation}}
+            <span class="center-align">
+                {{#if displayTranscriptOwner}}
+                    <span class="center-align">
+                        <strong class="cardHeaderSmallText">{{getAuthorName (getOwner this.owner)}}</strong><br>
+                        <strong class="cardHeaderSmallText">{{> cardSubject this}}</strong>
+                    </span>
+                {{else}}
+                    {{#unless isMobilePreview}}
+                        {{#if gotLearningGoal}}
+                            <span class="hidden-xs cardHeaderSmallerText" data-cardtype="{{cardType}}">
+                    {{_ "learning-goal.cardName"}}: {{getLearningGoalName}}</span>
+                        {{/if}}
+                    {{/unless}}
+                {{/if}}
+
+                <h2 data-cardtype="{{cardType}}">
+                    {{#if displayTranscriptOwner}}
+                        {{getLectureDate this._id}}
+                    {{else}}
+                        {{> cardSubject this}}
+                    {{/if}}
+                </h2>
+            </span>
+        {{else}}
+            <div class="cardHeaderRowHalf" data-cardtype="{{cardType}}">
+                {{#if displayTranscriptOwner}}
+                    <span class="center-align">
+                        <strong class="cardHeaderSmallText">{{getAuthorName (getOwner this.owner)}}</strong><br>
+                        <strong class="cardHeaderSmallText">{{> cardSubject this}}</strong>
+                    </span>
+                {{else}}
+                    <strong class="cardHeaderSmallText" data-cardtype="{{cardType}}">{{getCardsetName}}</strong><br>
+                    {{#unless isMobilePreview}}
+                        {{#if gotLearningGoal}}
+                            <span class="hidden-xs cardHeaderSmallerText" data-cardtype="{{cardType}}">
+                    {{_ "learning-goal.cardName"}}: {{getLearningGoalName}}</span>
+                        {{/if}}
+                    {{/unless}}
+                {{/if}}
+            </div>
+            <h2 data-cardtype="{{cardType}}">
+                {{#if displayTranscriptOwner}}
+                    {{getLectureDate this._id}}
+                {{else}}
+                    {{> cardSubject this}}
+                {{/if}}
+            </h2>
+        {{/if}}
+    </div>
+</template>

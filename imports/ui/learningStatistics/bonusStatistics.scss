@@ -1,0 +1,39 @@
+#learningHistoryModal, #learningLogModal, #learningStatusModal, #learningStatisticsRemoveBonusUserModal, #learningCardStatusModal {
+  .user-history-title {
+    h4 {
+      font-weight: bold;
+    }
+    padding: 2px 10px;
+  }
+  .table-learning-history {
+    margin-bottom: 0;
+  }
+  @media (min-width: 768px) {
+    .table-history-global-stats {
+      table-layout: fixed;
+    }
+  }
+}
+
+#learningLogModal {
+  z-index: 10001 !important;
+}
+
+.sort-bonus-content {
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+.showLearningStatus {
+  margin: 0;
+  padding: 0 !important;
+  cursor: pointer;
+}
+
+#archivedLearningPhaseDropdown {
+  ul, li {
+    width: unset !important;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}

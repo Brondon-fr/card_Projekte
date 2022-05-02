@@ -1,0 +1,39 @@
+#bonusFormModal {
+  #resetBonus {
+    margin-left: 15px;
+  }
+}
+
+
+@media (min-width: 900px) {
+  #cardsetLeitnerSimulatorModal .modal-content {
+    width: 900px !important;
+
+    .snapshot-date {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    .errorRateContainer {
+      margin-left: 50px;
+    }
+
+    .form-control.errorRate {
+      width: 115px;
+    }
+  }
+}
+
+#strictWorkloadTimer {
+  margin-top: 15px;
+}
+
+#bonus-workload-info {
+  margin: 0;
+  position: absolute;
+  bottom: -3px;
+}
+
+#bonusTitle {
+  width: 100%;
+}

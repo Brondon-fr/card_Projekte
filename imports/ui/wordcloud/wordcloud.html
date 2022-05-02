@@ -1,0 +1,106 @@
+<template name="wordcloud">
+    {{#if displayHelpModal}}
+        {{> wordcloudHelpModal}}
+    {{/if}}
+    {{#unless isFilterIndexRoute}}
+        {{> wordcloudModal}}
+    {{/unless}}
+    <div id="wordcloud-container" class="col-xs-12">
+        <canvas id="wordcloud-canvas" class="needsclick"></canvas>
+        <div id="wordcloud-hover-box"></div>
+        <div id="wordcloud-canvas-background"></div>
+    </div>
+    <div id="pomodoroTimerWordcloudContainer"></div>
+</template>
+
+<template name="wordcloudModal">
+    <div class="modal fade" id="wordcloudModal" role="dialog">
+        {{#each getContent}}
+            <div class="modal-dialog modal-lg" aria-labelledby="wordcloudTitle">
+                <div class="modal-content hintContent">
+                    <div class="modal-header">
+                        <span class="modal-icon">
+                            {{#if isRepetitorium}}
+                                <span class="fas fa-archive"></span> <span class="fas fa-archive"></span> <span
+                                    class="fas fa-archive"></span> <span
+                                    class="fas fa-ellipsis-h"></span>
+                            {{else}}
+                                <span class="fas fa-archive"></span>
+                            {{/if}}
+                        </span>
+                        {{> mainModalItemCloseIcon}}
+                        <h4 id="wordcloudTitle" class="modal-title">
+                            {{> cardsetLabels}}
+                            <br>
+                            <br>
+                            {{#if canAccessFrontend}}
+                                <a rel="noopener noreferrer" href="/cardset/{{this._id}}"
+                                   id="cardsetLink">{{this.name}}</a>
+                            {{else}}
+                                {{this.name}}
+                            {{/if}}
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table">
+                            <tr>
+                                <td>
+                                    {{#markdeep}}
+                                        {{this.description}}
+                                    {{/markdeep}}
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th colspan="2" id="collapseCardsetInfoButton"
+                                    class="btn-raised {{getColors}}">{{#if this.shuffled}}{{_
+                                        "set-list.cardsetInfoRepetitorium"}}{{else}}{{_
+                                        "set-list.cardsetInfoStatic"}}{{/if}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{> cardsetInfoBoxContentOne}}
+                            {{> cardsetInfoBoxContentTwo}}
+                            </tbody>
+                        </table>
+                        {{#if gotNavigationFeature "misc.features.bonus"}}
+                            {{#with activeLearningPhaseBonus this._id}}
+                                <br>
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th colspan="2" id="collapseLearningPhaseInfoButton"
+                                            class="{{#if isBonusFinished this.learningActive
+                                                         this.learningEnd}}finished{{/if}}">{{_
+                                                "set-list.learnphaseInfo"}}</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    {{> bonusInfoBoxContent}}
+                                    </tbody>
+                                </table>
+                            {{/with}}
+                            {{#if this.transcriptBonus}}
+                                <br>
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th colspan="2" id="collapseBonusTranscriptInfoButton">{{_
+                                                "transcriptForm.info.title"}}</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {{> bonusTranscriptInfoBoxContent}}
+                                    </tbody>
+                                </table>
+                            {{/if}}
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</template>

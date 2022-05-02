@@ -1,0 +1,17 @@
+<template name="cardsetIndexTranscriptNavigationItemSubmissions">
+    <div class="col-xs-12 {{#if isCardsetTranscriptBonusRoute}}col-sm-4{{else}}col-sm-6{{/if}}">
+        <div id="showTranscriptSubmissions" class="btn btn-raised btn-block {{#if isViewActive 2}}btn-primary{{else}}btn-default{{/if}}">
+                <span class="flex-content">
+                    {{#if isCardsetTranscriptBonusRoute}}
+                        {{_ "transcriptForm.bonus.form.button.list"}}
+                    {{else}}
+                        {{#if gotSimplifiedNav}}
+                            {{_ "transcriptForm.bonus.form.button.simplifiedNav.list"}}
+                        {{else}}
+                            {{_ "transcriptForm.bonus.form.button.list"}}
+                        {{/if}}
+                    {{/if}}
+                </span>
+        </div>
+    </div>
+</template>

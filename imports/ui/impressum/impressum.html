@@ -1,0 +1,55 @@
+<template name="contact">
+    {{#if isFirstTimeVisit}}
+        <div class="hidden-xs hidden-sm">
+            {{> welcomeTitle}}
+        </div>
+        <div class="visible-xs visible-sm container">
+            {{> welcomeTitle}}
+        </div>
+    {{/if}}
+    <div class="{{#if isFirstTimeVisit}}container{{/if}}">
+        <div id="contact" class="col-md-8 col-md-offset-2">
+            {{#if isActiveRoute 'about'}}
+                {{#if isImprintMode 'linux'}}
+                    {{> linuxImpressumAbout}}
+                {{else}}
+                    {{> cardsImpressumAbout}}
+                {{/if}}
+            {{/if}}
+            {{#if isActiveRoute 'learning'}}
+                {{> impressumLearning}}
+            {{/if}}
+            {{#if isActiveRoute 'faq'}}
+                {{#if isImprintMode 'linux'}}
+                    {{> linuxImpressumFAQ}}
+                {{else}}
+                    {{> cardsImpressumFAQ}}
+                {{/if}}
+            {{/if}}
+            {{#if isActiveRoute 'help'}}
+                {{> help}}
+            {{/if}}
+            {{#if isActiveRoute 'impressum'}}
+                {{#if isImprintMode 'linux'}}
+                    {{> linuxImpressumSupport}}
+                {{else}}
+                    {{> cardsImpressumSupport}}
+                {{/if}}
+            {{/if}}
+            {{#if isActiveRoute 'agb'}}
+                {{#if isImprintMode 'linux'}}
+                    {{> linuxImpressumAGB}}
+                {{else}}
+                    {{> cardsImpressumAGB}}
+                {{/if}}
+            {{/if}}
+            {{#if isActiveRoute 'datenschutz'}}
+                {{#if isImprintMode 'linux'}}
+                    {{> linuxImpressumDatenschutz}}
+                {{else}}
+                    {{> cardsImpressumDatenschutz}}
+                {{/if}}
+            {{/if}}
+        </div>
+    </div>
+</template>

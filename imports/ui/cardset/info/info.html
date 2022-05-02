@@ -1,0 +1,51 @@
+<template name="cardsetInfo">
+    <div id="cardsetInfoDetail" class="col-md-12">
+        <div class="panel panel-default cardsetInfo">
+            <div class="panel-body">
+                <div class="row markdeepCardset">
+                    <div class="col-xs-12 {{#if
+                            canSeeBonusDropdown this._id}}col-md-4{{else}}{{#if canSeeBonusTranscriptDropdown}}col-md-4{{else}}col-sm-6 col-md-8{{/if}}{{/if}} markdeepCardsetTitle">
+                        <div class="cardsetTitleContainer">
+                            <div class="cardsetLabels">
+                                {{> cardsetLabels}}
+                            </div>
+                            <h4 id="cardsetTitle">{{name}}</h4>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 infoBox">
+                    <span class="collapseCardsetInfoContainer">
+                        {{> cardsetInfoBox}}
+                    </span>
+                    </div>
+                    {{#if canSeeBonusDropdown this._id}}
+                        <div class="col-xs-12 col-sm-6 col-md-4 infoBox">
+                            {{> bonusInfoBox}}
+                        </div>
+                    {{/if}}
+                    {{#if canSeeBonusTranscriptDropdown}}
+                        <div class="col-xs-12 col-sm-6 col-md-4 infoBox">
+                            {{> bonusTranscriptInfoBox}}
+                        </div>
+                    {{/if}}
+                </div>
+                <div class="row markdeepCardset markdeepCardsetContent">
+                    <hr class="markdeepCardsetHeader">
+                    {{#markdeep}}{{description}}{{/markdeep}}
+                </div>
+            </div>
+            {{#if isLecturerAndHasRequest}}
+                <div class="panel-footer">
+                    <button id="acceptRequest" class="btn btn-raised btn-success"
+                            type="button">{{_
+                            "cardset.request.accept"}}</button>
+                    <button id="declineRequest" class="btn btn-raised btn-danger"
+                            type="button">{{_
+                            "cardset.request.decline"}}</button>
+                    <textarea id="declineRequestReason" type="text" class="form-control"
+                              placeholder="{{_ "cardset.request.reason"}}" rows="7"></textarea>
+                </div>
+            {{/if}}
+            {{> cardsetNavigation}}
+        </div>
+    </div>
+</template>

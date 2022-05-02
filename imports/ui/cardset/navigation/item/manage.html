@@ -1,0 +1,34 @@
+<template name="cardsetNavigationManage">
+    {{#unless isCardsetOwner _id}}
+        <div class="hidden-xs btn-group dropup">
+            <button class="btn btn-sm btn-raised manageBtn" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                <span class="flex-content"><span class="fas fa-cog"></span>&nbsp;{{_ "manage"}}&nbsp;<span class="fas fa-caret-up"></span></span>
+            </button>
+            <ul class="dropdown-menu">
+                {{#if enableIfPublished}}
+                    {{#unless isEditor}}
+                        <li id="report_button" class="reportList" data-toggle="modal"
+                            data-target="#reportModal">{{_
+                                "report"}}</li>
+                        {{#if learning}}
+                            <li id="leaveCardsetModalButton" class="leaveCardsetList"
+                                data-toggle="modal" data-target="#leaveCardsetModal">{{_
+                                    "confirm-leave-cardset.btn-txt"}}</li>
+                        {{else}}
+                            <li id="leaveCardsetButton" class="leaveCardsetList">{{_
+                                    "confirm-leave-cardset.btn-txt"}}</li>
+                        {{/if}}
+                    {{/unless}}
+                    {{#if isEditor}}
+                        {{#unless isCardsetOwner _id}}
+                            <li id="leaveEditors" class="leaveEditorsList"
+                                data-toggle="modal" data-target="#leaveEditorsModal">{{_
+                                    "sidebar-nav.leaveEditors"}}</li>
+                        {{/unless}}
+                    {{/if}}
+                {{/if}}
+            </ul>
+        </div>
+    {{/unless}}
+</template>

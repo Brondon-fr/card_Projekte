@@ -1,0 +1,14 @@
+<template name="filterIndexItemTopWorkload">
+    <div class="resultItemHeader resultItemHeaderWorkload notThingToLearn {{this.gridSize}} collapseButton {{getCardsetBackground
+            this.difficulty this.cardType}}">
+        {{#if gotWorkload}}
+            <button class="btn btn-raised item-workload-btn {{getWorkloadType}}" data-toggle="{{#if gotWorkloadForBothTypes}}modal{{/if}}"
+               data-target="{{#if gotWorkloadForBothTypes}}#selectModeToLearnModal{{/if}}"
+               data-id="{{this._id}}">
+                {{{getWorkload}}}
+            </button>
+        {{else}}
+            {{_ "set-list.noCardsToLearn"}}
+        {{/if}}
+    </div>
+</template>

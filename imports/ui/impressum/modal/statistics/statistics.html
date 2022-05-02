@@ -1,0 +1,25 @@
+<template name="impressumModalStatistics">
+    <div class="modal fade" id="impressumStatisticsModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-icon">
+                        {{{getNavigationName "statistics"}}}
+                    </span>
+                    {{> mainModalItemCloseIcon}}
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        {{> impressumModalStatisticsItemCards}}
+                        {{> impressumModalStatisticsItemCardsets}}
+                        {{> impressumModalStatisticsItemRepetitorium}}
+                        {{> impressumModalStatisticsItemWordcloud}}
+                        {{> impressumModalStatisticsItemUser}}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

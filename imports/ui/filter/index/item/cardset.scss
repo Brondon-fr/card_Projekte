@@ -1,0 +1,126 @@
+.resultItem {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: $padding_bottom_item;
+  @media(min-width: 768px) {
+    padding-bottom: $padding_bottom_item;
+  }
+}
+
+#set-list-region .resultItem:last-child {
+  padding-bottom: 0;
+}
+
+.resultsHeader {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.resultItemHeader {
+  font-size: 14px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.resultItemHeaderTopArea a {
+  padding: 0;
+}
+
+.resultItemHeaderBottomArea {
+  .resultItemHeaderBottomAreaButtons, .resultItemHeaderBottomAreaLabels {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    @media(max-width: 767px) {
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+  }
+}
+
+.resultDateRight {
+ padding-left: 25px;
+}
+
+.resultTableContent {
+  margin-top: 15px;
+  padding: 0;
+}
+
+.resultTableContent table {
+  margin: 0;
+}
+
+.resultDescription {
+  margin: 15px 0 0;
+  padding: 15px;
+}
+
+.resultItemHeaderBottomAreaButtons {
+  .resultNavigationElement {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  .resultNavigationElement:first-child {
+    margin-left: 0;
+  }
+}
+
+.resultName, .authorProfile, .resultItemHeaderWorkload {
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+
+.resultNameBonusTranscript {
+  @media(min-width: 768px) {
+    padding-top: 4px !important;
+    padding-bottom: 3px !important;
+  }
+}
+
+.resultBadge {
+  position: absolute;
+  float: right;
+  right: 10px;
+  bottom: 5px;
+  @media(min-width: 768px) {
+    bottom: 15px;
+  }
+}
+
+.result.fa-trash, .result.fa-cloud-download {
+  font-size: 19px;
+}
+
+.resultTableContent a {
+  text-decoration: underline !important;
+}
+
+.resultHeaderCategory {
+  padding-left: 0;
+}
+
+.collapseCardsetInfoIcon {
+  cursor: pointer;
+  @media(max-width: 767px) {
+    padding-bottom: 3px;
+  }
+}
+
+.resultItemHeaderWrapper {
+  display: block;
+  width: 100%;
+  float: none;
+  overflow: hidden;
+}
+
+.item-workload-btn {
+  margin: 0;
+  font-size: 12px !important;
+  height: 20px !important;
+}

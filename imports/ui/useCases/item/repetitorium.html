@@ -1,0 +1,26 @@
+<template name="useCasesItemRepetitorium">
+    {{#unless gotSimplifiedNav}}
+        {{#if (gotNavigationFeature "useCases.public.repetitorium" false)}}
+            {{#if (gotNavigationFeature "public.repetitorium.enabled" false)}}
+                {{#if gotRepetitorium}}
+                    <tr>
+                        <td>
+                            {{_ "useCases.modal.description.repetitorium"}}
+                            <div class="visible-xs">
+                                {{> useCasesItemRepetitoriumButton}}
+                            </div>
+                        </td>
+                        <td class="hidden-xs">
+                            {{> useCasesItemRepetitoriumButton}}
+                        </td>
+                    </tr>
+                {{/if}}
+            {{/if}}
+        {{/if}}
+    {{/unless}}
+</template>
+
+<template name="useCasesItemRepetitoriumButton">
+    <button class="btn btn-raised btn-default useCaseGoToRepetitorium" type="button" data-dismiss="modal"
+            >{{{getUseCasesIcon "search"}}}{{_ "useCases.modal.button.repetitorium"}}</button>
+</template>

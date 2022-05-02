@@ -1,0 +1,55 @@
+<template name="mainNavigationTopItemSearch">
+    {{#if isFilterIndexRoute}}
+        {{#if (gotNavigationFeature "search" true)}}
+            <li class="hidden-xs">
+                {{> mainNavigationTopItemSearchDropdown}}
+            </li>
+        {{/if}}
+    {{/if}}
+</template>
+
+<template name="mainNavigationTopItemSearchMobile">
+    {{#if isFilterIndexRoute}}
+        {{#if (gotNavigationFeature "search" true)}}
+            <li class="visible-xs">
+                {{> mainNavigationTopItemSearchDropdown}}
+            </li>
+        {{/if}}
+    {{/if}}
+</template>
+
+<template name="mainNavigationTopItemSearchInput">
+    <div class="search input-append" role="search">
+        <div class="form-group">
+            <input class="form-control typeahead input-search cards-search-element"
+                   name="search"
+                   type="text"
+                   autocomplete="off" spellcheck="off" data-source="search"
+                   data-template="search"
+                   placeholder="{{getPlaceholder}}">
+        </div>
+        {{#if searchActive}}
+            <div class="clearSearch cards-search-element">
+                <span class="flex-content">
+                    <span class="far fa-times-circle cards-search-element"></span>
+                </span>
+            </div>
+        {{/if}}
+    </div>
+</template>
+
+<template name="mainNavigationTopItemSearchDropdown">
+    <div class="search-dropdown-container cards-search-element">
+        <button type="button" title="{{_ "navbar-collapse.tooltip.search"}}"
+                class="btn cards-search-element toggle-search-dropdown top-navigation-call-to-action-button">
+            <span class="fas fa-search cards-search-element"></span>
+        </button>
+        <div class="dropdown-menu navbar-cards-search-dropdown" role="menu" aria-labelledby="toggle-search-dropdown">
+            <ul class="nav navbar-nav navbar-left navbar">
+                <li>
+                    {{> mainNavigationTopItemSearchInput}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</template>

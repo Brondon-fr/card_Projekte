@@ -1,0 +1,14 @@
+<template name="cardsetInfoBoxItemReviewer">
+    {{#if getReviewer}}
+        <tr>
+            <td>{{_ "cardset.info.reviewer"}}:</td>
+            {{#if isAdmin}}
+                <td>
+                    <a rel="noopener noreferrer"   href="{{pathFor 'admin_user' _id=this.reviewer }}" target="_blank">{{getAuthorName this.reviewer false}}</a>
+                </td>
+            {{else}}
+                <td>{{getAuthorName this.reviewer false}}</td>
+            {{/if}}
+        </tr>
+    {{/if}}
+</template>

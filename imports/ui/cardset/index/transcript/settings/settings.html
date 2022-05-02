@@ -1,0 +1,22 @@
+<template name="cardsetIndexTranscriptSettings">
+    <div class="col-xs-12">
+        <h2 id="transcriptBonusTitle" class="modal-title">{{_ "transcriptForm.bonus.form.title"}}</h2>
+    </div>
+    <div class="col-xs12 col-sm-6">
+        {{> cardsetIndexTranscriptSettingsItemEnable}}
+        {{> cardsetIndexTranscriptSettingsItemMaxPercentage}}
+        {{> cardsetIndexTranscriptSettingsItemMinimumTranscripts}}
+        {{> cardsetIndexTranscriptSettingsItemMinimumStars}}
+    </div>
+    <div class="col-xs12 col-sm-6">
+        {{> cardsetIndexTranscriptSettingsItemDeadlineSubmissions}}
+        {{> cardsetIndexTranscriptSettingsItemDeadlineEditing}}
+        {{> cardsetIndexTranscriptSettingsItemLectureTimeEnd}}
+    </div>
+    <div class="col-xs-12">
+        {{#if gotTranscriptBonusLectures}}
+            {{> cardsetIndexTranscriptSettingsItemEditTitle}}
+        {{/if}}
+        {{> cardsetIndexTranscriptSettingsItemLectureDates}}
+    </div>
+</template>

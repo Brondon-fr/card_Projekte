@@ -1,0 +1,250 @@
+<template name="cardsetForm">
+    <div class="modal fade" id="setCardsetFormModal" tabindex="-1" role="dialog"
+         aria-labelledby="setCardsetFormModalTitle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                {{#unless isActiveRoute 'admin_cardset'}}
+                    <div class="modal-header">
+                        <span class="modal-icon">
+                            {{#if isRepetitorium}}
+                                <span class="fas fa-archive"></span> <span class="fas fa-archive"></span> <span
+                                    class="fas fa-archive"></span> <span
+                                    class="fas fa-ellipsis-h"></span>
+                            {{else}}
+                                <span class="fas fa-archive"></span>
+                            {{/if}}
+                        </span>
+                        {{> mainModalItemCloseIcon}}
+                        <h4 id="setCardsetFormModalTitle" class="modal-title">
+                            {{#if isNew}}
+                                {{#if isRepetitorienFilterIndexOrShuffle}}
+                                    {{_ "courseIteration.modal.new"}}
+                                {{else}}
+                                    {{#if gotSimplifiedNav}}
+                                        {{_ "modal-dialog.newcarddeckSimpleNav"}}
+                                    {{else}}
+                                        {{_ "modal-dialog.newcarddeck"}}
+                                    {{/if}}
+
+                                {{/if}}
+                            {{else}}
+                                {{#if isRepetitorienFilterIndexOrShuffle}}
+                                    {{_ "courseIteration.modal.edit"}}
+                                {{else}}
+                                    {{#if gotSimplifiedNav}}
+                                        {{_ "modal-dialog.editcardset"}}
+                                    {{else}}
+                                        {{_ "modal-dialog.editcardset"}}
+                                    {{/if}}
+                                {{/if}}
+                            {{/if}}
+                        </h4>
+                    </div>
+                {{/unless}}
+                {{> cardsetFormContent}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="cardsetFormContent">
+    <div class="modal-body">
+        <div class="form-horizontal">
+            <div class="form-group setdetails name">
+                <label id="setNameLabel" class="col-xs-12 control-label"
+                       for="setName">{{_ "modal-dialog.name"}}</label>
+                <div class="col-xs-12">
+                    <input class="form-control" type="text" id="setName"
+                           placeholder="{{#if isRepetitorium}}{{_
+                                   "courseIteration.modal.placeholder.name"}}{{else}}{{_
+                                   "modal-dialog.nameplaceholder"}}{{/if}}"
+                           value="{{#if isNew}}{{getShuffleName}}{{else}}{{name}}{{/if}}">
+                    <span id="helpSetName" class="text-warning"></span>
+                </div>
+                <br>
+                {{#if isRepetitorienFilterIndexOrShuffle}}
+                    {{> cardsetFormItemSessions}}
+                {{else}}
+                    {{#unless isShuffledCardset this._id}}
+                        {{#unless learningActive}}
+                            <label id="setCardTypeLabel" class="col-xs-12 control-label" for="setCardType">{{_
+                                    "cardType"}}</label>
+                            <div class="dropdown">
+                                <div class="btn-group col-xs-12">
+                                    <button type="button"
+                                            class="btn btn-raised btn-default setCardType setCardTypeDropdown longButton"
+                                            data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false"
+                                            value="{{cardType}}">
+                                        <span class="setCardTypeDropdownText"></span>
+                                    </button>
+                                    <button type="button"
+                                            class="btn btn-raised dropdown-toggle setCardTypeDropdown setCardTypeDropdownCaret"
+                                            data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                        <span class="flex-content"><span class="caret"></span>
+                                        <span class="sr-only"></span></span>
+                                    </button>
+                                    <ul class="dropdown-menu btn-raised longButton">
+                                        {{> cardTypesList filter=false useCase=false}}
+                                    </ul>
+                                    <span id="helpSetCardType" class="text-warning"></span>
+                                </div>
+                            </div>
+                        {{/unless}}
+                        {{> cardsetFormItemSessions}}
+                        {{#unless isSimplifiedNavRep}}
+                            {{#if gotDifficultyLevel}}
+                                <br>
+                                <label id="setDifficultyLabel" class="col-xs-12 control-label" for="setDifficulty">{{#if
+                                        gotNotesForDifficultyLevel}}{{_ "difficultyNotes"}}{{else}}{{_
+                                        "difficulty"}}{{/if}}</label>
+                                <div id="setDifficulty" class="cardtext editorElement">
+                                    {{> difficultyEditor}}
+                                </div>
+                            {{/if}}
+                            {{#unless gotTranscriptBonus}}
+                                <br>
+                                <label id="setSortTypeyLabel" class="col-xs-12 control-label" for="setSortType">{{_
+                                        "cardsetForm.sortType.label"}}</label>
+                                <div id="setSortType" class="col-xs-12 cardtext editorElement">
+                                    <label class="radio-inline"><input type="radio" id="sortDate" name="sortType" value="1">{{_ "cardsetForm.sortType.sortDate"}}</label>
+                                    <label class="radio-inline"><input type="radio" id="sortContent" name="sortType" value="0">{{_ "cardsetForm.sortType.sortContent"}}</label>
+                                </div>
+                            {{/unless}}
+                        {{/unless}}
+                    {{/unless}}
+                {{/if}}
+            </div>
+            <div class="form-group setdetails description module">
+                {{> markdeepNavigation}}
+                {{> markdeepContent}}
+            </div>
+        </div>
+    </div>
+    {{#unless isActiveRoute 'admin_cardset'}}
+        <div class="modal-footer">
+            {{#unless isNew}}
+                {{#unless learningActive}}
+                    {{#if isActiveRoute regex='cardsetdetailsid'}}
+                        <button id="cardSetDelete"
+                                class="btn btn-raised btn-danger btn-block btn-setDelete col-xs-12 col-sm-3">
+                        {{#if isRepetitorienFilterIndexOrShuffle}}
+                            {{_ "modal-dialog.deleteRepetitorum"}}
+                        {{else}}
+                            {{_ "modal-dialog.delete"}}
+                        {{/if}}
+                        </button>
+                    {{/if}}
+                    <button id="cardSetConfirm"
+                            class="btn btn-raised btn-warning btn-block col-xs-12 col-sm-3"
+                            style="display:none">{{_
+                            "modal-dialog.confirm"}}</button>
+                {{/unless}}
+            {{/unless}}
+            <button id="cardSetCancel" class="btn btn-raised {{#unless
+                    isNew}}{{#if isActiveRoute
+                                 regex='cardsetdetailsid'}}cardSetCancel{{/if}}{{/unless}} btn-default btn-block col-xs-12 col-sm-3"
+                    data-dismiss="modal">{{_
+                    "modal-dialog.cancel"}}</button>
+            <button id="cardSetSave"
+                    class="btn btn-raised btn-success btn-block col-xs-12 col-sm-3 pull-right">
+                {{#if isNew}}
+                    {{#if isRepetitorienFilterIndexOrShuffle}}
+                        {{_ "courseIteration.modal.saveNew"}}
+                    {{else}}
+                        {{_ "modal-dialog.createcarddeck"}}
+                    {{/if}}
+                {{else}}
+                    {{#if isRepetitorienFilterIndexOrShuffle}}
+                        {{_ "courseIteration.modal.save"}}
+                    {{else}}
+                        {{_ "modal-dialog.save"}}
+                    {{/if}}
+                {{/if}}
+            </button>
+        </div>
+    {{/unless}}
+</template>
+
+<template name="difficultyEditor">
+    <div id="difficultyGroup" class="form-group btn-group" role="group" data-toggle="buttons">
+            <span class="col-xs-6 col-sm-3 btn-bootstrap-container">
+            <label id="difficulty0"
+                   class="btn btn-block btn-default btn-raised {{#if
+                           gotNotesForDifficultyLevel}}btn-orange{{else}}btn-white{{/if}} {{#if
+                           isDifficultyChecked 0}}active{{/if}}"
+                   data-color="0">
+                {{#if isDifficultyChecked 0}}
+                    <input type="radio" name="difficulty" value="0" checked tabindex="3">
+                {{else}}
+                    <input type="radio" name="difficulty" value="0">
+                {{/if}}
+                <span class="flex-content" data-color="0">
+                {{#unless gotNotesForDifficultyLevel}}
+                    {{_ "difficulty0"}}
+                {{else}}
+                    {{_ "difficultyNotes0"}}
+                {{/unless}}
+                </span>
+            </label>
+            </span>
+        <span class="col-xs-6 col-sm-3 btn-bootstrap-container">
+        <label id="difficulty1"
+               class="btn btn-default btn-block btn-info btn-raised {{#if
+                       isDifficultyChecked 1}}active{{/if}}"
+               data-color="1">
+            {{#if isDifficultyChecked 1}}
+                <input type="radio" name="difficulty" value="1" checked tabindex="3">
+            {{else}}
+                <input type="radio" name="difficulty" value="1">
+            {{/if}}
+            <span class="flex-content" data-color="1">
+            {{#unless gotNotesForDifficultyLevel}}
+                {{_ "difficulty1"}}
+            {{else}}
+                {{_ "difficultyNotes1"}}
+            {{/unless}}
+            </span>
+        </label>
+        </span>
+        <span class="col-xs-6 col-sm-3 btn-bootstrap-container">
+        <label id="difficulty2"
+               class="btn btn-default btn-block btn-success btn-raised {{#if
+                       isDifficultyChecked 2}}active{{/if}}"
+               data-color="2">
+            {{#if isDifficultyChecked 2}}
+                <input type="radio" name="difficulty" value="2" checked tabindex="3">
+            {{else}}
+                <input type="radio" name="difficulty" value="2">
+            {{/if}}
+            <span class="flex-content" data-color="2">
+            {{#unless gotNotesForDifficultyLevel}}
+                {{_ "difficulty2"}}
+            {{else}}
+                {{_ "difficultyNotes2"}}
+            {{/unless}}
+            </span>
+        </label>
+        </span>
+        <span class="col-xs-6 col-sm-3 btn-bootstrap-container">
+        <label id="difficulty3"
+               class="btn btn-default btn-block btn-danger btn-raised {{#if
+                       isDifficultyChecked 3}}active{{/if}}"
+               data-color="3">
+            {{#if isDifficultyChecked 3}}
+                <input type="radio" name="difficulty" value="3" checked tabindex="3">
+            {{else}}
+                <input type="radio" name="difficulty" value="3">
+            {{/if}}
+            <span class="flex-content" data-color="3">
+            {{#unless gotNotesForDifficultyLevel}}
+                {{_ "difficulty3"}}
+            {{else}}
+                {{_ "difficultyNotes3"}}
+            {{/unless}}
+            </span>
+        </label>
+        </span>
+    </div>
+</template>

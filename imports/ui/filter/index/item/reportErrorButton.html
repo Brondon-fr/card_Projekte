@@ -1,0 +1,26 @@
+<template name="filterItemReportCardsetButton">
+    {{#if canCreateContent}}
+        {{#unless isSmartphone}}
+            {{#unless isSelectingCardsetToLearn}}
+                {{#unless isIOS}}
+                    <span class="btn-group">
+                    <label class="btn btn-raised btn-import btn-success btn-error {{disableIfOffline}}" id="reportErrorButton" >
+                        <span class="flex-content"><span class="fas fa-bullhorn"></span>&nbsp;
+                            {{#if gotSimplifiedNav}}
+                                {{_ "errorButton.error-button-label"}}
+                            {{else}}
+                                {{_ "errorButton.error-button-label"}}
+                            {{/if}}
+                        </span> <input
+                            type="{{#if isProfileComplete}}file{{else}}button{{/if}}"
+                            accept=".json" id="{{#if
+                            isProfileComplete}}importCardset{{else}}importCardsetCompleteProfile{{/if}}"
+                            style="display: none;">
+                    </label>
+                </span>
+                {{/unless}}
+            {{/unless}}
+        {{/unless}}
+    {{/if}}
+</template>
+ 

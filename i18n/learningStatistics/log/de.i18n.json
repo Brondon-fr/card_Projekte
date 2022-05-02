@@ -1,0 +1,20 @@
+{
+  "learningLog": {
+    "title": "Lernverlauf für Freischaltungstag »__date__«",
+    "tooltip": "Lernverlauf",
+    "stats": {
+      "title": "Termin"
+    },
+    "table": {
+      "title": "Verlauf",
+      "content": "Inhalt",
+      "cardType": "Karteityp",
+      "progress": "Lernstand",
+      "answer": "Antwort",
+      "timeSpent": "Antwortzeit",
+      "known": "Gewusst",
+      "notKnown": "Nicht gewusst",
+      "submission": "Abgabe"
+    }
+  }
+}

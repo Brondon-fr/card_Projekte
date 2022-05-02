@@ -1,0 +1,8 @@
+<template name="filterIndexItemBottomLabels">
+    <div class="{{this.gridSize}} collapseButton resultItemHeaderBottomAreaLabels {{#if gotNavigationFeature "filter" true}}enabled{{/if}}">
+        {{> cardsetLabels}}
+        {{#if isTranscriptBonusCard this._id}}
+            {{> filterIndexItemBottomAboutThisRating}}
+        {{/if}}
+    </div>
+</template>

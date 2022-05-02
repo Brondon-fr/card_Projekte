@@ -1,0 +1,159 @@
+<template name="flashcards">
+    {{> mainModalArsnovaClick}}
+    {{> mainModalArsnovaLite}}
+    {{> mainOverlayZoomText}}
+    {{> mainOverlayAspectRatio}}
+    {{> helpModal}}
+    {{> copyCard}}
+    {{> deleteCardForm}}
+    {{> cardSettingsModal}}
+    {{> cardModalBeolingusTranslation}}
+    {{> aboutThisRatingModal}}
+    {{> overviewErrorReportsModal}}
+    {{> errorReportingModal}}
+    {{#if isTranscriptRoute}}
+        {{> cardModalTranscriptRatingAccept}}
+        {{> cardModalTranscriptRatingDeny}}
+    {{/if}}
+    <div class="card-container">
+        {{#unless isMobilePreviewActive}}
+            {{#unless isCardsetAndFixedSidebar}}
+                {{> flashcardSidebar}}
+            {{/unless}}
+        {{/unless}}
+        <div id="cardCarousel" class="carousel slide" data-keyboard="false" data-interval="false">
+            <div class="carousel-inner">
+                {{#if is3DActive}}
+                    {{> flashcardsCarouselContent3D}}
+                {{else}}
+                    {{> flashcardsCarouselContent}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="flashcardsCarouselContent">
+    {{#each getCards}}
+        {{#if isActiveCard}}
+            {{#if hasCardTwoSides}}
+                {{> flipCard setCardStatus}}
+            {{else}}
+                {{>cardSide setCardStatus}}
+            {{/if}}
+        {{else}}
+            {{> cardSide setCardStatus}}
+        {{/if}}
+    {{/each}}
+</template>
+
+<template name="flashcardsCarouselContent3D">
+    {{#each getCards}}
+        {{#if isActiveCard}}
+            {{> cardCube setCardStatus}}
+        {{else}}
+            {{> cardSide setCardStatus}}
+        {{/if}}
+    {{/each}}
+</template>
+
+<template name="flashcardsEndScreenSlider">
+    {{#if isBonusSession true}}
+        <div class="progress-bar"></div>
+        <h1 class="contentMessageTrophy">
+            {{_ "endScreen.trophyPrefix"}}<br>
+            <strong class="count">0</strong>{{_ "endScreen.trophy"}}<strong id="maxBonus"></strong>
+            <br>{{_ "endScreen.trophySuffix"}}
+        </h1>
+    {{/if}}
+</template>
+
+<template name="flashcardsEndScreenText">
+    {{#if isBonusSession}}
+        {{#if hasEarnedBonusPoints}}
+            <br>
+            <h4>{{getEarnedBonusPointsText}}</h4>
+        {{/if}}
+    {{/if}}
+</template>
+
+<template name="flashcardsEmpty">
+    {{> learnAlgorithmsTrophyModal}}
+    {{> learnAlgorithmsTrophyModalLight}}
+    <div class="card-container row flashEndContainer">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+            <div id="cardCarousel" class="carousel slide" data-interval="false">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="box flashcard emptyCard">
+                            {{#if isActiveRoute 'box'}}
+                                {{> flashcardsEndScreenSlider}}
+                                <h4>{{_ "bonus.message.learnedEverything"}}</h4>
+                                {{> flashcardsEndScreenText}}
+                            {{/if}}
+                            {{#if isActiveRoute 'memo'}}
+                                <h4>{{_ "wozniak.empty.text"}}</h4>
+                            {{/if}}
+                            {{> learnBackButton}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="flashcardsEnd">
+    {{> learnAlgorithmsTrophyModal}}
+    {{> learnAlgorithmsTrophyModalLight}}
+    <div id="shortcutModal">
+        <div class="card-container row flashEndContainer">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+                <div id="cardCarousel" class="carousel slide" data-interval="false">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="box flashcard emptyCard">
+                                {{#if isActiveRoute 'box'}}
+                                    {{> flashcardsEndScreenSlider}}
+                                    <h4>{{getNextCardTime}}</h4>
+                                    {{> flashcardsEndScreenText}}
+                                {{/if}}
+                                {{#if isActiveRoute 'memo'}}
+                                    <h4>{{_ "wozniak.endscreen.text"}}</h4>
+                                {{/if}}
+                                {{> learnBackButton}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+
+<template name="flashcardsReviewEnd">
+    <div class="card-container">
+        <div>
+            <div id="cardCarousel" class="carousel slide" data-interval="false">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="box flashcard emptyCard">
+                            <h4>{{_ "cardset.transcriptBonusRating.finished.text"}}</h4>
+                            <br>
+                            <button class="btn btn-block btn-raised btn-danger" id="backToSubmissions">
+                                <span class="pull-left"><span class="fas fa-arrow-left"></span>&nbsp;{{_ "cardset.transcriptBonusRating.finished.button.back"}}</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="cardSubject">
+    {{#if gotBonusTranscript}}<a rel="noopener noreferrer" class="cardHeaderLink"
+                              href="{{#unless isEditMode}}/cardset/{{getBonusLecture}}{{/unless}}">{{getSubject}}</a>{{else}}{{#unless this.subject}}
+        <span class="subjectPlaceholder">{{getSubject}}</span>{{else}}{{getSubject}}{{/unless}}{{/if}}
+</template>

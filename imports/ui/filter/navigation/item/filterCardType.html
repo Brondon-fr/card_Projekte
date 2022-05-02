@@ -1,0 +1,14 @@
+<template name="filterItemFilterCardType">
+    <li class="dropdown cards-filter-element">
+        <a rel="noopener noreferrer"   href="#" class="dropdown-toggle cardTypeBtn cards-filter-element" data-toggle="dropdown" role="button"
+           aria-haspopup="true" aria-expanded="false">
+            {{_ "cardType"}}
+            {{#if hasCardTypeFilter}}
+                <span class="fas fa-filter navigationFilterIcon cards-filter-element"></span>
+            {{/if}}
+        </a>
+        <ul class="dropdown-menu cards-filter-element">
+            {{> cardTypesList filter=true useCase=false}}
+        </ul>
+    </li>
+</template>

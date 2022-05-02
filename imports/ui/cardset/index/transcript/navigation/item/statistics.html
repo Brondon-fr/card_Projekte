@@ -1,0 +1,17 @@
+<template name="cardsetIndexTranscriptNavigationItemStatistics">
+    <div class="col-xs-12 {{#if isCardsetTranscriptBonusRoute}}col-sm-4{{else}}col-sm-6{{/if}}">
+        <div id="showTranscriptStatistics" class="btn btn-raised btn-block {{#if isViewActive 1}}btn-primary{{else}}btn-default{{/if}}">
+                <span class="flex-content">
+                    {{#if isCardsetTranscriptBonusRoute}}
+                        {{_ "transcriptForm.bonus.form.button.statistics"}}
+                    {{else}}
+                        {{#if gotSimplifiedNav}}
+                            {{_ "transcriptForm.bonus.form.button.simplifiedNav.statistics"}}
+                        {{else}}
+                            {{_ "transcriptForm.bonus.form.button.statistics"}}
+                        {{/if}}
+                    {{/if}}
+                </span>
+        </div>
+    </div>
+</template>

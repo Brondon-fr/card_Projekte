@@ -1,0 +1,46 @@
+<template name="flashcardHeaderPresentationRight">
+    <div class="col-xs-2 cardHeaderRight" data-cardtype="{{cardType}}">
+        {{#if isPresentationTranscriptReviewRoute}}
+            {{> cardContentItemCountCardsReview this}}
+        {{else}}
+            {{> cardContentItemCountCards this}}
+        {{/if}}
+        {{> cardContentItemLabel this}}
+    </div>
+</template>
+
+<template name="flashcardHeaderDemoRight">
+    <div class="col-xs-2 cardHeaderRight" data-cardtype="{{cardType}}">
+        {{> cardContentItemCountCards this}}
+        {{> cardContentItemLabel this}}
+    </div>
+</template>
+
+<template name="flashcardHeaderDefaultRight">
+    <div class="col-xs-2 cardHeaderRight" data-cardtype="{{cardType}}">
+        {{> cardContentItemCountCards this}}
+        {{> cardContentItemLabel this}}
+    </div>
+</template>
+
+<template name="flashcardHeaderEditorRight">
+    <div class="col-xs-2 cardHeaderRight" data-cardtype="{{cardType}}">
+        {{#if isEditCard}}
+            {{> cardContentItemCountCards this}}
+            {{> cardContentItemLabel this}}
+        {{/if}}
+    </div>
+</template>
+
+<template name="flashcardHeaderLeitnerRight">
+    <div class="col-xs-2 cardHeaderRight" data-cardtype="{{cardType}}">
+        {{> cardContentItemCountCardsLeitner this}}
+        {{> cardContentItemLabel this}}
+    </div>
+</template>
+
+<template name="flashcardHeaderWozniakRight">
+    <div class="col-xs-2 cardHeaderRight" data-cardtype="{{cardType}}">
+        {{> cardContentItemLabel this}}
+    </div>
+</template>

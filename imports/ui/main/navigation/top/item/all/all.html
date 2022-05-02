@@ -1,0 +1,19 @@
+<template name="mainNavigationTopItemAll">
+    {{#if gotBackendAccess}}
+        <li id="navbar-all"
+            class="dropdown {{#if isAllRoute}}active{{/if}}">
+            <a rel="noopener noreferrer"   href="#" class="dropdown-toggle dropdownMenuContainer"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{{getNavigationName "all"}}}
+            </a>
+            {{#unless gotSimplifiedNav}}
+                <div id="all-drop" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <ul>
+                        {{> mainNavigationTopItemAllItemCardsets}}
+                        {{> mainNavigationTopItemAllItemRepetitorien}}
+                    </ul>
+                </div>
+        {{/unless}}
+        </li>
+    {{/if}}
+</template>

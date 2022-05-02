@@ -1,0 +1,47 @@
+<template name="copyCard">
+    <div class="modal fade" id="showCopyCardModal" role="dialog">
+        <div class="modal-dialog" aria-labelledby="showHintTitle">
+            <div class="modal-content">
+                <div class="modal-header">
+                     <span class="modal-icon">
+                        <span class="fas fa-copy"></span>
+                    </span>
+                    {{> mainModalItemCloseIcon}}
+                    <h4 id="showHintTitle" class="modal-title">{{_ "copyCardTitle"}}
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                {{_ "copyCardText"}}
+                                <br>
+                                <br>
+                                <table class="table table-hover table-bordered cardListSubject">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            <span>{{_ "navbar-collapse.carddecks"}}</span>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {{#each cardsetList}}
+                                        <tr>
+                                            <td class="copyCardset" data-id="{{this._id}}">
+                                                <a rel="noopener noreferrer" href="#" data-id="{{this._id}}">
+                                                    {{this.name}}
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

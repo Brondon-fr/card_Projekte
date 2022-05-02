@@ -1,0 +1,44 @@
+<template name="cardsetManageEditors">
+    {{#unless isCardsetOwner _id}}
+        {{> accessDenied}}
+    {{else}}
+        <div class="container">
+            <h3 class="modal-title">{{_ "modal-dialog.manageEditors" name = this.name}}</h3>
+            <div style="overflow-x:auto;">
+                <table class="table table-striped table-hover table-user-list">
+                    <tbody>
+                    <tr class="active">
+                        <th>{{_ "panel-body.givenname"}}</th>
+                        <th>{{_ "panel-body.birthname"}}</th>
+                        <th>{{_ "panel-body.roles"}}</th>
+                        <th></th>
+                    </tr>
+                    {{#each getEditors}}
+                        <tr>
+                            <td>{{this.givenname}}</td>
+                            <td>{{this.birthname}}</td>
+                            <td> {{getRoles this.roles}}</td>
+                            <td>
+                                {{#if isCardsetEditor this.id}}
+                                    <a rel="noopener noreferrer" class="btn btn-block btn-raised btn-danger removeEditor"
+                                       data-id="{{this.id}}">
+                                        <span class="fas fa-minus"></span> {{_ "admin.cardset.removeFromWordcloud"}}
+                                    </a>
+                                {{else}}
+                                    <a rel="noopener noreferrer" class="btn btn-block btn-raised btn-success addEditor"
+                                       data-id="{{this.id}}">
+                                        <span class="fas fa-plus"></span> {{_ "admin.cardset.addToWordcloud"}}
+                                    </a>
+                                {{/if}}
+                            </td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn btn-block btn-raised btn-danger" id="backButton">
+                <span class="pull-left"><span class="fas fa-arrow-left"></span> {{_ "backbutton"}}</span>
+            </button>
+        </div>
+    {{/unless}}
+</template>

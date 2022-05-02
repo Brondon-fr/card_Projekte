@@ -1,0 +1,13 @@
+<template name="mainNavigationTopItemProfileItemMembership">
+    {{#if isProLoginActive}}
+        <tr class="{{#if isActiveRoute
+                         'profileMembership'}}active{{/if}}">
+            <td><a rel="noopener noreferrer"   class="dropdown-item"
+                   href="/profile/{{currentUser._id}}/membership"><span
+                    class="fas fa-users"></span></a></td>
+            <td><a rel="noopener noreferrer"   class="dropdown-item"
+                   href="/profile/{{currentUser._id}}/membership">{{_
+                    "profile.membership"}}</a></td>
+        </tr>
+    {{/if}}
+</template>

@@ -1,0 +1,133 @@
+@startuml
+left to right direction
+
+skinparam backgroundColor Linen
+skinparam LegendBackgroundColor Strategy
+skinparam LegendBorderThickness 0
+skinparam LegendFontSize 20
+skinparam Padding 5
+skinparam defaultFontSize 24
+skinparam Nodesep 100
+skinparam ArrowThickness 2
+skinparam shadowing true
+
+skinparam usecase {
+   BackgroundColor PaleGreen
+   BorderColor Green
+   BackgroundColor<<USP>> Pink
+   BorderColor<<USP>> HotPink
+   BorderThickness 2
+   ArrowThickness 2
+   ArrowColor Green
+   ActorBorderColor Green
+}
+
+
+:Guest: as G
+:Standard User: as SU
+:Student: as S
+:Pro User: as P
+:Proofreader: as PR
+:Lecturer: as L
+:Administrator: as A
+
+rectangle "cards | use-case-diagram" <<Business>>{
+
+rectangle Frontend {
+
+rectangle "Mobile Frontend" {
+(Search public card sets or\n repetetories of card sets\n in topic pool) as GU1
+(View cards of all public card sets \n or repetetories &#40;"free learning"&#41;) as GU2
+(Learn with card sets and\nrepetetories of card sets\nbased on the method of\nLeitner or Woźniak paired\nwith the Pomodoro-technique) as SUU1 <<USP>>
+note bottom of SUU1: Users can earn bonus points\nfor continous learning if the lecturer\nhas activated this option for a card sets\nor repetitorium. (Requires student role or higher)
+(Report error on card) as ER1
+}
+
+(Manage own card sets) as SU1
+(Create a card for a card set and insert content to\n its side according to chosen card type) as SU1.1
+(Format and design cards with Markdeep) as SU1.1.2 <<USP>>
+(Export and import card sets) as SU1.2 <<USP>>
+(Create a card set) as SU1.3
+(Choose card type fitting to\n content of card set) as SU1.3.1 <<USP>>
+(Put together repetetories of card\n sets from own and public card sets) as SU2
+(Integrate session of frag.jetzt or\n quiz of arsnova.click) as SU2.1 <<USP>>
+(Manage transcripts of lectures) as SU3 <<USP>>
+(Create transcript) as SU3.1 <<USP>>
+(Link uploaded photograph) as SU3.1.1
+(Add open questions) as SU3.1.2
+(Add reworked version of transcript) as SU3.1.3
+(Link transcript to lecture \n to earn bonus points) AS SU3.2 <<USP>>
+(Edit cards in public card \n sets or repetetories of\n card sets of other users) as PRU2
+(Activate bonus-option for transcripts\n or bonus-learning with specific card types) as LU1 <<USP>>
+(Review pro card set) as PS1
+(Sell own card set) as PS2
+note bottom of PS2: (Requires a review by a lecturer)
+note right of SU1.3.1: The available formats are\ndesigned study-specific and\ndetermine which pages\nan index card has.\nExamples are:\n* learning unit\n* multiple-choice quiz\n* vocabulary\n* glossary\n* exam question\n* ...
+note right of SU1.2: Supported formats are:\n* Markdeep-HTML (export)\n* JSON (export/import)
+note bottom of SU3: Transcripts consist of a photograph of the\nhandwritten version, a reworked digital\nversion and open questions.\nThey can be linked to courses to earn\nbonus points.
+note right of LU1: Bonus-learning is meant to reward\nstudents for continuous learning of\ncourse contents.\nIf they meet the success criteria set\nby the lecturer, they are awared\nwith bonus points.
+}
+
+rectangle Backend {
+(Manage message of the day) as AU1
+(Manage notification systems \n and PlantUML server path) as AU2
+(View matomo statistics) as AU3
+(Manage/edit all users, their cards\n and bonus-learning) as AU4
+(Choose card sets \n or repetetories to be presented\n on the welcome-screen &#40;"Signpost"&#41;) as AU5
+}
+
+G <|-right- SU
+SU <|-right- S
+S <|-right- P
+S <|-right- PR
+S <|-right- L
+
+G -- GU1
+G -- GU2
+SU -- SUU1
+SU -- ER1
+S -- SU1
+P -- PS2
+L -- PS1
+SU1 <.. SU1.1:<<extend>>
+SU1.1 <.down. SU1.1.2:<<extend>>
+SU1 <.. SU1.2:<<extend>>
+SU1 <.. SU1.3:<<extend>>
+SU1.3 ..> SU1.3.1:<<include>>
+S -- SU2
+SU2 <.. SU2.1:<<extend>>
+S -- SU3
+SU3 <.. SU3.1:<<extend>>
+SU3.1 <.. SU3.1.1:<<extend>>
+SU3.1 <.. SU3.1.2:<<extend>>
+SU3.1 <.. SU3.1.3:<<extend>>
+SU3 <.. SU3.2:<<extend>>
+
+PR -- PRU2
+L -- LU1
+AU1 -------------- A
+AU2 -------------- A
+AU3 -------------- A
+AU4 -------------- A
+AU5 -------------- A
+}
+
+
+legend right
+ |= \n          <img:https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/whatsapp/186/tomato_1f345.png> |= \n [[https://arsnova.cards arsnova.cards]] \n\n Technische Hochschule Mittelhessen - THM \n University of Applied Sciences |
+ | Project-Website | [[https://arsnova.cards]] |
+ | «USP» | Alleinstellungsmerkmale von arsnova.cards |
+ | Repository | [[https://git.thm.de/cards]] |
+ | Version | 3.2 |
+ | Staging Server | [[https://staging.arsnova.cards]] |
+ | RUP-Phase| Inception|
+ | UML-Tool| PlantUML v1.2021.0|
+ | Model version| 1.3 |
+ | Date created| 30.11.2020|
+ | Creator| Janek Berg|
+ | Mail| janek.berg@mni.thm.de |
+ | Last modified| 26.06.2021|
+ | Last editor| Curtis Adam |
+ | Mail| curtis.adam@mni.thm.de |
+end legend
+@enduml

@@ -1,0 +1,8 @@
+<template name="cardsetInfoBoxItemPurchased">
+    {{#if isPurchased}}
+        <tr>
+            <td>{{_ "cardset.info.bought"}}:</td>
+            <td>{{getDateOfPurchase}}</td>
+        </tr>
+    {{/if}}
+</template>

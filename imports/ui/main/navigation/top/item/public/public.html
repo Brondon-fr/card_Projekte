@@ -1,0 +1,26 @@
+<template name="mainNavigationTopItemPublic">
+    {{#if gotBothNavigationElements}}
+        <li id="navbar-public"
+            class="dropdown {{#if isPublicRoute}}active{{/if}}">
+            <a rel="noopener noreferrer"   href="#" class="dropdown-toggle dropdownMenuContainer"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{{getNavigationName "public"}}}
+            </a>
+            {{#unless gotSimplifiedNav}}
+                <div id="public-drop" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <ul>
+                        {{> mainNavigationTopItemPublicItemCardsets}}
+                        {{> mainNavigationTopItemPublicItemRepetitorien}}
+                    </ul>
+                </div>
+            {{/unless}}
+        </li>
+    {{else}}
+        {{#if (gotNavigationFeature "public.cardset.enabled" false)}}
+            {{> mainNavigationTopItemPublicItemCardsets standalone=true}}
+        {{/if}}
+        {{#if (gotNavigationFeature "public.repetitorium.enabled" false)}}
+            {{> mainNavigationTopItemPublicItemRepetitorien standalone=true}}
+        {{/if}}
+    {{/if}}
+</template>

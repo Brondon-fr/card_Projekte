@@ -1,0 +1,157 @@
+#welcome {
+  text-align: center;
+  .panel {
+    box-shadow: none;
+  }
+  #slogan {
+    display: inline-block;
+    cursor: default;
+    h2 {
+      margin: 0;
+      padding: 40px;
+      @media (max-width: 767px) {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      @media (min-width: 768px) {
+        font-size: 50px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .panel-heading {
+    line-height: 1.3;
+    padding-top: 180px;
+    padding-bottom: 20px;
+    @media (max-height: 500px) {
+      padding-bottom: 0;
+    }
+    min-height: 177px;
+  }
+
+  .panel-footer {
+    border-top: 0;
+    min-height: 84px;
+  }
+
+  .show-more {
+    z-index: 100;
+    @media (max-width: 767px) and (orientation: portrait) {
+      margin-top: 40px;
+    }
+  }
+}
+
+#tag-cloud-container {
+  text-align: center;
+  padding: 0 !important;
+}
+
+#welcome-login {
+  position: absolute;
+  bottom: 0;
+  padding-top: $padding_top_login;
+  padding-bottom: $size_navbar_height * 1.75;
+  text-align: center;
+
+  .login-container {
+    display: inline-block;
+  }
+  #loginButtonRow {
+    display: inline-block;
+    .flex-content {
+      justify-content: left !important;
+    }
+  }
+}
+
+.color-cards {
+  cursor: default;
+}
+
+.color-dot:before {
+  content: ' \25CF';
+  font-size: 5vw;
+  font-weight: bold;
+  vertical-align: -6%;
+  background-image: url("/img/pomodoro/pomodoro.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: 80%;
+  background-size: 100% 100%;
+  color: rgba(0,0,0,0);
+  -webkit-filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.7));
+  filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.7));
+}
+
+.logo-header-chars {
+  font-size: 14vw;
+  font-weight: bold;
+  text-shadow: 5px 5px 20px rgba(0, 0, 0, 0.7);
+}
+
+.welcome-title-no-padding {
+  padding-bottom: 0 !important;
+}
+
+.toggle-wordcloud {
+  position: absolute;
+  text-align: center;
+  right: 25px;
+  bottom: $size_navbar_height * 1.75 - 5 !important;
+  span {
+    font-size: $wordcloud_toggle_button_icon_size !important;
+  }
+  cursor: pointer;
+  text-decoration: none;
+  label {
+    font-size: $font_size_wordcloud_and_pomodoro_label !important;
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 0;
+    bottom: 0;
+  }
+}
+
+/* Smartphones Portrait and Landscape */
+@media only screen and (min-device-width:320px) and (max-device-width: 736px) {
+  #welcome {
+    .show-more {
+      display: none !important;
+    }
+  }
+  #slogan {
+      display: none !important;
+  }
+  #welcome-login {
+    padding-bottom: $size_navbar_height * 0.5;
+    .serverInventory {
+      display: none !important;
+    }
+  }
+  .toggle-wordcloud {
+    display: none !important;
+  }
+}
+
+/* iPhone X Portrait and Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  #welcome {
+    .show-more {
+      display: none !important;
+    }
+  }
+  #slogan {
+      display: none !important;
+  }
+  #welcome-login {
+    padding-bottom: 5px !important;
+    .serverInventory {
+      display: none !important;
+    }
+  }
+  .toggle-wordcloud {
+    display: none !important;
+  }
+}

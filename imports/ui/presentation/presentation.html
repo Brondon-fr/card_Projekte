@@ -1,0 +1,48 @@
+<template name="presentation">
+    {{#if hasPermission}}
+        {{#if isPresentationTranscriptReviewRoute}}
+            {{#if gotTranscriptsLeftToReview}}
+                {{> presentationView}}
+            {{else}}
+                <div class="container">
+                    {{> flashcardsReviewEnd}}
+                </div>
+            {{/if}}
+        {{else}}
+            {{> presentationView}}
+        {{/if}}
+    {{else}}
+        {{> accessDenied}}
+    {{/if}}
+</template>
+
+<template name="makingOfCards">
+    {{#if gotMakingOfCardsetData}}
+        {{> presentationView}}
+    {{/if}}
+</template>
+
+<template name="presentationView">
+    {{#unless isTranscriptRoute}}
+        {{> pomodoroTimerModal}}
+    {{/unless}}
+    {{#if isActiveRoute regex='demolist|presentationlist|makinglist'}}
+        {{> cardsetList}}
+    {{else}}
+        {{#if isPresentationTranscriptCardsetRoute}}
+            {{> cardNavigationItemReview}}
+        {{/if}}
+        {{#unless isMobilePreview}}
+            <div class="hidden-xs {{#if isActiveRoute regex='demo'}}row demo-padding{{else}}col-xs-12{{/if}}">
+                {{> cardNavigation}}
+            </div>
+        {{/unless}}
+        <div class="{{#if isActiveRoute regex='demo'}}row demo-padding{{else}}col-xs-12{{/if}}">
+            {{> flashcards}}
+        </div>
+        <div class="{{#unless isMobilePreview}}visible-xs{{/unless}} cardNavigationContainer {{#if isActiveRoute
+                                                                                                   regex='demo'}}row demo-padding{{else}}col-xs-12{{/if}}">
+            {{> cardNavigation}}
+        </div>
+    {{/if}}
+</template>

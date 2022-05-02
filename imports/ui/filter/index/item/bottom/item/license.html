@@ -1,0 +1,10 @@
+<template name="filterIndexItemBottomLicense">
+    {{#if isCardsetOwner this._id}}
+        <a rel="noopener noreferrer"   class="resultNavigationElement editCardsetLicense hidden-xs hidden-sm"
+           title='{{_ "cardset.tooltip.selectLicense"}}' data-id="{{this._id}}"
+           data-toggle="modal"
+           data-target="#selectLicenseModal">
+            <span class="far fa-closed-captioning editCardsetLicense" data-id="{{this._id}}"></span>
+        </a>
+    {{/if}}
+</template>

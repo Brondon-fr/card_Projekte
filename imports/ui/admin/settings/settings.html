@@ -1,0 +1,154 @@
+<template name="admin_settings">
+    <div class="content-header">
+        <h1>
+            {{_ "admin.settings"}}
+        </h1>
+    </div>
+    {{#if gotLandingPageWordcloud}}
+        {{#if gotCenteredLandingPagePomodoro}}
+            <div class="col-xs-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading panel-heading-mail">
+                        <h3 class="panel-title">{{_ "pomodoro.backend.settings.title"}}</h3>
+                    </div>
+                    <div class="panel-body panel-body-mail">
+                        <form>
+                            {{#if isWordcloudPomodoroEnabled}}
+                                <a rel="noopener noreferrer"   id="disableWordcloudPomodoro" class="btn btn-raised btn-success">
+                                    <span class="flex-content">{{_ "pomodoro.backend.settings.button.enabled"}}</span></a>
+                            {{else}}
+                                <a rel="noopener noreferrer"   id="enableWordcloudPomodoro" class="btn btn-raised btn-danger">
+                                    <span class="flex-content">{{_ "pomodoro.backend.settings.button.disabled"}}</span></a>
+                            {{/if}}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+    {{/if}}
+    <div class="col-xs-4">
+        <div class="panel panel-default">
+            <div class="panel-heading panel-heading-mail">
+
+                <h3 class="panel-title">{{_ "admin.mail-settings.title"}}</h3>
+            </div>
+            <div class="panel-body panel-body-mail">
+                <form>
+                    {{#if isMailEnabled}}
+                        <a rel="noopener noreferrer"   id="disableMail" class="btn btn-raised btn-success">
+                            <span class="flex-content">{{_ "admin.mail-settings.enabled"}}</span></a>
+                    {{else}}
+                        <a rel="noopener noreferrer"   id="enableMail" class="btn btn-raised btn-danger">
+                            <span class="flex-content">{{_ "admin.mail-settings.disabled"}}</span></a>
+                    {{/if}}
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="panel panel-default">
+            <div class="panel-heading panel-heading-mail">
+
+                <h3 class="panel-title">{{_ "admin.push-settings.title"}}</h3>
+            </div>
+            <div class="panel-body panel-body-mail">
+                <form>
+                    {{#if isPushEnabled}}
+                        <a rel="noopener noreferrer"   id="disablePush" class="btn btn-raised btn-success">
+                            <span class="flex-content">{{_ "admin.push-settings.enabled"}}</span></a>
+                    {{else}}
+                        <a rel="noopener noreferrer"   id="enablePush" class="btn btn-raised btn-danger">
+                            <span class="flex-content">{{_ "admin.push-settings.disabled"}}</span></a>
+                    {{/if}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading panel-heading-test-notifications">
+
+                <h3 class="panel-title">{{_ "admin-settings.test-notifications.title"}}</h3>
+            </div>
+            <div class="panel-body panel-body-notifications-test">
+                <div class="row">
+                    <div class="col-xs-7">
+                        <form>
+                            <div class="form-group">
+                                <label id="cardsetOwnerAdminLabel">{{_ "admin-settings.test-notifications.setTargetID"}}</label>
+                                <input class="form-control" type="text" id="notificationTarget"
+                                       value="">
+                                <a rel="noopener noreferrer"   id="setNotificationTarget" class="btn btn-raised btn-success">
+                                    <span class="flex-content">{{_ "admin-settings.test-notifications.setTarget"}}</span></a>
+                                <label id="setTargetInfo" for="setNotificationTarget"
+                                       style="visibility: hidden;"></label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-xs-4 col-xs-offset-1">
+                        <form>
+                            <div class="form-group">
+                                <label id="targetInfo">{{_ "admin-settings.test-notifications.target"}}</label>
+                                {{getNotificationTargetText}}
+                                <br>
+                                <label id="notificationType">{{_ "admin-settings.test-notifications.type.label"}}</label>
+                                <input type="radio" id="testNotificationTypeNew" name="testNotificationType" data-type="0" checked>
+                                {{_ "admin-settings.test-notifications.type.options.new"}}
+                                <input type="radio" id="testNotificationTypeReminder" name="testNotificationType" data-type="1">
+                                {{_ "admin-settings.test-notifications.type.options.reminder"}}
+                                <input type="radio" id="testNotificationTypeReset" name="testNotificationType" data-type="2">
+                                {{_ "admin-settings.test-notifications.type.options.reset"}}
+                                <br>
+                                {{#if checkNotificationTarget}}
+                                    <label id="targetInfo">{{_ "admin-settings.test-notifications.send"}}</label>
+                                    <a rel="noopener noreferrer"   id="sendMail" class="btn btn-raised btn-success">
+                                        <span class="flex-content">{{_ "admin-settings.test-notifications.sendMail"}}</span></a>
+                                    <a rel="noopener noreferrer"   id="sendWeb" class="btn btn-raised btn-success">
+                                        <span class="flex-content">{{_ "admin-settings.test-notifications.sendWeb"}}</span></a>
+                                    <label id="sendInfo" style="visibility: hidden;"></label>
+                                {{/if}}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12" style="display: flex; display: -webkit-flex; flex-wrap: wrap;">
+        <div class="panel panel-default col-xs-7">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{_ "admin-settings.plantUML.title"}}</h3>
+            </div>
+            <div class="panel-body">
+                <form>
+                    <div class="form-group">
+                        <label id="targetInfo">{{_ "admin-settings.plantUML.target"}}</label>
+                        {{getPlantUMLServerTarget}}
+                    </div>
+                    <div class="form-group">
+                        <label id="cardsetOwnerAdminLabel">{{_ "admin-settings.plantUML.setTargetID"}}</label>
+                        <input class="form-control" type="text" id="plantUMLServerTarget"
+                               value="">
+                        <a rel="noopener noreferrer"   id="setPlantUMLServerTarget" class="btn btn-raised btn-success">
+                            <span class="flex-content">{{_ "admin-settings.plantUML.setTarget"}}</span></a>
+                        <label id="setPlantUMLServerTargetInfo" for="setPlantUMLServerTarget"
+                               style="visibility: hidden;"></label>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="panel panel-default col-xs-offset-1 col-xs-4">
+            <div class="panel-heading panel-heading-test-plantuml-markdeep">
+                <h3 class="panel-title">{{_ "admin-settings.plantUML.previewTitle"}}</h3>
+            </div>
+            <div class="panel-body">
+                {{#markdeep}}
+                    {{{getPlantUMLPreviewContent}}}
+                {{/markdeep}}
+            </div>
+        </div>
+    </div>
+</template>

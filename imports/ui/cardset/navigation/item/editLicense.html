@@ -1,0 +1,24 @@
+<template name="cardsetNavigationEditLicense">
+    {{#if isCardsetOwner _id}}
+        {{#unless gotTranscriptBonusAndIsNotShuffled _id}}
+            <div class="hidden-xs btn-group">
+                <button id="selectLicense" class="btn btn-sm btn-raised selectLicenseBtn"
+                        data-toggle="modal"
+                        data-target="#selectLicenseModal" {{disableIfOffline}}>
+                    <span class="flex-content">
+                        {{#if isLicenseSet}}
+                            {{#each getAllLicenses}}
+                                <span class="fa-stack license-label-container">
+                                    <span class="fas fa-circle fa-stack-1x license-icon-background"></span>
+                                    <span class="fab fa-creative-commons-{{this}} fa-stack-1x license-icon-foreground"></span>
+                                </span>
+                            {{/each}}
+                        {{else}}
+                            <span class="far fa-closed-captioning"></span>
+                        {{/if}}
+                        &nbsp;{{_ "sidebar-nav.license"}}</span>
+                </button>
+            </div>
+        {{/unless}}
+    {{/if}}
+</template>

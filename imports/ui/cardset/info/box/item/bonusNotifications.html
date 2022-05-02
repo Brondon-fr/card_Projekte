@@ -1,0 +1,22 @@
+<template name="cardsetInfoBoxItemBonusNotifications">
+    {{#if isMailEnabled}}
+        <tr>
+            <td>
+                <span class='fas fa-envelope'></span>&nbsp;{{_ "set-list.notifications.mail"}}:
+            </td>
+            <td>
+                {{getStatus 0}}
+            </td>
+        </tr>
+    {{/if}}
+    {{#if isPushEnabled}}
+        <tr>
+            <td>
+                <span class='fas fa-bell'></span>&nbsp;{{_ "set-list.notifications.push"}}:
+            </td>
+            <td>
+                {{getStatus 1}}
+            </td>
+        </tr>
+    {{/if}}
+</template>

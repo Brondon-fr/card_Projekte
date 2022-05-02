@@ -1,0 +1,147 @@
+#flashcardSidebarLeft, #flashcardSidebarRight, #flashcardSidebarBottomLeft {
+  position: absolute;
+  float: left;
+  z-index: 1001;
+  padding: 5px;
+  width: $sidebar_width - $sidebar_subtracted_width_for_not_fixed_version !important;
+  @media(max-width: 1439px) and (pointer: coarse) {
+    padding: 3px;
+    width: $sidebar_width_mobile - $sidebar_subtracted_width_for_not_fixed_version !important;
+    .showArsnovaClick, .showArsnovaApp, .showDeepLTranslation, .showBeolingusTranslation {
+      padding-left: ($sidebar_width_mobile * 0.25) !important;
+      padding-right: ($sidebar_width_mobile * 0.25) !important;
+    }
+    @media (orientation: portrait) {
+      margin-bottom: $sidebar_yOffset_portrait_mobile !important;
+    }
+
+    @media (orientation: landscape) {
+      margin-bottom: $sidebar_yOffset_landscape_mobile !important;
+    }
+  }
+  @media(max-width: 767px) {
+    position: fixed;
+    transform: scaleY(-1);
+  }
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  i, span, img, button {
+    width: 100% !important;
+    text-align: center;
+    margin-top: $sidebar_button_margin !important;
+    @media(max-width: 1439px) and (pointer: coarse) {
+      margin-top: $sidebar_button_margin_mobile !important;
+    }
+  }
+
+  .sidebarNavigationButton {
+    display: block;
+    margin-top: 0 !important;
+    height: 33px !important;
+    i, span, img, button {
+      margin-top: 0;
+    }
+    margin-bottom: 25px;
+  }
+
+  .card-button {
+    display: flex;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 5px !important;
+    height: $sidebar_button_height !important;
+    @media(max-width: 1439px) and (pointer: coarse) {
+      height: $sidebar_button_height_mobile !important;
+    }
+    font-size: ($sidebar_button_height * 0.6) !important;
+    @media(max-width: 767px) {
+      transform: scaleY(-1);
+    }
+  }
+
+  .card-button:first-child {
+    margin-top: 0 !important;
+  }
+
+  .card-button:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .projectorIconButton {
+    margin: auto !important;
+    height: auto !important;
+    max-width: 85% !important;
+  }
+}
+
+#flashcardSidebarLeft.workload, #flashcardSidebarRight.workload {
+  @media(max-width: 1439px) and (pointer: coarse) {
+    @media (orientation: portrait) {
+      margin-bottom: $sidebar_yOffset_workload_portrait_mobile !important;
+    }
+
+    @media (orientation: landscape) {
+      margin-bottom: $sidebar_yOffset_workload_landscape_mobile !important;
+    }
+  }
+}
+
+#flashcardSidebarLeft.fixed, #flashcardSidebarRight.fixed, #flashcardSidebarBottomLeft.fixed {
+  position: fixed;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: $sidebar_width !important;
+  @media(max-width: 1439px) and (pointer: coarse) {
+    width: $sidebar_width_mobile !important;
+  }
+}
+
+#flashcardSidebarLeft > .card-button:first-child, #flashcardSidebarRight > .card-button:first-child, #flashcardSidebarBottomLeft > .card-button:first-child {
+  margin-top: 0;
+}
+
+.mobilePreviewContent #flashcardSidebarLeft, .mobilePreviewContent #flashcardSidebarRight {
+  padding: 3px;
+  width: 35px;
+}
+
+#flashcardSidebarLeft, #flashcardSidebarBottomLeft {
+  margin-left: 15px;
+  border-right: 2px solid;
+  left: 0;
+  border-radius: 0 10px 10px 0;
+}
+
+#flashcardSidebarBottomLeft {
+  bottom: 20px;
+}
+
+#flashcardSidebarRight {
+  margin-right: 15px;
+  border-left: 2px solid;
+  right: 3px;
+  @media(max-width: 1439px) {
+    right: 0;
+  }
+  border-radius: 10px 0 0 10px;
+}
+
+.flashcardSidebarPreviewLeft {
+  position: absolute !important;
+}
+
+.flashcardSidebarPreviewRight {
+  position: absolute !important;
+}
+
+.showArsnovaApp, .showArsnovaClick {
+  padding: 0 4px !important;
+}
+
+#cardSettingsForward {
+  float: left;
+}
+
+.toggle3D {
+  font-weight: normal;
+}

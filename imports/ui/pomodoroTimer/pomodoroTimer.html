@@ -1,0 +1,162 @@
+<template name="pomodoroTimer">
+    <div class="pomodoroTimer">
+        <!--the whole clock and hands and arcs are all contained in the same svg viewbox-->
+        <svg class="pomodoroClock" viewBox="0 0 100 100">
+            <title>{{_ "pomodoro.tooltip"}}</title>
+            <!--drop shadow from http://demosthenes.info/ . Have to do the shadow using svg, or it wouldn't be able to follow the triangle hands-->
+            <filter id="drop-shadow">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="1.5"/>
+                <feOffset dx="2" dy="2" result="offsetblur"/>
+                <feFlood flood-color="rgba(0,0,0,0.25)"/>
+                <feComposite in2="offsetblur" operator="in"/>
+                <feMerge>
+                    <feMergeNode/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+            </filter>
+            <!--have to put the filter in a style attribute so the url works-->
+            <g class="pomodoroHands">
+                <polygon class="pomodoroHour" points="50,25 53,50 47,50" transform="{{getHourRotation}}"/>
+                <polygon class="pomodoroMin" points="50,10 53,50 47,50" transform="{{getMinuteRotation}}"/>
+            </g>
+
+            <circle class="handCircle" cx="50" cy="50" r="3"/>
+
+            <!--these paths show the pomodoros and breaks around the circle and are assigned attributes in the javascript-->
+            <path class="progressArc"/>
+            <path class="pomArc"/>
+            <path class="breakArc"/>
+        </svg>
+        <!--empty audio tag to make the sounds work on chrome for android-->
+        <audio id="chromeMobile" preload="auto">
+            <source src="" type="audio/mp3"/>
+        </audio>
+        <audio id="bell" preload="auto">
+            <source src="/audio/Schulgong.mp3" type="audio/mp3"/>
+        </audio>
+        {{#unless isActiveRoute regex='presentation|demo'}}
+            <audio id="failure" preload="auto">
+                <source src="/audio/fail.mp3" type="audio/mp3"/>
+            </audio>
+            <audio id="success" preload="auto">
+                <source src="/audio/success.mp3" type="audio/mp3"/>
+            </audio>
+        {{/unless}}
+    </div>
+</template>
+
+<template name="pomodoroTimerModal">
+    <!--this is the modal, hidden by default, that pops up when the user clicks the clock. Not too complicated.-->
+    <div id="pomodoroTimerModal" class="modal fade" data-backdrop="{{#if requiresUserInputForFullscreen}}static{{/if}}" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img class="modal-icon" src="/img/pomodoro/pomodoro.svg"/>
+                    <span class="closePomodoro">
+                        {{> mainModalItemCloseIcon}}
+                    </span>
+                    <h4 class="modal-title" id="modalTitle">{{_ "pomodoro.form.user.title"}}</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="input" autocomplete="off">
+                        <div class="form-group">
+                            {{> pomodoroTimerModalContent}}
+                        </div>
+                    </form>
+                    {{#if isLandingPage}}
+                        <div class="form-group row">
+                            {{> pomodoroTimerModalContentCheckbox item="fullscreenPomodoro" checked=true}}
+                            <label for="fullscreenPomodoro" class="control-label">{{_ "pomodoro.form.fullscreen"}}</label><br>
+                        </div>
+                    {{/if}}
+                </div>
+                <div class="modal-footer">
+                    {{#if isActiveRoute regex='demo|presentation'}}
+                        <button type="button" id="cancelPomodoroBtn" class="btn btn-danger btn-raised">
+                            {{_ "pomodoro.form.presentation.button.cancel"}}
+                        </button>
+                    {{else}}
+                        <button type="button" id="settingsBtn" class="btn btn-default btn-raised"
+                                style="float:left;">
+                            <span class="fas fa-cog"></span>
+                            {{_ "pomodoro.form.user.button.settings"}}
+                        </button>
+                    {{/if}}
+                    <button type="button" id="startPom" class="btn btn-success btn-raised" data-dismiss="modal">
+                        <span class="fas fa-rocket"></span>
+                        {{#if isActiveRoute regex='presentation|demo'}}
+                            {{_ "pomodoro.form.presentation.button.start"}}
+                        {{else}}
+                            {{_ "pomodoro.form.user.button.start"}}
+                        {{/if}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="pomodoroTimerModalContent">
+    {{#unless isActiveRoute regex='presentation|demo'}}
+        <div id="goalDiv" class="form-group row">
+            <label class="col-xs-12 control-label" id="pomNumLabel" for="pomNumSlider"></label>
+            <input class="numSlider col-xs-12" type=range min=1 max=16 value=1 id="pomNumSlider" step=1>
+            <label id="workTime" class="col-xs-12 control-label"></label>
+        </div>
+    {{/unless}}
+    <div id="settings" class="pomodoroBackground"
+         style="{{#if isHiddenByDefault}}display: none;{{/if}}">
+        <div class="form-group row">
+            <label for="workSlider" class="col-xs-12 control-label" style="float:left;"><span class="fas fa-desktop"></span>
+                <span id="workSliderLabel"></span>
+            </label>
+            <input class="numSlider col-xs-12" type="range" id="workSlider">
+        </div>
+        <div class="form-group row">
+            <label for="breakSlider" class="col-xs-12 control-label" style="float:left;"><span class="fas fa-coffee"></span>
+                <span id="breakSliderLabel"></span>
+            </label>
+            <input class="numSlider col-xs-12" type="range" id="breakSlider">
+        </div>
+        {{#unless isiOS}}
+            <div class="form-group row">
+                <label for="" class="control-label"><span class="fas fa-music"></span>
+                    {{_ "pomodoro.form.sounds.title"}}</label>
+            </div>
+            <div class="form-group row">
+                {{> pomodoroTimerModalContentCheckbox item="sound1" checked=true}}
+                <label for="sound1" class="control-label">{{_ "pomodoro.form.sounds.break"}}</label><br>
+                <audio id="bellPreview" style="width: 260px;" controls controlsList="nodownload noremoteplayback">
+                    <source src="/audio/Schulgong.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+            {{#unless isActiveRoute regex='presentation|demo'}}
+                <div class="form-group row">
+                    {{> pomodoroTimerModalContentCheckbox item="sound2" checked=true}}
+                    <label for="sound2" class="control-label">{{_ "pomodoro.form.sounds.success"}}</label><br>
+                    <audio id="successPreview" style="width: 260px" controls controlsList="nodownload noremoteplayback">
+                        <source src="/audio/success.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+                <div class="form-group row">
+                    {{> pomodoroTimerModalContentCheckbox item="sound3" checked=true}}
+                    <label for="sound3" class="control-label">{{_ "pomodoro.form.sounds.abort"}}</label><br>
+                    <audio id="failurePreview" style="width: 260px" controls controlsList="nodownload noremoteplayback">
+                        <source src="/audio/fail.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+            {{/unless}}
+        {{/unless}}
+    </div>
+</template>
+
+<template name="pomodoroTimerModalContentCheckbox">
+    <div id="{{this.item}}" class="fa-stack fa-stack-checkbox modal-checkbox {{#if gotChecked this.item}}checked{{/if}}">
+        <span class="fas fa-square fa-stack-2x background"></span>
+        <span class="far fa-square fa-stack-2x border"></span>
+        {{#if gotChecked this.item}}
+            <span class="fas fa-check fa-stack-1x icon"></span>
+        {{/if}}
+    </div>
+</template>

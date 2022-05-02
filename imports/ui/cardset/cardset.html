@@ -1,0 +1,45 @@
+<template name="cardsetAccess">
+    {{#if hasPermission}}
+        {{#if doesCardsetExist this._id}}
+            {{> cardset}}
+        {{else}}
+            {{> notFound}}
+        {{/if}}
+    {{else}}
+        {{> accessDenied}}
+    {{/if}}
+</template>
+
+<template name="cardset">
+    {{#with getCardset}}
+        {{> mainModalArsnovaClick}}
+        {{> mainModalArsnovaLite}}
+        {{> learningHistoryModal}}
+        {{> learningCardStatusModal}}
+        {{> cardsetInfo}}
+        {{> showLicense}}
+        {{> cardsetForm}}
+        {{> cardsetExportForm}}
+        {{> cardsetImportForm}}
+        {{> cardsetPublishForm}}
+        {{> bonusForm}}
+        {{> cardsetEndLearnForm}}
+        {{> selectLicenseForm}}
+        {{> reportCardsetForm}}
+        {{> deleteCardsForm}}
+        {{> resetLeitnerForm}}
+        {{> resetMemoForm}}
+        {{> leaveCardsetForm}}
+        {{> leaveEditorsForm}}
+        {{> chooseFlashcards}}
+        {{> joinBonusForm}}
+        {{> leaveBonusForm}}
+        {{> cardsetSidebar}}
+        {{> profileIncompleteModal}}
+        {{> cardsetLeitnerSimulatorForm}}
+        {{> cardsetsConfirmLearnForm}}
+        {{#if hasCardsetPermission}}
+            {{selectedForLearning}}
+        {{/if}}
+    {{/with}}
+</template>

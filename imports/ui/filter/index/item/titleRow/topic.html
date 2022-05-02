@@ -1,0 +1,25 @@
+<template name="filterIndexItemTitleRowTopic">
+    <div class="hidden-xs {{this.gridSize}} resultsHeader">
+        {{#if isBonusTranscriptsRoute}}
+            {{_ "transcriptForm.index.topicBonus"}}
+        {{else}}
+            {{#if isPersonalTranscriptsRoute}}
+                {{_ "set-list.topicTranscript"}}
+                {{else}}
+                    {{#if isWorkloadRoute}}
+                        {{_ "set-list.topicWorkload"}}
+                {{else}}
+                    {{#if gotSimplifiedNav}}
+                        {{{getCardsetIcons false}}}{{_ "set-list.topicSimpleNav"}}
+                    {{else}}
+                        {{#if isRepetitorienFilterIndex}}
+                            {{{getCardsetIcons true}}}{{_ "courseIteration.list.courseIteration"}}
+                        {{else}}
+                            {{{getCardsetIcons false}}}{{_ "set-list.topic"}}
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+            {{/if}}
+        {{/if}}
+    </div>
+</template>

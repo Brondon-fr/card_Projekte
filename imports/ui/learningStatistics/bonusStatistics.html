@@ -1,0 +1,271 @@
+<template name="learningBonusStastics">
+    {{#unless isEditor}}
+        {{> accessDenied}}
+    {{else}}
+        {{> learningHistoryModal}}
+        {{> learningCardStatusModal}}
+        {{> learningStatisticsRemoveBonusUserModal}}
+        {{> bonusForm}}
+        {{> cardsetLeitnerSimulatorForm}}
+        {{> learningStatisticsDeleteArchivedBonusModal}}
+        <div class="cardsetstats-container">
+            <div id="cardsetInfoDetail">
+                <div class="panel panel-default cardsetInfo">
+                    <div class="panel-body">
+                        <h4 id="cardsetInfoDetailTitle">{{this.name}}</h4>
+                        <hr>
+                        <div class="row">
+                                    <span class="col-sm-6 collapseCardsetInfoContainer">
+                                        {{> cardsetInfoBox}}
+                                    </span>
+                            <span class="col-sm-6 collapseCardsetInfoContainer">
+                                {{> bonusInfoBox}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        {{#if gotCardsetStats}}
+                            <button id="exportCSV" class="btn btn-success btn-raised"><span class="flex-content"><span aria-hidden=true class="fas fa-clipboard-list"></span>&nbsp;<span
+                                    class="fas fa-cloud-download-alt"></span>&nbsp;{{_
+                                    "box_export"}}</span></button>
+                        {{/if}}
+                        <div class="btn-group">
+                            <button class="btn btn-default btn-raised showUserNames groupCheckboxButtonLeft {{#if gotHiddenUserNames}}checked{{/if}}"><span class="flex-content">
+                                {{#if gotHiddenUserNames}}
+                                    <span class="fas fa-check"></span>
+                                {{/if}}
+                            </span>
+                            </button>
+                            <button class="btn btn-info btn-raised showUserNames groupCheckboxButtonRight"><span class="flex-content"><span
+                                    class="fas fa-user-secret"></span>&nbsp;{{_
+                                    "learningStatistics.hideUserNames"}}</span></button>
+                        </div>
+                        {{#if gotCardsetStats}}
+                            <button id="showBonusCardStats" class="btn btn-default btn-raised" data-toggle="modal" href="#learningCardStatusModal">
+                                <span class="flex-content"><span aria-hidden=true class="fa fa-list-alt"></span>&nbsp;{{_
+                                    "learningCardStats.titleBonus"}}</span>
+                            </button>
+                        {{/if}}
+                        {{#if gotMultipleLearningPhases}}
+                            <div id="archivedLearningPhaseDropdown" class="pull-right btn-group">
+                                <div class="dropdown">
+                                    <div class="btn-group">
+                                        <button id="setActiveLearningPhase" type="button"
+                                                class="btn btn-raised btn-default setActiveLearningPhaseDropdown longButton"
+                                                data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false"
+                                                value="-1">{{getSelectedLearningPhaseData}}
+                                        </button>
+                                        <button type="button"
+                                                class="btn btn-raised dropdown-toggle setActiveLearningPhaseDropdown setCardTypeDropdownCaret"
+                                                data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false">
+                    <span class="flex-content"><span class="caret"></span>
+                        <span class="sr-only"></span></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-right btn-raised longButton">
+                                            {{#each getLearningPhases}}
+                                                <li class="learningPhaseDropdownItem" data-id="{{this._id}}">{{getLearningPhaseTitle this}} {{#unless this.isActive}}&nbsp;{{_ "learningStatistics.archived"}}{{/unless}}</li>
+                                            {{/each}}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/if}}
+                        <div class="btn-group pull-right">
+                            <button id="manageBonus"
+                                    class="btn btn-warning btn-raised learnBoxActive">
+                                <span class="fas fa-cog"></span> {{_ "bonus.form.edit.title"}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="overflow-x:auto;">
+                <table aria-describedby="cardsetInfoDetailTitle" class="table table-striped table-hover table-user-list">
+                    <tbody>
+                    <tr class="active">
+                        {{#if gotHiddenUserNames}}
+                            <th scope="col"><a rel="noopener noreferrer"   class="sort-bonus-content sort-bonus-user" data-content="placeholderID">{{_ "learningStatistics.hiddenUser"}}</a> {{> learningBonusStasticsItemSort (setSortObject "placeholderID")}}</th>
+                        {{else}}
+                            <th scope="col"><a rel="noopener noreferrer"   class="sort-bonus-content sort-bonus-user" data-content="birthname">{{_ "panel-body.birthname"}}</a> {{> learningBonusStasticsItemSort (setSortObject "birthname")}}</th>
+                            <th scope="col"><a rel="noopener noreferrer"   class="sort-bonus-content sort-bonus-user" data-content="givenname">{{_ "panel-body.givenname"}}</a> {{> learningBonusStasticsItemSort (setSortObject "givenname")}}</th>
+                            <th scope="col"><a rel="noopener noreferrer"   class="sort-bonus-content sort-bonus-user" data-content="email">{{_ "panel-body.email"}}</a> {{> learningBonusStasticsItemSort (setSortObject "email")}}</th>
+                        {{/if}}
+                        {{#if isNotificationEnabled}}
+                            <th scope="col">{{_ "confirmLearn-form.notification"}}
+                            </th>
+                        {{/if}}
+                        {{#with getActiveBonusLearningPhase this._id}}
+                            <th scope="col"><a rel="noopener noreferrer"   class="sort-bonus-content sort-bonus-user" data-content="dateJoinedBonus">{{_ "learningStatistics.dateJoinedBonus"}}</a> {{> learningBonusStasticsItemSort (setSortObject "dateJoinedBonus")}}</th>
+                            <th scope="col"><a rel="noopener noreferrer"   class="sort-bonus-content sort-bonus-user" data-content="lastActivity">{{_ "learningStatistics.lastActivity"}}</a> {{> learningBonusStasticsItemSort (setSortObject "lastActivity")}}</th>
+                            <th scope="col"><a rel="noopener noreferrer"   class="sort-bonus-content sort-bonus-user" data-content="workingTimeSum">{{_ "learningStatistics.workingTime"}}</a> {{> learningBonusStasticsItemSort (setSortObject "workingTimeSum")}}</th>
+                            <th scope="col"><a rel="noopener noreferrer"   class="sort-bonus-content sort-bonus-user" data-content="cardArithmeticMean">{{_ "learningStatistics.arithmeticMean"}}</a> {{> learningBonusStasticsItemSort (setSortObject "cardArithmeticMean")}}</th>
+                            <th scope="col"><a rel="noopener noreferrer"   class="sort-bonus-content sort-bonus-user" data-content="box1">{{_ "learningStatistics.box" number=1}} [{{this.intervals.[0]}}]</a> {{> learningBonusStasticsItemSort (setSortObject "box1")}}
+                            </th>
+                            <th scope="col"><a rel="noopener noreferrer"   class="sort-bonus-content sort-bonus-user" data-content="box2">{{_ "learningStatistics.box" number=2}} [{{this.intervals.[1]}}]</a> {{> learningBonusStasticsItemSort (setSortObject "box2")}}
+                            </th>
+                            <th scope="col"><a rel="noopener noreferrer"   class="sort-bonus-content sort-bonus-user" data-content="box3">{{_ "learningStatistics.box" number=3}} [{{this.intervals.[2]}}]</a> {{> learningBonusStasticsItemSort (setSortObject "box3")}}
+                            </th>
+                            <th scope="col"><a rel="noopener noreferrer"   class="sort-bonus-content sort-bonus-user" data-content="box4">{{_ "learningStatistics.box" number=4}} [{{this.intervals.[3]}}]</a> {{> learningBonusStasticsItemSort (setSortObject "box4")}}
+                            </th>
+                            <th scope="col"><a rel="noopener noreferrer"   class="sort-bonus-content sort-bonus-user" data-content="box5">{{_ "learningStatistics.box" number=5}} [{{this.intervals.[4]}}]</a> {{> learningBonusStasticsItemSort (setSortObject "box5")}}
+                            </th>
+                            <th scope="col"><a rel="noopener noreferrer"   class="sort-bonus-content sort-bonus-user" data-content="box6">{{_ "learningStatistics.learned"}}</a> {{> learningBonusStasticsItemSort (setSortObject "box6")}}</th>
+                            <th scope="col"><a rel="noopener noreferrer"   class="sort-bonus-content sort-bonus-user" data-content="achievedBonus">{{_ "learningStatistics.bonus"}}</a> {{> learningBonusStasticsItemSort (setSortObject "achievedBonus")}}</th>
+                            <th scope="col">{{_ "learningStatistics.history"}}</th>
+                            <th scope="col">{{_ "learningStatistics.status"}}</th>
+                            <th scope="col">{{_ "learningStatistics.cardStats"}}</th>
+                            <th scope="col">{{_ "learningStatistics.manage"}}</th>
+                        {{/with}}
+                    </tr>
+                    {{#each getCardsetStats}}
+                        <tr>
+                            {{#if gotHiddenUserNames}}
+                                <td>{{this.placeholderName}}</td>
+                            {{else}}
+                                <td>{{this.birthname}}</td>
+                                <td>{{this.givenname}}</td>
+                                <td><a rel="noopener noreferrer"   href="mailto:{{this.email}}">{{this.email}}</a></td>
+                            {{/if}}
+                            {{#if isNotificationEnabled}}
+                                <td>{{{getNotificationStatus this}}}</td>
+                            {{/if}}
+                            <td>{{this.dateJoinedBonusString}}</td>
+                            <td>{{this.lastActivityString}}</td>
+                            <td>{{this.workingTimeSumString}}</td>
+                            <td>{{this.cardArithmeticMeanString}}</td>
+                            <td>{{this.box1}}</td>
+                            <td>{{this.box2}}</td>
+                            <td>{{this.box3}}</td>
+                            <td>{{this.box4}}</td>
+                            <td>{{this.box5}}</td>
+                            <td>
+                                {{#if earnedTrophy}}
+                                    <span class="green-learning-text">
+                                        {{this.box6}}{{{getPercentage}}}
+                                    </span>
+                                {{else}}
+                                    <span class="red-learning-text">
+                                        {{this.box6}}{{{getPercentage}}}
+                                    </span>
+                                {{/if}}
+                            </td>
+                            <td>
+                                {{this.achievedBonus}}&nbsp;%{{#if earnedTrophy}}&nbsp;<span class="fas fa-trophy bonusTrophy"></span>{{/if}}
+                            </td>
+                            <td>
+                                <a rel="noopener noreferrer"
+                                   data-id="{{this.user_id}}"
+                                   data-firstname="{{this.givenname}}"
+                                   data-lastname="{{this.birthname}}"
+                                   data-index="{{adjustIndex @index}}"
+                                   data-email="{{this.email}}"
+                                   data-workloadid="{{this.workload_id}}"
+                                   class="showLearningHistory" data-toggle="modal"
+                                   href="#learningHistoryModal"><span
+                                        class="far fa-clock"
+                                        data-firstname="{{this.givenname}}"
+                                        data-lastname="{{this.birthname}}"
+                                        data-id="{{this.user_id}}"
+                                        data-index="{{adjustIndex @index}}"
+                                        data-email="{{this.email}}"
+                                        data-workloadid="{{this.workload_id}}"
+                                        title="{{_ "learningHistory.tooltip"}}"></span></a>
+                            </td>
+                            <td>
+                                <a rel="noopener noreferrer"
+                                   data-id="{{this.user_id}}"
+                                   data-index="{{adjustIndex @index}}"
+                                   data-firstname="{{this.givenname}}"
+                                   data-lastname="{{this.birthname}}"
+                                   data-email="{{this.email}}"
+                                   data-workloadid="{{this.workload_id}}"
+                                   class="showLearningStatus"><span
+                                        class="far fa-chart-bar"
+                                        data-id="{{this.user_id}}"
+                                        data-index="{{adjustIndex @index}}"
+                                        data-firstname="{{this.givenname}}"
+                                        data-lastname="{{this.birthname}}"
+                                        data-email="{{this.email}}"
+                                        data-workloadid="{{this.workload_id}}"
+                                        title="{{_ "learningStatus.tooltip"}}"></span></a>
+                            </td>
+                            <td>
+                                <a rel="noopener noreferrer"
+                                   data-id="{{this.user_id}}"
+                                   data-firstname="{{this.givenname}}"
+                                   data-lastname="{{this.birthname}}"
+                                   data-index="{{adjustIndex @index}}"
+                                   data-email="{{this.email}}"
+                                   data-learningphaseid="{{this.learning_phase_id}}"
+                                   class="showLearningCardStats" data-toggle="modal"
+                                   href="#learningCardStatusModal">
+                                    <span class="fa fa-list-alt"
+                                          data-firstname="{{this.givenname}}"
+                                          data-lastname="{{this.birthname}}"
+                                          data-id="{{this.user_id}}"
+                                          data-index="{{adjustIndex @index}}"
+                                          data-email="{{this.email}}"
+                                          data-learningphaseid="{{this.learning_phase_id}}"
+                                          title="{{_ "learningCardStats.tooltip"}}">
+                                    </span>
+                                </a>
+                            </td>
+                            <td>
+                                <a rel="noopener noreferrer" class="removeBonusUser" data-toggle="modal"
+                                   href="#learningStatisticsRemoveBonusUserModal"
+                                   data-user_id="{{this.user_id}}"
+                                   data-firstname="{{this.givenname}}"
+                                   data-lastname="{{this.birthname}}"
+                                   data-email="{{this.email}}"
+                                   data-box1="{{this.box1}}"
+                                   data-box2="{{this.box2}}"
+                                   data-box3="{{this.box3}}"
+                                   data-box4="{{this.box4}}"
+                                   data-box5="{{this.box5}}"
+                                   data-box6="{{this.box6}}"
+                                   data-index="{{adjustIndex @index}}"
+                                   data-mailnotification="{{this.mailNotification}}"
+                                   data-webnotification="{{this.webNotification}}"
+                                   data-workingtimesum="{{this.workingTimeSum}}"
+                                   data-cardarithmeticmean="{{this.cardArithmeticMean}}"
+                                   data-achievedbonus="{{this.achievedBonus}}"
+                                   data-percentage="{{this.percentage}}"
+                                   data-workloadid="{{this.workload_id}}"
+                                   title="{{_ "learningStatisticsRemoveBonusUser.tooltip"}}">
+                                    <span class="fas fa-trash"
+                                          data-user_id="{{this.user_id}}"
+                                          data-firstname="{{this.givenname}}"
+                                          data-lastname="{{this.birthname}}"
+                                          data-email="{{this.email}}"
+                                          data-box1="{{this.box1}}"
+                                          data-box2="{{this.box2}}"
+                                          data-box3="{{this.box3}}"
+                                          data-box4="{{this.box4}}"
+                                          data-box5="{{this.box5}}"
+                                          data-box6="{{this.box6}}"
+                                          data-index="{{adjustIndex @index}}"
+                                          data-workingtimesum="{{this.workingTimeSum}}"
+                                          data-cardarithmeticmean="{{this.cardArithmeticMean}}"
+                                          data-mailnotification="{{this.mailNotification}}"
+                                          data-webnotification="{{this.webNotification}}"
+                                          data-datejoinedbonus="{{getMomentsDate this.dateJoinedBonus}}"
+                                          data-lastactivity="{{getMomentsDate this.lastActivity}}"
+                                          data-achievedbonus="{{this.achievedBonus}}"
+                                          data-percentage="{{this.percentage}}"
+                                          data-workloadid="{{this.workload_id}}"
+                                    >
+                                    </span></a>
+                            </td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn btn-block btn-raised btn-danger" id="backButton">
+                <span class="flex-content"><em class="fas fa-arrow-left"></em> {{_ "backbutton"}}</span>
+            </button>
+        </div>
+    {{/unless}}
+</template>

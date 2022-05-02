@@ -1,0 +1,229 @@
+<template name="admin_user">
+    <div class="content-header">
+        <h1>
+            {{_ "admin.user.header"}}
+            <small>{{_ "admin.user.edit"}} {{_id}}</small>
+        </h1>
+    </div>
+    <div class="content box-admin">
+        <div class="box-body-admin">
+            <div class="row">
+                <form id="admin_user_update">
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">{{_ "admin.user.info"}}</div>
+                            <div class="panel-body">
+                                <div class="form-group" style="margin-top: 0">
+                                    <label id="editUserNameLabelAdmin">{{_ "admin.user.username"}}</label>&nbsp;{{profile.name}}
+                                </div>
+                                <div class="form-group">
+                                    <label id="editUserEmailLabelAdmin">{{_ "admin.user.email"}}</label>
+                                    <input class="form-control" type="text" id="editUserEmailAdmin" value="{{email}}">
+                                    <span id="helpEditUserEmailAdmin" class="help-block email"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label id="editUserTitleLabelAdmin">{{_ "admin.user.title"}}</label>
+                                    <input class="form-control" type="text" id="editUserTitleAdmin"
+                                           value="{{profile.title}}">
+                                    <span id="helpEditUserTitleAdmin" class="help-block name"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label id="editUserBirthNameLabelAdmin">{{_ "admin.user.birthname"}}</label>
+                                    <input class="form-control" type="text" id="editUserBirthNameAdmin"
+                                           value="{{profile.birthname}}">
+                                    <span id="helpEditUserBirthNameAdmin" class="help-block name"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label id="editUserGivenNameLabelAdmin">{{_ "admin.user.givenname"}}</label>
+                                    <input class="form-control" type="text" id="editUserGivenNameAdmin"
+                                           value="{{profile.givenname}}">
+                                    <span id="helpEditUserGivenNameAdmin" class="help-block name"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">{{_ "admin.user.status"}}</div>
+                            <div class="panel-body">
+                                <div class="form-group" style="margin-top: 0">
+                                    <label id="editUserVisibleLabelAdmin">{{_ "admin.user.visible"}}</label>&nbsp;
+                                        <div id="editUserVisibleAdmin" class="btn-group" data-toggle="buttons">
+                                            <label id="profilepublicoption1Admin"
+                                                   class="btn profile-public {{#if isVisible
+                                                                                   _id}}active{{/if}}"
+                                                   style="width:100px">
+                                                <input type="radio" name="options" value="public">
+                                                <span class="flex-content">{{_ "admin.user.option1"}}</span>
+                                            </label>
+                                            <label id="profilepublicoption2Admin"
+                                                   class="btn profile-private {{#unless isVisible
+                                                                                        _id}}active active2{{/unless}}"
+                                                   style="width:100px">
+                                                <input type="radio" name="options" value="private">
+                                                <span class="flex-content">{{_ "admin.user.option2"}}</span>
+                                            </label>
+                                    </div>
+                                    <span id="helpEditUserVisibleAdmin" class="help-block visible"></span>
+                                </div>
+                                {{#if isAdminUser _id}}
+                                    <div class="form-group" style="margin-top: 0">
+                                        <label id="editUserBlockedLabelAdmin">{{_ "admin.user.blocked"}}</label>
+                                        <div id="editUserBlockedAdmin" class="btn-group" data-toggle="buttons">
+                                            <label id="blockedOption1Admin"
+                                                   class="btn blocked-true {{#if blockedUser
+                                                                                 true}}active active2{{/if}}"
+                                                   style="width:100px">
+                                                <input type="radio" name="blockedUser" value="true">
+                                                <span class="flex-content">{{_ "admin.user.option1"}}</span>
+                                            </label>
+                                            <label id="blockedOption2Admin"
+                                                   class="btn blocked-false {{#if blockedUser
+                                                                                  false}}active{{/if}}"
+                                                   style="width:100px">
+                                                <input type="radio" name="blockedUser" value="false">
+                                                <span class="flex-content">{{_ "admin.user.option2"}}</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                {{/if}}
+                                {{#if isUserBlocked}}
+                                    <div class="form-group" style="margin-top: 0">
+                                        <label id="editUserBlockedtextLabelAdmin">{{_
+                                                "admin.user.blocked_text"}}</label>
+                                        <input class="form-control" type="text" id="editUserBlockedtextAdmin"
+                                               value="{{blockedtext}}">
+                                        <span id="helpEditUserBlockedtextAdmin"
+                                              class="help-block blockedtext"></span>
+                                    </div>
+                                {{/if}}
+                                <hr>
+                                <div class="form-group">
+                                    <label id="editUserOnlineLabelAdmin">{{_ "admin.user.online"}}</label>
+                                    {{getOnlineStatus status.online}}
+                                </div>
+                                <div class="form-group">
+                                    <label id="editUserLastLoginLabelAdmin">{{_ "admin.user.lastLogin"}}</label>
+                                    {{getLastLogin status.lastLogin}}{{_ "admin.user.clock"}}
+                                </div>
+                                <div class="form-group">
+                                    <label id="editUserDateLabelAdmin">{{_ "admin.user.date"}}</label>
+                                    {{getDateUser}}
+                                </div>
+                                <div class="form-group">
+                                    <label id="editUserServiceLabelAdmin">{{_ "admin.user.service"}}</label>
+                                    {{getService}}
+                                </div>
+                                <div class="form-group">
+                                    <label id="editUserNotificationsLabelAdmin">{{_ "confirmLearn-form.notification"}}:</label>
+                                    {{{getNotificationStatus this}}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">{{_ "admin.user.roles"}}</div>
+                            {{#if gotBackendAccess}}
+                            <div class="panel-body">
+                                <div class="form-group col-md-3" style="margin-top: 0">
+                                    <label id="editUserEditorLabelAdmin">{{_ "admin.admin"}}</label>
+                                    <div class="controls">
+                                        <div id="editUserEditorAdmin" class="btn-group" data-toggle="buttons">
+                                            <label id="editorOption1Admin"
+                                                   class="btn editor-true {{#if editorUser
+                                                                                true}}active{{/if}}"
+                                                   style="width:100px">
+                                                <input type="radio" name="options" value="true">
+                                                <span class="flex-content">{{_ "admin.user.option1"}}</span>
+                                            </label>
+                                            <label id="editorOption2Admin"
+                                                   class="btn editor-false {{#if editorUser
+                                                                                 false}}active active2{{/if}}"
+                                                   style="width:100px">
+                                                <input type="radio" name="options" value="false">
+                                                <span class="flex-content">{{_ "admin.user.option2"}}</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3" style="margin-top: 0">
+                                    <label id="editUserLecturerLabelAdmin">{{_ "admin.lecturer"}}</label>
+                                    <div class="controls">
+                                        <div id="editUserLecturerAdmin" class="btn-group" data-toggle="buttons">
+                                            <label id="lecturerOption1Admin"
+                                                   class="btn lecturer-true {{#if lecturerUser
+                                                                                  true}}active{{/if}}"
+                                                   style="width:100px">
+                                                <input type="radio" name="options" value="true">
+                                                <span class="flex-content">{{_ "admin.user.option1"}}</span>
+                                            </label>
+                                            <label id="lecturerOption2Admin"
+                                                   class="btn lecturer-false {{#if lecturerUser
+                                                                                   false}}active active2{{/if}}"
+                                                   style="width:100px">
+                                                <input type="radio" name="options" value="false">
+                                                <span class="flex-content">{{_ "admin.user.option2"}}</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3" style="margin-top: 0">
+                                    <label id="editUserProLabelAdmin">{{_ "admin.pro"}}</label>
+                                    <div class="controls">
+                                        <div id="editUserProAdmin" class="btn-group" data-toggle="buttons">
+                                            <label id="proOption1Admin"
+                                                   class="btn pro-true {{#if proUser true}}active{{/if}}"
+                                                   style="width:100px">
+                                                <input type="radio" name="options" value="true">
+                                                <span class="flex-content">{{_ "admin.user.option1"}}</span>
+                                            </label>
+                                            <label id="proOption2Admin"
+                                                   class="btn pro-false {{#if proUser false}}active active2{{/if}}"
+                                                   style="width:100px">
+                                                <input type="radio" name="options" value="false">
+                                                <span class="flex-content">{{_ "admin.user.option2"}}</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3" style="margin-top: 0">
+                                    <label id="editUserEduLabelAdmin">{{_ "admin.university"}}</label>
+                                    <div class="controls">
+                                        <div id="editUserEduAdmin" class="btn-group" data-toggle="buttons">
+                                            <label id="eduOption1Admin"
+                                                   class="btn edu-true {{#if eduUser true}}active{{/if}}"
+                                                   style="width:100px">
+                                                <input type="radio" name="options" value="true">
+                                                <span class="flex-content">{{_ "admin.user.option1"}}</span>
+                                            </label>
+                                            <label id="eduOption2Admin"
+                                                   class="btn edu-false {{#if eduUser false}}active active2{{/if}}"
+                                                   style="width:100px">
+                                                <input type="radio" name="options" value="false">
+                                                <span class="flex-content">{{_ "admin.user.option2"}}</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="box-button-admin">
+                <button id="userCancelAdmin" class="btn btn-default btn-raised">{{_ "admin.user.cancel"}}</button>
+                <button id="userSaveAdmin" class="btn btn-success btn-raised">{{_ "admin.user.save"}}</button>
+                {{#if isCurrentUser _id}}
+                    {{#if isAdminUser _id}}
+                        <button id="userDeleteAdmin" class="btn btn-warning btn-raised btn-setDelete pull-right"
+                                >{{_ "admin.user.delete"}}</button>
+                        <button id="userConfirmAdmin" class="btn btn-danger btn-raised pull-right"
+                                style="display:none">{{_ "admin.user.confirm"}}</button>
+                    {{/if}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</template>

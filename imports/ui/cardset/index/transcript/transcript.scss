@@ -1,0 +1,58 @@
+.transcriptBonus {
+  h2, label, .unit {
+    color: white;
+  }
+  #transcript-calendar {
+    .ui-datepicker-inline {
+      background: transparent !important;
+      border: 0 !important;
+      margin: auto !important;
+    }
+
+    .ui-datepicker-group {
+      background: white;
+      margin-left: 15px;
+      margin-bottom: 30px;
+      font-size: 12px;
+      width: 225px;
+      height: 260px;
+    }
+    td {
+      border: 0 !important;
+      a{
+        text-align: center;
+      }
+    }
+    .ui-state-default {
+      border: 1px solid black !important;
+      background: white !important;
+      color: black !important;
+    }
+    .ui-state-highlight {
+      border: 1px solid white !important;
+      a {
+        background: black !important;
+        color: white !important;
+      }
+    }
+  }
+}
+
+.transcript-bonus-statistics-info {
+  padding: 10px 15px;
+  table {
+    table-layout: fixed;
+    th {
+      font-size: 16px;
+    }
+    td {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+}
+
+#cardsetIndexTranscriptSettingsModalSetTitle .table > tbody > tr > td {
+  vertical-align: middle !important;
+}

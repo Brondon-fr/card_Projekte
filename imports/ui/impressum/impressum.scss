@@ -1,0 +1,60 @@
+#contact {
+  margin-top: $size_navbar_height;
+  margin-bottom: $size_navbar_height * 1.75;
+  padding: 0;
+  @media(max-width: 767px) {
+    margin-top: $size_navbar_height * 1.5;
+    margin-bottom: 10px;
+  }
+}
+
+.contact-demo {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.contact-demo-guest {
+  @media(min-width: 768px) {
+    margin-top: 0 !important;
+  }
+  margin-bottom: 0 !important;
+}
+
+#contact.fullscreen {
+  margin: 0 !important;
+}
+
+#contact-nav {
+  -webkit-box-shadow: -3px 1px 6px 0 rgba(0, 0, 0, 0.12), -3px 1px 6px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: -3px 1px 6px 0 rgba(0, 0, 0, 0.12), -3px 1px 6px 0 rgba(0, 0, 0, 0.12);
+}
+
+#footer #contact-nav {
+  -webkit-box-shadow: unset !important;
+  box-shadow: unset !important;
+}
+
+.info-tab {
+  img {
+    width: unset !important;
+  }
+}
+
+.demo-padding {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+h1, h2, h3 {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+.welcome-demo {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  .demo-padding .cardNavigation {
+    margin-top: 0 !important;
+  }
+}

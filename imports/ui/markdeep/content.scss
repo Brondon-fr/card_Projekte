@@ -1,0 +1,225 @@
+.cardContent .placeholder {
+  line-height: $line_height_card_content !important;
+}
+
+.md {
+  line-height: $line_height_card_content !important;
+  @media(max-width: 767px) {
+    line-height: $line_height_card_content_mobile !important;
+    ul, ol {
+      padding-left: 20px;
+    }
+  }
+
+  table {
+    width: unset;
+    background-color: unset;
+    border: 2px solid gray;
+  }
+
+  table th {
+    background-color: #FF9F30 !important;
+    color: white !important;
+    font-weight: bold !important;
+    padding: 10px !important;
+    border: 2px solid gray !important;
+  }
+
+  table td {
+    border: 2px solid gray !important;
+    padding: 10px !important;
+  }
+
+  td:hover {
+    background-color: yellow;
+    color: black;
+  }
+
+  div.tablecaption, div.imagecaption {
+    font-style: normal !important;
+    text-align: center !important;
+  }
+
+  code {
+    font-size: 100% !important;
+    padding: $padding_inline_code !important;
+    white-space: pre-wrap;
+    word-break: keep-all;
+  }
+
+  table code, .listing code {
+    padding: 0 !important;
+  }
+
+  code > .output {
+    font-weight: normal;
+    background: #FF7;
+    margin-left: -20px;
+    padding-left: 20px;
+  }
+
+  pre {
+    font-size: 100% !important;
+    border: unset;
+    background: unset;
+  }
+
+  blockquote {
+    font-size: 100% !important;
+    border-left: 0;
+    font-weight: normal;
+    @media(max-width: 767px) {
+      font-weight: normal;
+    }
+  }
+
+  blockquote.fancyquote::before {
+    font-size: 200% !important;
+    content: "❞" !important;
+  }
+
+  blockquote .fancyquote::after {
+    font-size: 200% !important;
+    content: "❝" !important;
+  }
+
+  blockquote.fancyquote .author {
+    font-family: sans-serif;
+    color: #F5AA01;
+    font-weight: normal;
+  }
+
+  .author {
+    margin: 0 0 25px 0 !important;
+    display: block !important;
+    float: left !important;
+    text-align: left !important;
+  }
+
+  p {
+    box-sizing: unset;
+    display: block;
+    margin: 1em auto;
+    padding: 0 0;
+  }
+
+  pre.listing.backtick {
+    border: 0;
+    background-color: unset;
+    padding-left: unset;
+    padding-right: unset;
+  }
+
+  pre.listing.tilde {
+    padding: 20px 20px;
+    overflow-x: hidden;
+  }
+
+  pre.listing .linenumbers span.line:before {
+    width: unset !important;
+    margin-left: -10px !important;
+    color: #FF9F30 !important;
+  }
+
+  hr {
+    border-color: unset !important;
+    height: 2px;
+  }
+
+  .lightbox-container {
+    text-align: unset;
+  }
+
+  .inverse svg.diagram {
+    background: #333;
+    stroke: #FFF;
+    fill: #FFF
+  }
+
+  .admonition.tip::before, .admonition.warning::before, .admonition.error::before {
+    content: "" !important;
+  }
+
+  .calendar a, .calendar .parenthesized {
+    padding-left: 5px;
+  }
+
+  dd {
+    margin-left: 40px;
+  }
+
+  a {
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    color: blue !important;
+  }
+
+  .iframe-parent {
+    display: block !important;
+  }
+
+  .responsive-iframe-container {
+    text-align: center;
+    margin: auto;
+  }
+
+  h1, .nonumberh1 {
+    margin-top: 0px !important;
+    margin-bottom: -10px !important;
+    color: #555;
+    font-size: 125% !important;
+    border-bottom: none !important;
+  }
+
+  h2, .nonumberh2 {
+    margin-top: 0px !important;
+    margin-bottom: -10px !important;
+    color: #555;
+    font-size: 112% !important;
+    border-bottom: none !important;
+  }
+
+  h3, h4, h5, h6, .nonumberh3, .nonumberh4, .nonumberh5, .nonumberh6 {
+    margin-top: 0px !important;
+    margin-bottom: -10px !important;
+    color: #555;
+    font-size: 100% !important;
+    font-weight: bold !important;
+  }
+
+  q:before {
+    content: "»";
+  }
+
+  q:after {
+    content: "«";
+  }
+
+  div.title, .md .tocHeader, h1, h2, h3, h4, h5, h6, .md .shortTOC, .md .mediumTOC, .nonumberh1, .nonumberh2, .nonumberh3, .nonumberh4, .nonumberh5, .nonumberh6 {
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  }
+
+  li.checked::before {
+    content: "✔" !important;
+    color: limegreen !important;
+  }
+
+  .bib {
+    padding-left: 20px !important;
+    text-indent: -20px !important;
+  }
+
+  div {
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    hyphens: auto !important;
+  }
+
+  .plantuml-diagram {
+    .lightbox-container {
+      text-align: center;
+    }
+    img {
+      max-width: 80%;
+    }
+  }
+}

@@ -1,0 +1,222 @@
+variables:
+  MIRROR_REPO: git@github.com:thm-projects/arsnova-flashcards.git
+  NODE_ENV: production
+  BUILD_DIR: build
+  BUNDLE_DIR: "$BUILD_DIR/bundle"
+  DB_TEST_DUMP: tests/testDatabaseDump/meteor
+
+stages:
+  - test
+  - build
+  - deploy
+
+jshint:
+  stage: test
+  tags:
+    - nodejs
+  dependencies: []
+  script:
+    - echo "{}" > package.json
+    - npm install jshint@^2.9.0
+    - node_modules/jshint/bin/jshint --config .jshintrc ./client/head.js ./imports/api/ ./imports/config/ ./imports/startup/server/ ./imports/startup/client/registerhelper/ ./imports/startup/client/registerServiceWorker.js ./imports/ui/ ./imports/util/ ./i18n ./tests
+
+jscs:
+  stage: test
+  tags:
+    - nodejs
+  dependencies: []
+  script:
+    - npm install jscs
+    - node_modules/jscs/bin/jscs --config .jscsrc ./client/head.js ./imports/api/ ./imports/config/ ./imports/startup/server/ ./imports/startup/client/registerhelper/ ./imports/startup/client/registerServiceWorker.js ./imports/ui/ ./imports/util/ ./i18n ./tests
+
+sonar:
+  # Because this job runs a long time, make it parallel to the build job
+  # which runs long time as well
+  stage: build
+  # Since we only have the community edition of Sonarqube,
+  # we cannot differentiate between different branches.
+  only:
+    - staging
+  tags:
+    - gradle-node
+  allow_failure: true
+  dependencies: []
+  script:
+    #   - gradle sonarqube -Dsonar.host.url=https://scm.thm.de/sonar/ -Dsonar.branch.name=$CI_COMMIT_REF_SLUG
+    #   sonar.branch.name only available for developer version and higher
+    - gradle sonarqube -Dsonar.host.url=https://scm.thm.de/sonar/
+
+jsdoc:
+  stage: build
+  tags:
+    - nodejs
+  dependencies: []
+  script:
+    - npm install
+    - jsdoc -c documentation/conf.json -t ./node_modules/ink-docstrap/template -d build/jsdoc -r
+  artifacts:
+    paths:
+      - "$BUILD_DIR/jsdoc/"
+
+build:
+  stage: build
+  tags:
+    - meteor
+  image: local-nodejs-meteor:8_1.8
+  dependencies: []
+  script:
+    - test -d package-metadata && rm -rf /opt/meteor/package-metadata && mv package-metadata /opt/meteor/
+    - npm install
+    - meteor build --allow-superuser --server-only --directory "$BUILD_DIR"
+    - mv /opt/meteor/package-metadata "$CI_PROJECT_DIR/"
+  cache:
+    paths:
+      - package-metadata
+      - .meteor/local
+  artifacts:
+    paths:
+      - "$BUNDLE_DIR"
+
+# Do not deploy to staging while the wpw2 projects deploys to staging
+.deploy_staging_template: &deploy_staging_template
+  stage: deploy
+  tags:
+    - rsync
+  dependencies:
+    - build
+    - jsdoc
+  script:
+    - chmod -R a+rX,ug+w "build"
+    - eval $(ssh-agent -s)
+    - mkdir ~/.ssh && echo "$NEW_STAGING_SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+    - ssh-add <(echo "$NEW_STAGING_SSH_PRIVATE_KEY")
+    - rsync -rltgoDqv --delete -e "ssh" "build/bundle/"* "$NEW_STAGING_SSH_URL"
+    - rsync -rltgoDqv --delete -e "ssh" "build/jsdoc" "$NEW_STAGING_SSH_URL"
+    - ssh $NEW_STAGING_SSH 'touch /home/meteor/deploy.touch'
+  environment: staging
+
+deploy_staging:
+  << : *deploy_staging_template
+  only:
+    - staging
+
+deploy_other:
+  << : *deploy_staging_template
+  when: manual
+  except:
+    - staging
+
+deploy_production:
+  stage: deploy
+  only:
+    - master
+  tags:
+    - rsync
+  dependencies:
+    - build
+  script:
+    - chmod -R a+rX,ug+w "build"
+    - eval $(ssh-agent -s)
+    - mkdir ~/.ssh && echo "$NEW_PRODUCTION_SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+    - ssh-add <(echo "$NEW_PRODUCTION_SSH_PRIVATE_KEY")
+    - rsync -rltgoDqv --delete -e "ssh" "$BUNDLE_DIR/"* "$NEW_PRODUCTION_SSH_URL"
+    - ssh $NEW_PRODUCTION_SSH 'touch /home/meteor/deploy.touch'
+  environment: production
+
+deploy_linux:
+  stage: deploy
+  only:
+    - master
+  tags:
+    - rsync
+  dependencies:
+    - build
+  script:
+    - chmod -R a+rX,ug+w "build"
+    - eval $(ssh-agent -s)
+    - mkdir ~/.ssh
+    - ssh-keyscan "$LINUX_URL" >> ~/.ssh/known_hosts
+    - ssh-add <(echo "$LINUX_PRIVATE_KEY")
+    - rsync -rltgoDqv --delete -e "ssh" "$BUNDLE_DIR/"* "$LINUX_SSH_URL"
+    - ssh $LINUX_SSH 'touch /home/meteor/deploy.touch'
+  environment: production
+
+sync_mirror:
+  stage: deploy
+  tags:
+    - git
+  when: always
+  allow_failure: true
+  dependencies: []
+  script:
+    - eval $(ssh-agent -s)
+    - mkdir ~/.ssh && echo "$SYNC_SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+    - ssh-add <(echo "$SYNC_SSH_PRIVATE_KEY")
+    - git clone --bare "$CI_REPOSITORY_URL" mirror.git
+    - cd mirror.git
+    - git push --mirror "$MIRROR_REPO"
+  environment: GitHub
+
+# Base rules for deploying to dockerhub
+.deploy_dockerhub:  &deploy_dockerhub
+  stage: deploy
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  tags:
+    - kaniko
+  dependencies:
+    - build
+  allow_failure: true
+  script:
+    - echo "{\"auths\":{\"$DOCKER_REGISTRY_URL\":{\"auth\":\"$DOCKER_REGISTRY_TOKEN\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor
+      --context     "$CI_PROJECT_DIR"
+      --dockerfile  "$CI_PROJECT_DIR/.docker/kaniko/Dockerfile"
+      --build-arg   "BUILD_DIR=$BUILD_DIR"
+      --build-arg   "BUNDLE_DIR=$BUNDLE_DIR"
+      --build-arg   "SETTINGS_FILE=$SETTINGS_FILE"
+      --destination "$DESTINATION"
+
+# define release branches
+.release_branches:
+  only:  &release_branches
+    - master
+
+# settings for cards
+.cards_environment:
+  variables:  &cards_environment
+    SETTINGS_FILE: .docker/kaniko/settings_kaniko.json
+    DESTINATION: "$DOCKER_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
+
+# settings for linux.cards
+.linux_environment:
+  variables:  &linux_environment
+    SETTINGS_FILE: .docker/kaniko/settings_kaniko_linux.json
+    DESTINATION: "$LINUX_DOCKER_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
+
+# Auto deploy cards when commit on release branch
+deploy_dockerhub_cards_auto:
+  variables: *cards_environment
+  << : *deploy_dockerhub
+  only:  *release_branches
+
+# Auto deploy linux when commit on release branch
+deploy_dockerhub_linux_auto:
+  variables: *linux_environment
+  << : *deploy_dockerhub
+  only:  *release_branches
+
+# Manual deploy cards from any branch
+deploy_dockerhub_cards_manual:
+  variables: *cards_environment
+  << : *deploy_dockerhub
+  when: manual
+  except:  *release_branches
+
+# Manual deploy linux from any branch
+deploy_dockerhub_linux_manual:
+  variables: *linux_environment
+  << : *deploy_dockerhub
+  when: manual
+  except:  *release_branches

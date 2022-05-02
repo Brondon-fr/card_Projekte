@@ -1,0 +1,135 @@
+.navbar-cards-filter-dropdown {
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-cards-filter-dropdown * {
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-cards-filter-dropdown.active {
+  display: block !important;
+}
+
+.scrollArrow {
+  font-size: 25px;
+  text-align: center;
+}
+
+.resultCounter {
+  position: absolute;
+  float: left;
+  display: inline-block;
+  margin-top: $margin-top_infinite_scroll_text !important;
+  margin-left: 5px;
+  font-family: $default_font !important;
+  font-size: $font_size_infinite_scroll_text !important;
+  font-weight: $font_weight_infinite_scroll_text !important;
+}
+
+.no-results, .no-results-filtered {
+  display: table;
+  height: 100px;
+  text-align:center;
+}
+
+.no-navigation {
+  @media (min-width: 768px) {
+    margin-top: 56px;
+  }
+}
+
+.no-result-text {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.filter-text-xs {
+  margin-left: 20px;
+}
+
+@media (min-width: 768px) {
+  .navbar-cards-filter-dropdown {
+    border-left-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+  }
+
+  .filter-top-row {
+    width: 650px;
+    padding: 5px;
+  }
+
+  #filterCheckbox {
+    margin: 0;
+  }
+
+   .filter-bottom-row {
+     width: 100%;
+     border-top: 1px solid;
+     li:first-child {
+       a {
+         padding-left: 10px !important;
+       }
+     }
+     li:last-child {
+       a {
+         padding-right: 10px !important;
+       }
+     }
+     .dropdown.open {
+       overflow: visible !important;
+       ul {
+         overflow-y: auto !important;
+         li {
+           height: 50px !important;
+         }
+         a {
+           height: 50px !important;
+           width: 100% !important;
+         }
+       }
+     }
+   }
+}
+
+@media (max-width: 767px) {
+  .navbar-cards-filter-collapse {
+    overflow-y: auto !important;
+    .dropdown.open {
+      height: unset !important;
+    }
+    li button {
+      margin-top: 5px !important;
+      margin-left: 15px !important;
+    }
+    .resetFilters {
+      margin-top: 15px !important;
+    }
+    li > a {
+      height: 53px !important;
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+    }
+    li ul li > a {
+      height: 53px !important;
+      padding-left: 30px !important;
+      padding-right: 15px !important;
+      white-space: unset !important;
+    }
+    #filterCheckbox {
+      margin-left: 15px !important;
+    }
+  }
+}
+@media (max-width: 359px) {
+  .navbar-cards-filter-collapse {
+    #filterCheckbox label:nth-child(4) {
+      margin-top: 15px !important;
+    }
+  }
+}

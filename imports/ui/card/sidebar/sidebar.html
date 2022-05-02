@@ -1,0 +1,226 @@
+<template name="flashcardSidebar">
+    {{#unless isSidebarHidden}}
+        {{> flashcardSidebarLeft}}
+    {{/unless}}
+
+    {{#if gotAspectRatio}}
+        {{> flashcardSidebarBottomLeft}}
+    {{/if}}
+
+    {{#unless isSidebarHidden}}
+        {{> flashcardSidebarRight}}
+    {{/unless}}
+</template>
+
+<template name="flashcardSidebarBottomLeft">
+    {{#unless isTranscriptRoute}}
+        <div id="flashcardSidebarBottomLeft" class="presentation-element {{#if isFixedSidebar}}fixed{{/if}}">
+            {{> cardSidebarItemHideSidebar}}
+        </div>
+    {{/unless}}
+</template>
+
+<template name="flashcardSidebarLeft">
+    {{#if gotElements}}
+        <div id="flashcardSidebarLeft" class="presentation-element {{#if isFixedSidebar}}fixed{{/if}} {{#if isLeitnerWozniakRoute}}workload{{/if}}">
+            {{#if isCardset}}
+                {{> flashcardSidebarDefaultLeft}}
+            {{/if}}
+            {{#if isPresentation}}
+                {{> flashcardSidebarPresentationLeft}}
+            {{/if}}
+            {{#if isMakingOf}}
+                {{> flashcardSidebarDemoLeft}}
+            {{/if}}
+            {{#if isDemo}}
+                {{> flashcardSidebarDemoLeft}}
+            {{/if}}
+            {{#if isEditMode}}
+                {{> flashcardSidebarEditorLeft}}
+            {{/if}}
+            {{#if isBox}}
+                {{> flashcardSidebarLeitnerLeft}}
+            {{/if}}
+            {{#if isMemo}}
+                {{> flashcardSidebarWozniakLeft}}
+            {{/if}}
+        </div>
+    {{/if}}
+</template>
+
+<template name="flashcardSidebarRight">
+    <div id="flashcardSidebarRight" class="presentation-element {{#if isFixedSidebar}}fixed{{/if}} {{#if isLeitnerWozniakRoute}}workload{{/if}}">
+        {{#if isCardset}}
+            {{> flashcardSidebarDefaultRight}}
+        {{/if}}
+        {{#if isPresentation}}
+            {{> flashcardSidebarPresentationRight}}
+        {{/if}}
+        {{#if isMakingOf}}
+            {{> flashcardSidebarDemoRight}}
+        {{/if}}
+        {{#if isDemo}}
+            {{> flashcardSidebarDemoRight}}
+        {{/if}}
+        {{#if isEditMode}}
+            {{> flashcardSidebarEditorRight}}
+        {{/if}}
+        {{#if isBox}}
+            {{> flashcardSidebarLeitnerRight}}
+        {{/if}}
+        {{#if isMemo}}
+            {{> flashcardSidebarWozniakRight}}
+        {{/if}}
+    </div>
+</template>
+
+<template name="flashcardSidebarDictionary">
+    {{> cardSidebarItemDictionaryBeolingus}}
+</template>
+
+<template name="flashcardSidebarDefaultLeft">
+    {{#if isMobileView}}
+        <span class="sidebarNavigationButton">
+            {{> cardSidebarLeftNavigation}}
+        </span>
+        {{> cardSidebarItemEdit}}
+    {{else}}
+        {{> cardSidebarItemEdit}}
+        {{> cardSidebarRightNavigation}}
+        {{> cardSidebarLeftNavigation}}
+    {{/if}}
+    {{#if hasCardsetPermission}}
+        {{> cardSidebarItemCardList}}
+    {{/if}}
+    {{> cardSidebarItemErrorReporting}}
+    {{> flashcardSidebarDictionary}}
+    {{> cardSidebarItemDelete}}
+</template>
+
+<template name="flashcardSidebarDefaultRight">
+    {{#if isMobileView}}
+        <span class="sidebarNavigationButton">
+            {{> cardSidebarRightNavigation}}
+        </span>
+    {{/if}}
+    {{> cardSidebarItemPresentation}}
+    {{> cardSidebarItemZoomText}}
+    {{> cardSidebarToggle3D}}
+</template>
+
+<template name="flashcardSidebarPresentationLeft">
+    <span class="sidebarNavigationButton">
+        {{> cardSidebarLeftNavigation}}
+    </span>
+    {{> cardSidebarItemCardList}}
+    {{> cardSidebarItemPomodoroButton}}
+    {{> cardSidebarItemErrorReporting}}
+    {{> flashcardSidebarDictionary}}
+    {{> cardSidebarItemArsnovaClick}}
+    {{> cardSidebarItemArsnovaLite}}
+    {{> cardSidebarItemEdit}}
+    {{> cardSidebarItemDelete}}
+</template>
+
+<template name="flashcardSidebarPresentationRight">
+    {{#unless isPresentationTranscriptReviewRoute}}
+        <span class="sidebarNavigationButton">
+            {{> cardSidebarRightNavigation}}
+        </span>
+    {{/unless}}
+    {{> cardSidebarItemEndPresentation}}
+    {{#if canDisplayFullscreenButton}}
+        {{> cardSidebarItemToggleFullscreen}}
+    {{/if}}
+    {{> cardSidebarItemZoomText}}
+    {{> cardSidebarItemAspectRatio}}
+    {{> cardSidebarToggle3D}}
+    {{#unless isTranscriptRoute}}
+        {{> cardSidebarItemHelp}}
+    {{/unless}}
+</template>
+
+<template name="flashcardSidebarDemoLeft">
+    {{#if isMobileView}}
+        <span class="sidebarNavigationButton">
+            {{> cardSidebarLeftNavigation}}
+        </span>
+    {{else}}
+        {{> cardSidebarRightNavigation}}
+        {{> cardSidebarLeftNavigation}}
+    {{/if}}
+    {{> cardSidebarItemCardList}}
+    {{> cardSidebarItemPomodoroButton}}
+    {{> flashcardSidebarDictionary}}
+    {{> cardSidebarItemArsnovaClick}}
+    {{> cardSidebarItemArsnovaLite}}
+</template>
+
+<template name="flashcardSidebarDemoRight">
+    {{#if isMobileView}}
+        <span class="sidebarNavigationButton">
+            {{> cardSidebarRightNavigation}}
+        </span>
+    {{/if}}
+    {{> cardSidebarItemEndPresentation}}
+    {{> cardSidebarItemToggleFullscreen}}
+    {{> cardSidebarItemZoomText}}
+    {{> cardSidebarItemAspectRatio}}
+    {{> cardSidebarToggle3D}}
+    {{> cardSidebarItemHelp}}
+</template>
+
+<template name="flashcardSidebarEditorLeft">
+</template>
+
+<template name="flashcardSidebarEditorRight">
+    {{> cardSidebarItemToggleFullscreen}}
+    {{> cardSidebarItemZoomText}}
+    {{> cardSidebarItemAspectRatio}}
+    {{> cardSidebarToggle3D}}
+</template>
+
+<template name="flashcardSidebarLeitnerLeft">
+    {{> cardSidebarItemPomodoroButton}}
+    {{> cardSidebarItemSwapQuestionAnswer}}
+    {{> cardSidebarItemLearningCardStats}}
+    {{> cardSidebarItemLearningStatus}}
+    {{> cardSidebarItemLearningHistory}}
+    {{> cardSidebarItemErrorReporting}}
+    {{> flashcardSidebarDictionary}}
+    {{> cardSidebarItemArsnovaClick}}
+    {{> cardSidebarItemArsnovaLite}}
+    {{> cardSidebarItemEdit}}
+</template>
+
+<template name="flashcardSidebarLeitnerRight">
+    {{> cardSidebarItemBackToCardset}}
+    {{#if canDisplayFullscreenButton}}
+        {{> cardSidebarItemToggleFullscreen}}
+    {{/if}}
+    {{> cardSidebarItemZoomText}}
+    {{> cardSidebarItemAspectRatio}}
+    {{> cardSidebarToggle3D}}
+    {{> cardSidebarItemHelp}}
+</template>
+
+<template name="flashcardSidebarWozniakLeft">
+    {{> cardSidebarItemPomodoroButton}}
+    {{> cardSidebarItemSwapQuestionAnswer}}
+    {{> cardSidebarItemErrorReporting}}
+    {{> flashcardSidebarDictionary}}
+    {{> cardSidebarItemArsnovaClick}}
+    {{> cardSidebarItemArsnovaLite}}
+    {{> cardSidebarItemEdit}}
+</template>
+
+<template name="flashcardSidebarWozniakRight">
+    {{> cardSidebarItemBackToCardset}}
+    {{#if canDisplayFullscreenButton}}
+        {{> cardSidebarItemToggleFullscreen}}
+    {{/if}}
+    {{> cardSidebarItemZoomText}}
+    {{> cardSidebarItemAspectRatio}}
+    {{> cardSidebarToggle3D}}
+    {{> cardSidebarItemHelp}}
+</template>

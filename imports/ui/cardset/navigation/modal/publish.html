@@ -1,0 +1,99 @@
+<template name="cardsetPublishForm">
+    <div class="modal fade" id="publishModal" tabindex="-1" role="dialog"
+         aria-labelledby="confirmModalTitle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-icon">
+                        <span class="fas fa-eye"></span>
+                    </span>
+                    {{> mainModalItemCloseIcon}}
+                    <h4 id="confirmModalTitle" class="modal-title">{{_ "modal-dialog.publishTitle" title=getCardsetTitle}}
+                    </h4>
+                </div>
+                <div class="modal-body row">
+                    {{> publishKind}}
+                </div>
+                <div class="modal-footer">
+                    <button id="cardsetPublish"
+                            class="btn btn-raised btn-success pull-right">{{_ "modal-dialog.publish"}}</button>
+                    <button id="cardsetCancel" class="btn btn-default btn-raised pull-left"
+                            data-dismiss="modal">{{_ "modal-dialog.cancel"}}</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</template>
+
+<template name="publishKind">
+    {{#with getActiveCardset}}
+        <div class="form-group">
+            <label class="col-md-3  control-label"
+                   for="newSetDescription">{{_ "set-list.availability"}}:</label>
+            <div class="controls col-md-9">
+                <div id="publishKind" class="btn-group-justified"
+                     data-toggle="buttons">
+                    <div class="{{#if isProLoginActive}}col-xs-3{{else}}col-xs-4{{/if}} btn-bootstrap-container">
+                        <label id="kindoption0"
+                               class="kind-option btn btn-block {{#if kindIsActive 'personal'}}btn-raised label-private active{{else}}label-private-text{{/if}}" data-id="personal">
+                            <input type="radio" name="kind" value="personal" id="kind_private">
+                            <span class="flex-content">{{_ 'access-level.private.short'}}</span>
+                        </label>
+                    </div>
+                    <div class="{{#if isProLoginActive}}col-xs-3{{else}}col-xs-4{{/if}} btn-bootstrap-container">
+                        <label id="kindoption1"
+                               class="kind-option btn btn-block {{#if kindIsActive 'free'}}btn-raised label-free active{{else}}label-free-text{{/if}}" data-id="free">
+                            <input type="radio" name="kind" value="free" id="kind_free">
+                            <span class="flex-content">{{_ 'access-level.free.short'}}</span>
+                        </label>
+                    </div>
+                    {{#if isInRole 'admin,editor,lecturer'}}
+                        <div class="{{#if isProLoginActive}}col-xs-3{{else}}col-xs-4{{/if}} btn-bootstrap-container">
+                            <label id="kindoption2"
+                                   class="kind-option btn btn-block {{#if kindIsActive 'edu'}}btn-raised label-edu active{{else}}label-edu-text{{/if}}" data-id="edu">
+                                <input type="radio" name="kind" value="edu" id="kind_edu">
+                                <span class="flex-content">{{_ 'access-level.edu.short'}}</span>
+                            </label>
+                        </div>
+                    {{/if}}
+                    {{#if isProLoginActive}}
+                        {{#if isInRole 'admin,editor,lecturer,pro'}}
+                            <div class="col-xs-3 btn-bootstrap-container">
+                                <label id="kindoption3"
+                                       class="kind-option btn btn-block {{#if kindIsActive 'pro'}}btn-raised label-pro active{{else}}label-pro-text{{/if}}" data-id="pro">
+                                    <input type="radio" name="kind" value="pro" id="kind_pro">
+                                    <span class="flex-content">{{_ 'access-level.pro.short'}}</span>
+                                </label>
+                            </div>
+                        {{/if}}
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    {{/with}}
+    {{!--
+    {{#if kindWithPrice}}
+        <div class="form-group">
+            <label id="publishPriceLabel" class="col-md-3 control-label"
+                   for="publishPrice">{{_ "modal-dialog.price"}} (€)</label>
+            <div class="col-md-9">
+                <select id="publishPrice" class="form-control">
+                    <option {{priceIsSelected 0.99}}>{{getPrice "0.99" false}}</option>
+                    <option {{priceIsSelected 1.99}}>{{getPrice "1.99" false}}</option>
+                    <option {{priceIsSelected 2.99}}>{{getPrice "2.99" false}}</option>
+                    <option {{priceIsSelected 3.99}}>{{getPrice "3.99" false}}</option>
+                    <option {{priceIsSelected 4.99}}>{{getPrice "4.99" false}}</option>
+                    <option {{priceIsSelected 5.99}}>{{getPrice "5.99" false}}</option>
+                    <option {{priceIsSelected 6.99}}>{{getPrice "6.99" false}}</option>
+                    <option {{priceIsSelected 7.99}}>{{getPrice "7.99" false}}</option>
+                    <option {{priceIsSelected 8.99}}>{{getPrice "8.99" false}}</option>
+                    <option {{priceIsSelected 9.99}}>{{getPrice "9.99" false}}</option>
+                </select>
+            </div>
+        </div>
+    {{/if}}
+    --}}
+</template>

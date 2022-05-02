@@ -1,0 +1,18 @@
+<template name="cardContentItemLabel">
+    <span class="card-header-label">
+        {{{getCardTypeLabel this.cardType}}}<br>
+        {{#if gotDifficulty this.cardType}}
+            {{{getDifficultyLabel this.cardType this.difficulty}}}<br>
+        {{/if}}
+        {{#if isInBonus}}
+            {{{getBonusLabel this.cardset_id}}}<br>
+        {{/if}}
+        {{#if isBonusTranscriptsRoute}}
+            {{{getTranscriptBonusLabel this}}}<br>
+            {{> filterIndexItemBottomTranscriptRating}}<br>
+            {{> filterIndexItemBottomStarsRating}}
+            {{> filterIndexItemBottomAboutThisRating}}
+        {{/if}}
+        {{{getErrorReportingLabel this._id}}}
+    </span>
+</template>

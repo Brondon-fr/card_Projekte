@@ -1,0 +1,88 @@
+<template name="learningStatisticsRemoveBonusUserModal">
+    <div class="modal fade" id="learningStatisticsRemoveBonusUserModal" tabindex="-1" role="dialog"
+         aria-labelledby="learningStatisticsRemoveBonusUserTitle">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content modal-lg modal-content-for-buttons">
+                <div class="modal-header">
+                    <span class="modal-icon">
+                        <span class="fas fa-trash"></span>
+                    </span>
+                    {{> mainModalItemCloseIcon}}
+                    <h4 id="learningStatisticsRemoveBonusUserTitle" class="modal-title">{{_ "learningStatisticsRemoveBonusUser.title"}}
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    {{_ "learningStatisticsRemoveBonusUser.text"}}
+                    {{#with userData}}
+                        <table aria-describedby="learningStatisticsRemoveBonusUserTitle" class="table table-striped table-hover table-user-list">
+                            <tbody>
+                            <tr>
+                                {{#if gotHiddenUserNames}}
+                                    <th scope="col">{{_ "learningStatistics.hiddenUser"}}</th>
+                                {{else}}
+                                    <th scope="col">{{_ "panel-body.birthname"}}</th>
+                                    <th scope="col">{{_ "panel-body.givenname"}}</th>
+                                    <th scope="col">{{_ "panel-body.email"}}</th>
+                                {{/if}}
+                                <th scope="col">{{_ "learningStatistics.lastActivity"}}</th>
+                                <th scope="col">{{_ "learningStatistics.workingTime"}}</th>
+                                <th scope="col">{{_ "learningStatistics.arithmeticMean"}}</th>
+                                <th scope="col">{{_ "learningStatistics.box" number=1}}</th>
+                                <th scope="col">{{_ "learningStatistics.box" number=2}}</th>
+                                <th scope="col">{{_ "learningStatistics.box" number=3}}</th>
+                                <th scope="col">{{_ "learningStatistics.box" number=4}}</th>
+                                <th scope="col">{{_ "learningStatistics.box" number=5}}</th>
+                                <th scope="col">{{_ "learningStatistics.learned"}}</th>
+                                <th scope="col">{{_ "learningStatistics.bonus"}}</th>
+                            </tr>
+                            <tr>
+                                {{#if gotHiddenUserNames}}
+                                    <td>{{_ "learningStatistics.hiddenUserPlaceholder" index= index}}</td>
+                                {{else}}
+                                    <td>{{this.lastName}}</td>
+                                    <td>{{this.firstName}}</td>
+                                    <td>{{this.email}}</td>
+                                {{/if}}
+                                <td>{{this.lastActivity}}</td>
+                                <td>{{humanizeDuration this.workingTimeSum}}</td>
+                                <td>{{humanizeDuration this.cardArithmeticMean}}</td>
+                                <td>{{this.box1}}</td>
+                                <td>{{this.box2}}</td>
+                                <td>{{this.box3}}</td>
+                                <td>{{this.box4}}</td>
+                                <td>{{this.box5}}</td>
+                                <td>
+                                    {{#if earnedTrophy}}
+                                        <span class="green-learning-text">
+                                        {{this.box6}}{{{getPercentage}}}
+                                    </span>
+                                    {{else}}
+                                        <span class="red-learning-text">
+                                        {{this.box6}}{{{getPercentage}}}
+                                    </span>
+                                    {{/if}}
+                                </td>
+                                <td>
+                                    {{this.achievedBonus}}&nbsp;%{{#if earnedTrophy}}&nbsp;<span class="fas fa-trophy bonusTrophy"></span>{{/if}}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    {{/with}}
+                </div>
+                <div class="modal-footer">
+                    <button id="removeUserFromBonusConfirm"
+                            class="btn btn-raised btn-danger pull-right">{{_
+                            "learningStatisticsRemoveBonusUser.button.confirm"}}</button>
+                    <button id="removeUserFromBonusCancel"
+                            class="btn btn-raised btn-default pull-left"
+                            data-dismiss="modal">{{_
+                            "learningStatisticsRemoveBonusUser.button.cancel"}}</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</template>

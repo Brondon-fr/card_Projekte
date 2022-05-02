@@ -1,0 +1,40 @@
+<template name="cardsetImportForm">
+    <div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="importModalTitle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                     <span class="modal-icon">
+                        <span class="fas fa-archive"></span> <span class="fas fa-cloud-upload-alt"></span>
+                    </span>
+                    {{> mainModalItemCloseIcon}}
+                    <h4 id="importModalTitle" class="modal-title">{{_ "upload-form.upload-title"}}
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    {{#if importType 1}}
+                        <hr/>
+                        <h4>{{_ "upload-form.upload-type"}}</h4>
+                        <p>{{_ "upload-form.popover-content"}}</p>
+                    {{/if}}
+                </div>
+                <div class="modal-footer">
+                    {{#unless uploading}}
+                        <button class="btn btn-success btn-file btn-raised pull-right">
+                            {{_ "upload-form.select-file"}}<input type="file" accept=".json" name="uploadFile">
+                        </button>
+                        <button id="importCancel" class="btn btn-default btn-raised pull-left" data-dismiss="modal">{{_
+                                "modal-dialog.cancel"}}</button>
+                    {{else}}
+                        <p><span class="fas fa-spin fa-sync"></span>{{_ "upload-form.wait"}}</p>
+                    {{/unless}}
+                    <br>
+                    <br>
+                    <div id="uploadError"></div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</template>

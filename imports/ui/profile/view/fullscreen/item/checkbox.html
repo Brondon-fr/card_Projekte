@@ -1,0 +1,9 @@
+<template name="profileViewItemFullscreenCheckbox">
+    <div class="fa-stack fa-stack-checkbox {{#if gotChecked}}{{#if isUnsaved}}unsaved{{else}}checked{{/if}}{{/if}}">
+        <span class="fas fa-square fa-stack-2x background"></span>
+        <span class="far fa-square fa-stack-2x border"></span>
+        {{#if gotChecked}}
+            <span class="fas fa-check fa-stack-1x icon"></span>
+        {{/if}}
+    </div>
+</template>

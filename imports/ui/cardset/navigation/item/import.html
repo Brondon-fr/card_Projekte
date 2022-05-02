@@ -1,0 +1,16 @@
+<template name="cardsetNavigationImport">
+    {{#unless isIOS}}
+        {{#if isCardsetOwner _id}}
+            {{#unless isShuffledCardset _id}}
+                {{#unless gotTranscriptBonus _id}}
+                    <div class="hidden-xs btn-group">
+                        <a rel="noopener noreferrer"   href="#" id="importCardsBtn" class="btn btn-sm btn-raised importCardBtn"
+                           data-toggle="modal"
+                           data-target="#importModal"><span class="flex-content"><span
+                                class="fas fa-cloud-upload-alt"></span>&nbsp;{{_ "sidebar-nav.importcard"}}</span></a>
+                    </div>
+                {{/unless}}
+            {{/unless}}
+        {{/if}}
+    {{/unless}}
+</template>

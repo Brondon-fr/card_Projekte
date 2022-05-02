@@ -1,0 +1,25 @@
+<template name="cardsetIndexTranscriptSubmissionsItemReviewButton">
+    <div class="col-xs-12">
+        <br>
+        <br>
+        <div class=" row bs-callout bs-callout-info selectionInfo">
+            {{{getInfoText}}}
+            {{#if gotTranscriptsToReview}}
+                <br>
+                <div class="btn-group">
+                    <a rel="noopener noreferrer"   id="reviewTranscripts" class="btn btn-raised btn-success">
+                    <span class="flex-content">
+                        <span class="fas fa-tasks"></span>&nbsp;
+                        {{#if isFilterActive}}
+                                {{_ "transcriptForm.bonus.submissions.button.reviewFilter"}}
+                            {{else}}
+                                {{_ "transcriptForm.bonus.submissions.button.review"}}
+                        {{/if}}
+                    </span>
+                    </a>
+                </div>
+            {{/if}}
+        </div>
+        <br>
+    </div>
+</template>

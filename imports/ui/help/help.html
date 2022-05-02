@@ -1,0 +1,21 @@
+<template name="help">
+    <div class="panel panel-default">
+        <div class="panel-heading info-tab">
+            <h1>Falls sich die App nicht von selbst erklärt</h1>
+        </div>
+        <div class="panel-body info-tab">
+            {{#if isHelpFilterActive}}
+                <button id="resethelpFilter" class="btn btn-raised btn-danger">
+                    {{_ "help.resetFilter"}}
+                </button>
+            {{/if}}
+            {{#markdeep}}
+                {{#if isActiveLanguage 'de'}}
+                    {{> helpContentDE}}
+                {{else}}
+                    {{> helpContentEN}}
+                {{/if}}
+            {{/markdeep}}
+        </div>
+    </div>
+</template>

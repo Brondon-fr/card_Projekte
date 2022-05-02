@@ -1,0 +1,20 @@
+<template name="cardContent">
+        <span class="{{#if gotContent}}{{#if
+                isCentered}}center-align {{#if isLeftAlign}}left-text-align{{/if}}{{/if}}{{else}}placeholder{{/if}}">
+            <div class="card-content-container">
+                {{#if isAnswerSide}}
+                    {{> cardAnswers (setActiveAnswers this)}}
+                {{/if}}
+                {{#unless gotNoSideContent}}
+                    {{#if gotContent}}
+                        {{#markdeep}}{{getContent}}{{/markdeep}}
+                    {{else}}
+                        {{getPlaceholder}}
+                    {{/if}}
+                {{/unless}}
+                {{#if isQuestionSide}}
+                    {{> cardAnswers (setActiveAnswers this)}}
+                {{/if}}
+            </div>
+        </span>
+</template>

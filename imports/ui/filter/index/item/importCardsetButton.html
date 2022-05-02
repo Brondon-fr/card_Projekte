@@ -1,0 +1,25 @@
+<template name="filterItemImportCardsetButton">
+    {{#if canCreateContent}}
+        {{#unless isSmartphone}}
+            {{#unless isSelectingCardsetToLearn}}
+                {{#unless isIOS}}
+                <span class="btn-group">
+                    <label class="btn btn-raised btn-import btn-success {{disableIfOffline}}">
+                        <span class="flex-content">{{{getCardsetIcons false}}}<span class="fas fa-cloud-upload-alt"></span>&nbsp;
+                            {{#if gotSimplifiedNav}}
+                                {{_ "import.cardsetSimpleNav"}}
+                            {{else}}
+                                {{_ "import.cardsetSimpleNav"}}
+                            {{/if}}
+                        </span> <input
+                            type="{{#if isProfileComplete}}file{{else}}button{{/if}}"
+                            accept=".json" id="{{#if
+                            isProfileComplete}}importCardset{{else}}importCardsetCompleteProfile{{/if}}"
+                            style="display: none;">
+                    </label>
+                </span>
+                {{/unless}}
+            {{/unless}}
+        {{/unless}}
+    {{/if}}
+</template>

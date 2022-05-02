@@ -1,0 +1,28 @@
+<template name="mainNavigationTopPresentationIndexItemBack">
+    {{#if isFilterIndexSelectMode}}
+        <button class="btn btn-raised btn-danger"
+                id="backToIndex">
+            <span class="pull-left"><span class="fas fa-arrow-left"></span> </span>
+            &nbsp;{{{getIndexDescription}}}
+        </button>
+    {{else}}
+        {{#if isCardsetIndexSelectMode}}
+            <button class="btn btn-raised btn-danger"
+                    id="backToCardset">
+                <span class="pull-left"><span class="fas fa-arrow-left"></span> </span>
+                {{#if this.shuffled}}
+                    {{_ "cardsetIndex.button.back.repetitorium"}}
+                {{else}}
+                    {{_ "cardsetIndex.button.back.cardset"}}
+                {{/if}}
+            </button>
+        {{else}}
+            <button class="btn btn-raised btn-danger"
+                    id="{{#if
+                            fullscreenActive}}backToPresentationFullscreen{{else}}backToPresentation{{/if}}">
+    <span class="pull-left"><span class="fas fa-arrow-left"></span> {{#if isActiveRoute regex='demolist'}}{{_
+            "presentation.list.backDemo"}}{{else}}{{_ "presentation.list.back"}}{{/if}}</span>
+            </button>
+        {{/if}}
+    {{/if}}
+</template>

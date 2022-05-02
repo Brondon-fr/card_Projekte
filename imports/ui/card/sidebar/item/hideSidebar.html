@@ -1,0 +1,7 @@
+<template name="cardSidebarItemHideSidebar">
+    {{#if isSidebarHidden}}
+        <span class="card-button toggleSidebar active fas fa-angle-double-right" title="{{_ "card.tooltip.showSidebar"}}"></span>
+    {{else}}
+        <span class="card-button toggleSidebar fas fa-angle-double-left" title="{{_ "card.tooltip.hideSidebar"}}"></span>
+    {{/if}}
+</template>

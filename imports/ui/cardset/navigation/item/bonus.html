@@ -1,0 +1,40 @@
+<template name="cardsetNavigationBonus">
+    {{#if enableIfPublished}}
+        {{#if gotLearningModes}}
+            {{#if isCardsetOwnerAndLecturer _id}}
+                <div class="hidden-xs btn-group dropup">
+                    <button class="btn btn-sm btn-raised bonusBtn" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        <div class="flex-content">
+                            <span class="fas fa-graduation-cap"></span>&nbsp;{{_ "sidebar-nav.bonus"}}&nbsp;<span class="fas fa-caret-up"></span>
+                        </div>
+                    </button>
+                    <ul class="dropdown-menu">
+                        {{#if gotArchivedOrActiveBonus bonusStatus}}
+                            <li id="showStats" class="showStatsList">
+                                <span class="fas fa-clipboard-list"></span> {{_ "cardset.tooltip.displayBonusStats"}}
+                            </li>
+                        {{/if}}
+                        {{#if gotActiveBonus bonusStatus}}
+                            <li id="manageBonus"
+                                class="manageLearn manageLearningList learnBoxActive">
+                                <span class="fas fa-cog"></span> {{_ "bonus.form.edit.title"}}
+                            </li>
+                            <li id="stopBonus"
+                                class="stopLearn stopLearningList learnBoxActive"
+                                data-toggle="modal"
+                                data-target="#confirmEndLearnModal">
+                                <span class="fas fa-exclamation-triangle"></span> {{_ "sidebar-nav.stopLearning"}}
+                            </li>
+                        {{else}}
+                            <li id="startBonus"
+                                class="startLearn startLearningList">
+                                {{_ "bonus.form.new.title"}}
+                            </li>
+                        {{/if}}
+                    </ul>
+                </div>
+            {{/if}}
+        {{/if}}
+    {{/if}}
+</template>

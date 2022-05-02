@@ -1,0 +1,13 @@
+<template name="cardSidebarItemCopy">
+    {{#if canCopyCard this.cardset_id}}
+        {{#if isCardNavigationVisible}}
+            <span class="copyCard fas fa-copy card-button cardHeaderItem"
+                  data-id="{{_id}}"
+                  data-type="cardNavigation"></span>
+        {{else}}
+            <span class="copyCard fas fa-copy card-button cardHeaderItem"
+                  data-id="{{_id}}"
+                  data-type="cardNavigation" disabled></span>
+        {{/if}}
+    {{/if}}
+</template>

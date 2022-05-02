@@ -1,0 +1,15 @@
+<template name="cardsetNavigationEditCardset">
+    {{#if isCardsetOwner _id}}
+        <div class="hidden-xs btn-group">
+            <button id="editCardset" class="btn btn-sm btn-raised editCardsetBtn" {{disableIfOffline}}>
+                <span class="flex-content"><span class="fas fa-cog"></span>&nbsp;
+                    {{#if isRepetitorienFilterIndexOrShuffle}}
+                        {{_ "modal-dialog.editRepetitorium"}}
+                    {{else}}
+                        {{_ "modal-dialog.editcardset"}}
+                    {{/if}}
+                </span>
+            </button>
+        </div>
+    {{/if}}
+</template>

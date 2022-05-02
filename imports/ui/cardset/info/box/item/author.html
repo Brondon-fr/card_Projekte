@@ -1,0 +1,18 @@
+<template name="cardsetInfoBoxItemAuthor">
+    <tr>
+        <td>
+            {{#if this.shuffled}}
+                {{_ "cardset.info.publisher"}}
+            {{else}}
+                {{_ "cardset.info.author"}}
+            {{/if}}:
+        </td>
+        {{#if canSeeAuthorLink}}
+            <td>
+                <a rel="noopener noreferrer"   href="{{pathFor 'admin_user' _id=this.owner}}" target="_blank">{{getAuthorName this.owner false}}</a>
+            </td>
+        {{else}}
+            <td>{{getAuthorName this.owner false}}</td>
+        {{/if}}
+    </tr>
+</template>

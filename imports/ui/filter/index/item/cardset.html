@@ -1,0 +1,89 @@
+<template name="filterIndexItemCardset">
+    <div class="resultItem col-xs-12">
+        {{#unless this.index}}
+            {{#if isWorkloadRoute}}
+                {{> filterIndexItemTitleRowWorkload (setGridSize "col-sm-2 col-md-1")}}
+                {{> filterIndexItemTitleRowTopic (setGridSize "col-sm-3")}}
+                {{> filterIndexItemTitleRowAuthor (setGridSize "col-sm-3 col-md-2")}}
+                {{> filterIndexItemTitleRowDate (setGridSize "col-sm-4 col-md-3")}}
+                {{> filterIndexItemTitleRowLastEditor (setGridSize "hidden-sm col-md-3")}}
+            {{else}}
+                {{#if isPersonalRoute}}
+                    {{> filterIndexItemTitleRowTopic (setGridSize "col-sm-8 col-md-6")}}
+                    {{> filterIndexItemTitleRowDate (setGridSize "col-sm-4")}}
+                    {{> filterIndexItemTitleRowLastEditor (setGridSize "hidden-sm col-md-2")}}
+                {{else}}
+                    {{> filterIndexItemTitleRowTopic (setGridSize "col-sm-4 col-md-3")}}
+                    {{> filterIndexItemTitleRowAuthor (setGridSize "col-sm-4 col-md-3")}}
+                    {{> filterIndexItemTitleRowDate (setGridSize "col-sm-4 col-md-3")}}
+                    {{> filterIndexItemTitleRowLastEditor (setGridSize "hidden-sm col-md-3")}}
+                {{/if}}
+            {{/if}}
+        {{/unless}}
+        <div class="resultItemHeaderWrapper col-xs-12">
+            <div class="resultItemHeaderTopArea row">
+                {{#if isWorkloadRoute}}
+                    {{> filterIndexItemTopWorkload (setGridSize "col-xs-5 col-sm-2 col-md-1")}}
+                    {{> filterIndexItemTopTopic (setGridSize "col-xs-7 col-sm-3")}}
+                    {{> filterIndexItemTopAuthor (setGridSize "hidden-xs col-sm-3 col-md-2")}}
+                    {{> filterIndexItemTopDate (setGridSize "hidden-xs col-sm-4 col-md-3")}}
+                    {{> filterIndexItemTopLastEditor (setGridSize "hidden-xs hidden-sm col-md-3")}}
+                {{else}}
+                    {{#if isPersonalRoute}}
+                        {{> filterIndexItemTopTopic (setGridSize "col-xs-12 col-sm-8 col-md-6")}}
+                        {{> filterIndexItemTopDate (setGridSize "hidden-xs col-sm-4")}}
+                        {{> filterIndexItemTopLastEditor (setGridSize "hidden-xs hidden-sm col-md-2")}}
+                    {{else}}
+                        {{> filterIndexItemTopTopic (setGridSize "col-xs-6 col-sm-4 col-md-3")}}
+                        {{> filterIndexItemTopAuthor (setGridSize "col-xs-6 col-sm-4 col-md-3")}}
+                        {{> filterIndexItemTopDate (setGridSize "hidden-xs col-sm-4 col-md-3")}}
+                        {{> filterIndexItemTopLastEditor (setGridSize "hidden-xs hidden-sm col-md-3")}}
+                    {{/if}}
+                {{/if}}
+            </div>
+            <div class="resultItemHeaderBottomArea row">
+                {{> filterIndexItemBottomLabels (setGridSize "col-xs-12 col-sm-8 col-md-8")}}
+                {{> filterIndexItemBottomNavigation (setGridSize "col-xs-12 col-sm-4 col-md-4")}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="transcriptFormSubmissionBadge">
+    <span class="badge resultBadge cardsetBadge cardset-list-badge-transcript" data-id="{{this._id}}" title="{{_ "transcriptForm.info.submissions"}}">
+        {{getTranscriptSubmissions this}}
+    </span>
+</template>
+
+<template name="noFilterResults">
+    <div class="col-xs-12 no-results-filtered">
+        <div class="no-result-text">
+            {{_ "filter-pool.noResults"}}
+        </div>
+    </div>
+</template>
+
+<template name="noResults">
+    <div class="col-xs-12 no-results">
+        <div class="no-result-text">
+            {{#if isActiveRoute 'create'}}
+                {{_ "set-list-empty.emptytextlist"}}
+            {{/if}}
+            {{#if isActiveRoute 'learn'}}
+                {{_ "set-list-learn-empty.emptytextlist"}}
+            {{/if}}
+            {{#if isActiveRoute regex='alldecks|pool'}}
+                {{_ "set-list-empty.emptypooltextlist"}}
+            {{/if}}
+            {{#if isActiveRoute regex='repetitorium|personalRepetitorien|allRepetitorien'}}
+                {{_ "courseIteration.list.empty"}}
+            {{/if}}
+            {{#if isActiveRoute regex='transcriptsPersonal|transcriptsBonus'}}
+                {{_ "set-list-empty.emptytexttranscripts"}}
+            {{/if}}
+            {{#if isActiveRoute regex='transcriptBonus'}}
+                {{_ "set-list-empty.emptytexttranscriptBonus"}}
+            {{/if}}
+        </div>
+    </div>
+</template>

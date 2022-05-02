@@ -1,0 +1,26 @@
+<template name="cardModalBeolingusTranslation">
+    {{#unless isSmartphone}}
+        <div class="modal fade" id="cardModalBeolingusTranslation" role="dialog">
+            <div class="modal-dialog" aria-labelledby="cardModalBeolingusTranslationTitle">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        {{> mainModalItemCloseIcon}}
+                    </div>
+                    <div class="modal-body">
+                        {{#if isModalVisible}}
+                            {{> cardModalBeolingusContent}}
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/unless}}
+</template>
+
+<template name="cardModalBeolingusContent">
+    <iframe title="Beolingus" class="dictionaryFrame"
+            src="https://dict.tu-chemnitz.de/?mini=1?service=deen{{getDictionaryQuery}}"
+            frameborder="0"
+            data-type="cardNavigation">
+    </iframe>
+</template>

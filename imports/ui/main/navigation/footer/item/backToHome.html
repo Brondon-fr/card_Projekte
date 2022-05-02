@@ -1,0 +1,9 @@
+<template name="mainNavigationFooterItemBackToHome">
+    {{#unless canAccessFrontend}}
+        <li class="{{#if isLandingPage}}active{{/if}}">
+            <a rel="noopener noreferrer"   id="backToStartButton" href="#">
+                {{{getNavigationName "backToHome"}}}
+            </a>
+        </li>
+    {{/unless}}
+</template>
